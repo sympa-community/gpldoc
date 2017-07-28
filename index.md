@@ -1,5 +1,7 @@
-Sympa Documentation
-===================
+Sympa documentation licensed under GPL
+======================================
 
-- [Installing Sympa](installing.md)
+  * [Manual pages](man/sympa_toc.1.md)
+
+  * [Reference manual for earlier versions](manual-old)
 

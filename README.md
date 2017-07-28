@@ -1,6 +1,6 @@
-Sympa Documentation
-===================
+Sympa documentation licensed under GPL
+======================================
 
-This site holds the draft of new documentation site for Sympa.
-
+This site holds documentation on Sympa licensed under
+GNU General Public License.
 
