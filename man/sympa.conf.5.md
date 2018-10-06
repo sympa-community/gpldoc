@@ -167,7 +167,7 @@ Type of the database
 
     None.
 
-Possible types are "MySQL", "PostgreSQL", "Oracle", "Sybase" and "SQLite".
+Possible types are "MySQL", "PostgreSQL", "Oracle" and "SQLite".
 
 #### `db_host`
 
@@ -2713,16 +2713,6 @@ Example:
 
     html_editor_init tinymce.init({selector:"#body",language:lang.split(/[^a-zA-Z]+/).join("_")});
 
-#### `htmlarea_url`
-
-- Default:
-
-    None.
-
-- Overrides:
-
-    None.
-
 #### `max_wrong_password`
 
 Count limit of wrong password submission
@@ -3003,7 +2993,7 @@ Directory containing user certificates
 
 ## Data sources setup
 
-Including subscribers, owners and moderators from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
+Including subscribers, owners and moderators from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
 
 #### `default_sql_fetch_timeout`
 
@@ -3588,6 +3578,16 @@ Enable FastCGI
     None.
 
 Is FastCGI module for HTTP server installed? This module provides a much faster web interface.
+
+#### `htmlarea_url`
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    None.
 
 # FILES
 
