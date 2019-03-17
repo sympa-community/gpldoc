@@ -3449,43 +3449,45 @@ SRV ID for Authentication-Results used in ARC seal
 
 - Default:
 
-    arc_signer_domain
+    None.
 
 - Overrides:
 
     Virtual domain
+
+Typically the domain of the mail server
 
 #### `arc_signer_domain`
 
-The "d=" tag in ARC seals
+The "d=" tag as defined in ARC
 
 - Default:
 
-    dkim_signer_domain
+    None.
 
 - Overrides:
 
     Virtual domain
 
-    List (`dkim_parameters.arc_signer_domain`)
+    List (`arc_parameters.arc_signer_domain`)
 
-The ARC "d=" tag is the domain of the sealing entity. The corresponding DKIM parameter is used as its default value
+The ARC "d=" tag is the domain of the signing entity. The DKIM d= domain name is used as its default value
 
 #### `arc_selector`
 
-Selector for DNS lookup of DKIM public key for ARC seals
+Selector for DNS lookup of ARC public key
 
 - Default:
 
-    dkim_selector.
+    None.
 
 - Overrides:
 
     Virtual domain
 
-    List (`dkim_parameters.arc_selector`)
+    List (`arc_parameters.arc_selector`)
 
-The selector is used in order to build the DNS query for public key. It is up to you to choose the value you want but verify that you can query the public DKIM key for "&lt;selector>.\_domainkey.your\_domain".  The default is the same selector used for DKIM signatures.
+The selector is used in order to build the DNS query for public key. It is up to you to choose the value you want but verify that you can query the public DKIM key for "&lt;selector>.\_domainkey.your\_domain". Default is the same selector as for DKIM signatures
 
 #### `arc_private_key_path`
 
@@ -3493,15 +3495,15 @@ File path for ARC private key
 
 - Default:
 
-    dkim_private_key_path
+    None.
 
 - Overrides:
 
     Virtual domain
 
-    List (`dkim_parameters.arc_private_key_path`)
+    List (`arc_parameters.arc_private_key_path`)
 
-The file must contain a PEM encoded private key.  The default is the same key used for DKIM signatures.
+The file must contain a PEM encoded private key. Defaults to same file as DKIM private key
 
 ## DMARC protection
 

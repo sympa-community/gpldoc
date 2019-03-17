@@ -149,6 +149,25 @@ See [Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filte
         A string representing date/time:
         "YYYY/MM", "YYYY/MM/DD", "YYYY/MM/DD/HH/MM" or "YYYY/MM/DD/HH/MM/SS".
 
+- mailbox ( email, \[ comment \] )
+
+    Generates mailbox string appropriately encoded to suit for addresses
+    in header fields.
+
+    - Filtered text
+
+        Display name, if any.
+
+    - email
+
+        E-mail address.
+
+    - comment
+
+        Comment, if any.
+
+    This filter was introduced on Sympa 6.2.42.
+
 - mailto ( email, \[ {key => val, ...}, \[ nodecode \] \] )
 
     Generates HTML fragment linking to `mailto:` URL,
