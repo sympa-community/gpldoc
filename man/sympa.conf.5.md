@@ -3169,6 +3169,10 @@ In addition to it:
 
 cookie: users must submit a small form in order to receive a cookie before browsing the web archive.
 
+gecos: 
+
+only gecos is displayed.
+
 #### `reporting_spam_script_path`
 
 Script to report spam

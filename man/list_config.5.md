@@ -1006,6 +1006,7 @@ email address protection method
     - `cookie` - use HTTP cookie
     - `javascript` - use JavaScript
     - `at` - replace @ characters
+    - `gecos` - only show gecos
     - `none` - do nothing
 - Default:
 
