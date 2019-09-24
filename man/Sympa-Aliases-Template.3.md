@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Aliases::Template(3)'
+release: '6.2.46'
 ---
 
 # NAME

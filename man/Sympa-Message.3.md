@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -52,14 +53,14 @@ easier.
     _Copy constructor_.
     Gets deep copy of instance.
 
-- to\_string ( \[ original => 0|1 \] )
+- to\_string ( \[ original => 0&#124;1 \] )
 
     _Serializer_.
     Returns serialized data of Message object.
 
     Parameter:
 
-    - original => 0|1
+    - original => 0&#124;1
 
         If set to 1 and content has been decrypted, returns original content.
         Default is 0.
@@ -157,7 +158,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 
     Parameter:
 
-    - original => 0|1
+    - original => 0&#124;1
 
         If set to 1 and content has been decrypted, returns original content.
         Default is 0.
@@ -629,7 +630,7 @@ These are accessible as hash elements of objects.
 
         Adding S/MIME signature.
 
-    - tracking => `dsn`|`mdn`|`r`|`w`|`verp`
+    - tracking => `dsn`&#124;`mdn`&#124;`r`&#124;`w`&#124;`verp`
 
         Requesting tracking feature including VERP.
 

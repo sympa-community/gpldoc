@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::AuthorizeMessage(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -53,7 +54,7 @@ See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-method
 [Sympa::Spindle::DoMessage](./Sympa-Spindle-DoMessage.3.md), [Sympa::Spindle::ProcessHeld](./Sympa-Spindle-ProcessHeld.3.md),
 [Sympa::Spindle::ToEditor](./Sympa-Spindle-ToEditor.3.md), [Sympa::Spindle::ToHeld](./Sympa-Spindle-ToHeld.3.md),
 [Sympa::Spindle::ToModeration](./Sympa-Spindle-ToModeration.3.md),
-[Sympa::Topic](./Sympa-Topic.3.md).
+[Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md).
 
 # HISTORY
 

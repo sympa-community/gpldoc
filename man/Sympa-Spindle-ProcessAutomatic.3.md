@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessAutomatic(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -40,7 +41,7 @@ See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-method
 
 - new ( \[ keepcopy => $directory \],
 \[ log\_level => $level \],
-\[ log\_smtp => 0|1 \] )
+\[ log\_smtp => 0&#124;1 \] )
 - spin ( )
 
     new() may take following options:
@@ -53,7 +54,7 @@ See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-method
 
         Overwrites log\_level parameter in configuration.
 
-    - log\_smtp => 0|1
+    - log\_smtp => 0&#124;1
 
         Overwrites log\_smtp parameter in configuration.
 

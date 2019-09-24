@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessOutgoing(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -43,7 +44,7 @@ Then spin() method stores transformed message into mailer
 
 See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-methods).
 
-- new ( \[ log\_level => $level \], \[ log\_smtp => 0|1 \] )
+- new ( \[ log\_level => $level \], \[ log\_smtp => 0&#124;1 \] )
 - spin ( )
 
     new() may take following options:
@@ -52,7 +53,7 @@ See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-method
 
         Overwrites log\_level parameter in configuration.
 
-    - log\_smtp => 0|1
+    - log\_smtp => 0&#124;1
 
         Overwrites log\_smtp parameter in configuration.
 
@@ -62,11 +63,12 @@ See also ["Properties" in Sympa::Spindle](./Sympa-Spindle.3.md#properties).
 
 - {distaff}
 
-    Instance of [Sympa::Bulk](./Sympa-Bulk.3.md) class.
+    Instance of [Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md) class.
 
 # SEE ALSO
 
-[Sympa::Bulk](./Sympa-Bulk.3.md), [Sympa::Mailer](./Sympa-Mailer.3.md), [Sympa::Message](./Sympa-Message.3.md), [Sympa::Spindle](./Sympa-Spindle.3.md).
+[Sympa::Mailer](./Sympa-Mailer.3.md), [Sympa::Message](./Sympa-Message.3.md), [Sympa::Spindle](./Sympa-Spindle.3.md),
+[Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md).
 
 # HISTORY
 

@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::last(3)'
+release: '6.2.46'
 ---
 
 # NAME

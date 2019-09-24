@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Internals(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -18,10 +19,6 @@ To know details of each module, run:
 - [Sympa](./Sympa.3.md)
 
     Future base class of Sympa functional objects
-
-- [Sympa::Alarm](./Sympa-Alarm.3.md)
-
-    Spool on memory for listmaster notification
 
 - [Sympa::Aliases](./Sympa-Aliases.3.md)
 
@@ -42,10 +39,6 @@ To know details of each module, run:
 - [Sympa::Archive](./Sympa-Archive.3.md)
 
     Archives of Sympa
-
-- [Sympa::Bulk](./Sympa-Bulk.3.md)
-
-    Spool for bulk sending
 
 - [Sympa::CommandDef](./Sympa-CommandDef.3.md)
 
@@ -119,9 +112,37 @@ To know details of each module, run:
 
     Managing schema of Sympa core database
 
-- [Sympa::Datasource](./Sympa-Datasource.3.md)
+- [Sympa::DataSource](./Sympa-DataSource.3.md)
 
-    TBD
+    Base class of Sympa data source subclasses
+
+- [Sympa::DataSource::File](./Sympa-DataSource-File.3.md)
+
+    Data source based on local file
+
+- [Sympa::DataSource::LDAP](./Sympa-DataSource-LDAP.3.md)
+
+    Data source based on LDAP search operation
+
+- [Sympa::DataSource::LDAP2](./Sympa-DataSource-LDAP2.3.md)
+
+    Data source based on LDAP with two-level search operations
+
+- [Sympa::DataSource::List](./Sympa-DataSource-List.3.md)
+
+    Data source based on a list at local machine
+
+- [Sympa::DataSource::RemoteDump](./Sympa-DataSource-RemoteDump.3.md)
+
+    Data source based on a user dump at remote host
+
+- [Sympa::DataSource::RemoteFile](./Sympa-DataSource-RemoteFile.3.md)
+
+    Data source based on a file at remote host
+
+- [Sympa::DataSource::SQL](./Sympa-DataSource-SQL.3.md)
+
+    Data source based on SQL query
 
 - [Sympa::Family](./Sympa-Family.3.md)
 
@@ -311,10 +332,6 @@ To know details of each module, run:
 
     Workflow of resending messages in archive
 
-- [Sympa::Spindle::ToAlarm](./Sympa-Spindle-ToAlarm.3.md)
-
-    Process to store messages into spool on memory for listmaster notification
-
 - [Sympa::Spindle::ToArchive](./Sympa-Spindle-ToArchive.3.md)
 
     Process to store messages into archiving spool
@@ -342,6 +359,10 @@ To know details of each module, run:
 - [Sympa::Spindle::ToList](./Sympa-Spindle-ToList.3.md)
 
     Process to distribute messages to list members
+
+- [Sympa::Spindle::ToListmaster](./Sympa-Spindle-ToListmaster.3.md)
+
+    Process to store messages into spool on memory for listmaster notification
 
 - [Sympa::Spindle::ToMailer](./Sympa-Spindle-ToMailer.3.md)
 
@@ -403,13 +424,25 @@ To know details of each module, run:
 
     Spool for incoming messages
 
+- [Sympa::Spool::Listmaster](./Sympa-Spool-Listmaster.3.md)
+
+    Spool on memory for listmaster notification
+
 - [Sympa::Spool::Moderation](./Sympa-Spool-Moderation.3.md)
 
     Spool for held messages waiting for moderation
 
+- [Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md)
+
+    Spool for outgoing messages
+
 - [Sympa::Spool::Task](./Sympa-Spool-Task.3.md)
 
     Spool for tasks
+
+- [Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md)
+
+    Message topic
 
 - [Sympa::Task](./Sympa-Task.3.md)
 
@@ -454,10 +487,6 @@ To know details of each module, run:
 - [Sympa::Tools::Time](./Sympa-Tools-Time.3.md)
 
     Time-related functions
-
-- [Sympa::Topic](./Sympa-Topic.3.md)
-
-    Message topic
 
 - [Sympa::Tracking](./Sympa-Tracking.3.md)
 

@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessMessage(3)'
+release: '6.2.46'
 ---
 
 # NAME

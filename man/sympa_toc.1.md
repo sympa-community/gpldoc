@@ -1,5 +1,6 @@
 ---
 title: 'sympa_toc(1)'
+release: '6.2.46'
 ---
 
 # NAME

@@ -1,5 +1,6 @@
 ---
 title: 'sympa.conf(5)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -3077,7 +3078,7 @@ Restrict access to one time ticket
 
     Virtual domain
 
-Is access to the one time ticket restricted, if any users previously accessed? (one\_time | remote\_addr | open)
+Is access to the one time ticket restricted, if any users previously accessed? (one\_time &#124; remote\_addr &#124; open)
 
 #### `purge_one_time_ticket_table_task`
 
@@ -3857,7 +3858,7 @@ Is FastCGI module for HTTP server installed? This module provides a much faster 
 
 #### `show_report_abuse`
 
-Add a "Report abuse" link in the side menu of the lists (0|1)
+Add a "Report abuse" link in the side menu of the lists (0&#124;1)
 
 - Default:
 

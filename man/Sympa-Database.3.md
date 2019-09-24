@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Database(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -59,7 +60,7 @@ TBD.
 
 # SEE ALSO
 
-[Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md), [Sympa::Datasource](./Sympa-Datasource.3.md).
+[Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md).
 
 # HISTORY
 

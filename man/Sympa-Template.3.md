@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Template(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -52,12 +53,12 @@ Sympa::Template - Template parser
 
         A file descriptor or a reference to scalar for the output.
 
-    - has\_header => 0|1
+    - has\_header => 0&#124;1
 
         If 1 is set, prepended header fields are assumed,
         i.e. one newline will be inserted at beginning of output.
 
-    - is\_not\_template => 0|1
+    - is\_not\_template => 0&#124;1
 
         This option was obsoleted.
 

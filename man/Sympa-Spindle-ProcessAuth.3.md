@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessAuth(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -30,14 +31,14 @@ Failed request will be kept in spool and wait for confirmation again.
 
 See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-methods).
 
-- new ( confirmed\_by => $email | canceled\_by => $email,
+- new ( confirmed\_by => $email &#124; canceled\_by => $email,
 context => $context, keyauth => $key,
 \[ quiet => 1 \], scenario\_context => {context...} )
 - spin ( )
 
     new() must take following options:
 
-    - confirmed\_by => $email | canceled\_by => $email
+    - confirmed\_by => $email &#124; canceled\_by => $email
 
         E-mail address of the user who confirmed or canceled the request.
         Confirming address is given by AUTH command and

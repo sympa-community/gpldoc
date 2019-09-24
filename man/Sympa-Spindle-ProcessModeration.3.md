@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessModeration(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -29,14 +30,14 @@ Failed message will be kept in spool and wait for moderation again.
 
 See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-methods).
 
-- new ( distributed\_by => $email | rejected\_by => $email,
+- new ( distributed\_by => $email &#124; rejected\_by => $email,
 context => $context, authkey => $key,
 \[ quiet => 1 \] )
 - spin ( )
 
     new() must take following options:
 
-    - distributed\_by => $email | rejected\_by => $email
+    - distributed\_by => $email &#124; rejected\_by => $email
 
         E-mail address of the user who distributed or rejected the message.
         It is given by DISTRIBUTE or REJECT command.

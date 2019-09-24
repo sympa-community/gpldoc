@@ -1,5 +1,6 @@
 ---
 title: 'wwsympa(8)'
+release: '6.2.46'
 ---
 
 # NAME 

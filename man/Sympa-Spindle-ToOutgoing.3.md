@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ToOutgoing(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -19,7 +20,7 @@ updates statistics information of the list (with regular delivery,
 
 [Sympa::Message](./Sympa-Message.3.md),
 [Sympa::Spindle](./Sympa-Spindle.3.md),
-[Sympa::Bulk](./Sympa-Bulk.3.md).
+[Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md).
 
 # HISTORY
 

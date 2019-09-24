@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ToList(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -13,7 +14,7 @@ through the list.
 Transformation processes by this class are done in the following order:
 
 - Classifies recipients for whom message is delivered by each reception mode,
-filters recipients by topics (see also [Sympa::Topic](./Sympa-Topic.3.md)), and choose
+filters recipients by topics (see also [Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md)), and choose
 message tracking modes if necessary.
 - Transforms message by each reception mode.
 - Enables DMARC protection (according to
@@ -25,7 +26,7 @@ list configuration parameter) and/or
 re-encryption by S/MIME (if original message was encrypted).
 - Alters envelope sender of the message to _list_`-owner` address.
 
-Then stores message into outgoing spool (see [Sympa::Bulk](./Sympa-Bulk.3.md))
+Then stores message into outgoing spool (see [Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md))
 with classified packets of recipients.
 
 This cass updates statistics information of the list (with digest delivery,
@@ -35,10 +36,10 @@ This cass updates statistics information of the list (with digest delivery,
 
 [Sympa::Internals::Workflow](./Sympa-Internals-Workflow.3.md).
 
-[Sympa::Bulk](./Sympa-Bulk.3.md),
 [Sympa::Message](./Sympa-Message.3.md),
 [Sympa::Spindle](./Sympa-Spindle.3.md), [Sympa::Spindle::DistributeMessage](./Sympa-Spindle-DistributeMessage.3.md),
-[Sympa::Topic](./Sympa-Topic.3.md), [Sympa::Tracking](./Sympa-Tracking.3.md).
+[Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md),
+[Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md), [Sympa::Tracking](./Sympa-Tracking.3.md).
 
 # HISTORY
 

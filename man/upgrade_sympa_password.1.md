@@ -1,5 +1,6 @@
 ---
 title: 'upgrade_sympa_password(1)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -13,15 +14,15 @@ Upgrading password in database
 
 # OPTIONS
 
-- --dry\_run|-n
+- --dry\_run&#124;-n
 
     Shows what will be done but won't really perform the upgrade process.
 
-- --debug|-d
+- --debug&#124;-d
 
     Print additional debugging information during the upgrade process.
 
-- --verbose|-v
+- --verbose&#124;-v
 
     Print verbose logging messages during the upgrade process.
 

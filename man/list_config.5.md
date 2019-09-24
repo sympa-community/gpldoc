@@ -1,5 +1,6 @@
 ---
 title: 'list_config(5)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -1488,6 +1489,70 @@ remote password
 
     None.
 
+#### `include_remote_file.timeout`
+
+idle timeout
+
+- Format:
+
+    Number of seconds.
+
+- Default:
+
+    `180`
+
+#### `include_remote_file.ssl_version`
+
+SSL version
+
+- Format:
+    - `ssl_any` - any versions
+    - `sslv2` - SSL version 2
+    - `sslv3` - SSL version 3
+    - `tlsv1` - TLS version 1
+    - `tlsv1_1` - TLS version 1.1
+    - `tlsv1_2` - TLS version 1.2
+    - `tlsv1_3` - TLS version 1.3
+- Default:
+
+    `ssl_any`
+
+#### `include_remote_file.ssl_ciphers`
+
+SSL ciphers used
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    `ALL`
+
+#### `include_remote_file.ca_verify`
+
+Certificate verification
+
+- Format:
+    - `none` - do nothing
+    - `optional` - optional
+    - `required` - required
+- Default:
+
+    `none`
+
+#### `include_remote_file.nosync_time_ranges`
+
+Time ranges when inclusion is not allowed
+
+- Format:
+
+    /`$time_ranges`/
+
+- Default:
+
+    None.
+
 ### `include_sympa_list`
 
 List inclusion
@@ -1532,6 +1597,18 @@ filter definition
 
     None.
 
+#### `include_sympa_list.nosync_time_ranges`
+
+Time ranges when inclusion is not allowed
+
+- Format:
+
+    /`$time_ranges`/
+
+- Default:
+
+    None.
+
 ### `include_remote_sympa_list`
 
 remote list inclusion
@@ -1554,6 +1631,42 @@ short name for this source
 
     None.
 
+#### `include_remote_sympa_list.url`
+
+data location URL
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    None.
+
+#### `include_remote_sympa_list.user`
+
+remote user
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    None.
+
+#### `include_remote_sympa_list.passwd`
+
+remote password
+
+- Format:
+
+    The value to be concealed.
+
+- Default:
+
+    None.
+
 #### `include_remote_sympa_list.host`
 
 remote host
@@ -1565,6 +1678,8 @@ remote host
 - Default:
 
     None, _mandatory_.
+
+obsoleted.  Use "data location URL".
 
 #### `include_remote_sympa_list.port`
 
@@ -1578,6 +1693,8 @@ remote port
 
     `443`
 
+obsoleted.  Use "data location URL".
+
 #### `include_remote_sympa_list.path`
 
 remote path of sympa list dump
@@ -1590,16 +1707,75 @@ remote path of sympa list dump
 
     None, _mandatory_.
 
+obsoleted.  Use "data location URL".
+
 #### `include_remote_sympa_list.cert`
 
-certificate for authentication by remote Sympa
+Deprecated.
+
+#### `include_remote_sympa_list.timeout`
+
+idle timeout
 
 - Format:
-    - `robot` - robot
-    - `list` - list
+
+    Number of seconds.
+
 - Default:
 
-    `list`
+    `180`
+
+#### `include_remote_sympa_list.ssl_version`
+
+SSL version
+
+- Format:
+    - `ssl_any` - any versions
+    - `sslv2` - SSL version 2
+    - `sslv3` - SSL version 3
+    - `tlsv1` - TLS version 1
+    - `tlsv1_1` - TLS version 1.1
+    - `tlsv1_2` - TLS version 1.2
+    - `tlsv1_3` - TLS version 1.3
+- Default:
+
+    `ssl_any`
+
+#### `include_remote_sympa_list.ssl_ciphers`
+
+SSL ciphers used
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    `ALL`
+
+#### `include_remote_sympa_list.ca_verify`
+
+Certificate verification
+
+- Format:
+    - `none` - do nothing
+    - `optional` - optional
+    - `required` - required
+- Default:
+
+    `optional`
+
+#### `include_remote_sympa_list.nosync_time_ranges`
+
+Time ranges when inclusion is not allowed
+
+- Format:
+
+    /`$time_ranges`/
+
+- Default:
+
+    None.
 
 ### `include_ldap_query`
 
@@ -1688,7 +1864,7 @@ Certificate verification
 
     `required`
 
-#### `include_ldap_query.user`
+#### `include_ldap_query.bind_dn`
 
 remote user
 
@@ -1700,7 +1876,7 @@ remote user
 
     None.
 
-#### `include_ldap_query.passwd`
+#### `include_ldap_query.bind_password`
 
 remote password
 
@@ -1779,9 +1955,22 @@ selection (if multiple)
 - Format:
     - `all` - all
     - `first` - first entry
+    - `regex` - entries matching regular expression
 - Default:
 
     `first`
+
+#### `include_ldap_query.regex`
+
+regular expression
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    ``
 
 #### `include_ldap_query.nosync_time_ranges`
 
@@ -1795,9 +1984,17 @@ Time ranges when inclusion is not allowed
 
     None.
 
+#### `include_ldap_query.passwd`
+
+Obsoleted. Use [`bind_password`](#include_ldap_querybind_password).
+
 #### `include_ldap_query.use_ssl`
 
 Obsoleted. Use [`use_tls`](#include_ldap_queryuse_tls).
+
+#### `include_ldap_query.user`
+
+Obsoleted. Use [`bind_dn`](#include_ldap_querybind_dn).
 
 ### `include_ldap_2level_query`
 
@@ -1886,7 +2083,7 @@ Certificate verification
 
     `required`
 
-#### `include_ldap_2level_query.user`
+#### `include_ldap_2level_query.bind_dn`
 
 remote user
 
@@ -1898,7 +2095,7 @@ remote user
 
     None.
 
-#### `include_ldap_2level_query.passwd`
+#### `include_ldap_2level_query.bind_password`
 
 remote password
 
@@ -2090,9 +2287,17 @@ Time ranges when inclusion is not allowed
 
     None.
 
+#### `include_ldap_2level_query.passwd`
+
+Obsoleted. Use [`bind_password`](#include_ldap_2level_querybind_password).
+
 #### `include_ldap_2level_query.use_ssl`
 
 Obsoleted. Use [`use_tls`](#include_ldap_2level_queryuse_tls).
+
+#### `include_ldap_2level_query.user`
+
+Obsoleted. Use [`bind_dn`](#include_ldap_2level_querybind_dn).
 
 ### `include_sql_query`
 
@@ -2126,7 +2331,7 @@ database type
 
     None, _mandatory_.
 
-#### `include_sql_query.host`
+#### `include_sql_query.db_host`
 
 remote host
 
@@ -2150,18 +2355,6 @@ database port
 
     None.
 
-#### `include_sql_query.connect_options`
-
-connection options
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
-
 #### `include_sql_query.db_name`
 
 database name
@@ -2173,6 +2366,18 @@ database name
 - Default:
 
     None, _mandatory_.
+
+#### `include_sql_query.db_options`
+
+connection options
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    None.
 
 #### `include_sql_query.db_env`
 
@@ -2186,7 +2391,7 @@ environment variables for database connection
 
     None.
 
-#### `include_sql_query.user`
+#### `include_sql_query.db_user`
 
 remote user
 
@@ -2198,7 +2403,7 @@ remote user
 
     None, _mandatory_.
 
-#### `include_sql_query.passwd`
+#### `include_sql_query.db_passwd`
 
 remote password
 
@@ -2245,6 +2450,22 @@ Time ranges when inclusion is not allowed
 - Default:
 
     None.
+
+#### `include_sql_query.connect_options`
+
+Obsoleted. Use [`db_options`](#include_sql_querydb_options).
+
+#### `include_sql_query.host`
+
+Obsoleted. Use [`db_host`](#include_sql_querydb_host).
+
+#### `include_sql_query.passwd`
+
+Obsoleted. Use [`db_passwd`](#include_sql_querydb_passwd).
+
+#### `include_sql_query.user`
+
+Obsoleted. Use [`db_user`](#include_sql_querydb_user).
 
 ### `ttl`
 
@@ -2363,7 +2584,7 @@ Certificate verification
 
     `required`
 
-#### `include_ldap_ca.user`
+#### `include_ldap_ca.bind_dn`
 
 remote user
 
@@ -2375,7 +2596,7 @@ remote user
 
     None.
 
-#### `include_ldap_ca.passwd`
+#### `include_ldap_ca.bind_password`
 
 remote password
 
@@ -2466,9 +2687,22 @@ selection (if multiple)
 - Format:
     - `all` - all
     - `first` - first entry
+    - `regex` - entries matching regular expression
 - Default:
 
     `first`
+
+#### `include_ldap_ca.regex`
+
+regular expression
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    ``
 
 #### `include_ldap_ca.nosync_time_ranges`
 
@@ -2482,9 +2716,17 @@ Time ranges when inclusion is not allowed
 
     None.
 
+#### `include_ldap_ca.passwd`
+
+Obsoleted. Use [`bind_password`](#include_ldap_cabind_password).
+
 #### `include_ldap_ca.use_ssl`
 
 Obsoleted. Use [`use_tls`](#include_ldap_cause_tls).
+
+#### `include_ldap_ca.user`
+
+Obsoleted. Use [`bind_dn`](#include_ldap_cabind_dn).
 
 ### `include_ldap_2level_ca`
 
@@ -2571,7 +2813,7 @@ Certificate verification
 
     `required`
 
-#### `include_ldap_2level_ca.user`
+#### `include_ldap_2level_ca.bind_dn`
 
 remote user
 
@@ -2583,7 +2825,7 @@ remote user
 
     None.
 
-#### `include_ldap_2level_ca.passwd`
+#### `include_ldap_2level_ca.bind_password`
 
 remote password
 
@@ -2787,9 +3029,17 @@ Time ranges when inclusion is not allowed
 
     None.
 
+#### `include_ldap_2level_ca.passwd`
+
+Obsoleted. Use [`bind_password`](#include_ldap_2level_cabind_password).
+
 #### `include_ldap_2level_ca.use_ssl`
 
 Obsoleted. Use [`use_tls`](#include_ldap_2level_cause_tls).
+
+#### `include_ldap_2level_ca.user`
+
+Obsoleted. Use [`bind_dn`](#include_ldap_2level_cabind_dn).
 
 ### `include_sql_ca`
 
@@ -2821,7 +3071,7 @@ database type
 
     None, _mandatory_.
 
-#### `include_sql_ca.host`
+#### `include_sql_ca.db_host`
 
 remote host
 
@@ -2857,7 +3107,7 @@ database name
 
     None, _mandatory_.
 
-#### `include_sql_ca.connect_options`
+#### `include_sql_ca.db_options`
 
 connection options
 
@@ -2881,7 +3131,7 @@ environment variables for database connection
 
     None.
 
-#### `include_sql_ca.user`
+#### `include_sql_ca.db_user`
 
 remote user
 
@@ -2893,7 +3143,7 @@ remote user
 
     None, _mandatory_.
 
-#### `include_sql_ca.passwd`
+#### `include_sql_ca.db_passwd`
 
 remote password
 
@@ -2952,6 +3202,25 @@ Time ranges when inclusion is not allowed
 - Default:
 
     None.
+
+#### `include_sql_ca.connect_options`
+
+Obsoleted. Use [`db_options`](#include_sql_cadb_options).
+
+#### `include_sql_ca.host`
+
+Obsoleted. Use [`db_host`](#include_sql_cadb_host).
+
+#### `include_sql_ca.passwd`
+
+- Format:
+- Default:
+
+    None.
+
+#### `include_sql_ca.user`
+
+Obsoleted. Use [`db_user`](#include_sql_cadb_user).
 
 ### `include_list`
 

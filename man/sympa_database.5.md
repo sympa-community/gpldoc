@@ -1,5 +1,6 @@
 ---
 title: 'sympa_database(5)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -75,6 +76,18 @@ Fields:
 
     the last time when subscription is confirmed by subscriber
 
+- inclusion\_subscriber int(11)
+
+    the last time when list user is synchronized with data source
+
+- inclusion\_ext\_subscriber int(11)
+
+    the last time when list user is synchronized with external data source
+
+- inclusion\_label\_subscriber varchar(50)
+
+    name of data source
+
 - comment\_subscriber varchar(150)
 
     free form name
@@ -94,14 +107,6 @@ Fields:
 - subscribed\_subscriber int(1)
 
     boolean set to 1 if subscriber comes from ADD or SUB
-
-- included\_subscriber int(1)
-
-    boolean, set to 1 is subscriber comes from an external datasource. Note that included\_subscriber and subscribed\_subscriber can both value 1
-
-- include\_sources\_subscriber varchar(50)
-
-    comma separated list of datasource that contain this subscriber
 
 - custom\_attribute\_subscriber text
 
@@ -547,6 +552,18 @@ Fields:
 
     last update time
 
+- inclusion\_admin int(11)
+
+    the last time when list user is synchronized with data source
+
+- inclusion\_ext\_admin int(11)
+
+    the last time when list user is synchronized with external data source
+
+- inclusion\_label\_admin varchar(50)
+
+    name of data source
+
 - reception\_admin varchar(20)
 
     email reception option for list management messages
@@ -562,14 +579,6 @@ Fields:
 - subscribed\_admin int(1)
 
     set to 1 if user is list admin by definition in list config file
-
-- included\_admin int(1)
-
-    set to 1 if user is admin by an external data source. Note that included\_admin and subscribed\_admin can both value 1
-
-- include\_sources\_admin varchar(50)
-
-    name of external datasource
 
 - info\_admin varchar(150)
 

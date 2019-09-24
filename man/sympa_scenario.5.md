@@ -1,5 +1,6 @@
 ---
 title: 'sympa_scenario(5)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -296,115 +297,115 @@ rule : condition spaces auth\_list "->" action
 \# Condition
 
 condition : "!" condition  
-    | "true" "(" ")"  
-    | "equal" "(" var "," var ")"  
-    | "is\_editor" "(" listname "," var ")"  
-    | "is\_listmaster" "(" var ")"  
-    | "is\_owner" "(" listname "," var ")"  
-    | "is\_subscriber" "(" listname "," var ")"  
-    | "less\_than" "(" var "," var ")"  
-    | "match" "(" var "," "/" perl\_regexp "/" ")"  
-    | "newer" "(" date "," date ")"  
-    | "older" "(" date "," date ")"  
-    | "search" "(" named\_filter\_file ")"  
-    | "verify\_netmask" "(" network\_block ")"  
-    | "CustomCondition::" package\_name "(" var\* ")"
+    &#124; "true" "(" ")"  
+    &#124; "equal" "(" var "," var ")"  
+    &#124; "is\_editor" "(" listname "," var ")"  
+    &#124; "is\_listmaster" "(" var ")"  
+    &#124; "is\_owner" "(" listname "," var ")"  
+    &#124; "is\_subscriber" "(" listname "," var ")"  
+    &#124; "less\_than" "(" var "," var ")"  
+    &#124; "match" "(" var "," "/" perl\_regexp "/" ")"  
+    &#124; "newer" "(" date "," date ")"  
+    &#124; "older" "(" date "," date ")"  
+    &#124; "search" "(" named\_filter\_file ")"  
+    &#124; "verify\_netmask" "(" network\_block ")"  
+    &#124; "CustomCondition::" package\_name "(" var\* ")"
 
 var : "\[email\]"  
-    | "\[conf->" conf\_key\_word "\]"  
-    | "\[current\_date\]"  
-    | "\[custom\_vars->" custom\_var\_name "\]"  
-    | "\[env->" env\_var "\]"  
-    | "\[is\_bcc\]"  
-    | "\[list->" list\_key\_word "\]"  
-    | "\[msg\_body\]"  
-    | "\[msg\_encrypted\]"  
-    | "\[msg\_header->" field\_name "\]" "\[" index "\]"  
-    | "\[msg\_header->" field\_name "\]"  
-    | "\[msg\_part->type\]"  
-    | "\[msg\_part->body\]"  
-    | "\[previous\_email\]"  
-    | "\[sender\]"  
-    | "\[subscriber->" subscriber\_key\_word "\]"  
-    | "\[topic\]"  
-    | "\[topic-auto\]"  
-    | "\[topic-editor\]"  
-    | "\[topic-needed\]"  
-    | "\[topic-sender\]"  
-    | "\[user->" user\_key\_word "\]"  
-    | "\[user\_attributes->" user\_attributes\_keyword "\]"  
-    | string
+    &#124; "\[conf->" conf\_key\_word "\]"  
+    &#124; "\[current\_date\]"  
+    &#124; "\[custom\_vars->" custom\_var\_name "\]"  
+    &#124; "\[env->" env\_var "\]"  
+    &#124; "\[is\_bcc\]"  
+    &#124; "\[list->" list\_key\_word "\]"  
+    &#124; "\[msg\_body\]"  
+    &#124; "\[msg\_encrypted\]"  
+    &#124; "\[msg\_header->" field\_name "\]" "\[" index "\]"  
+    &#124; "\[msg\_header->" field\_name "\]"  
+    &#124; "\[msg\_part->type\]"  
+    &#124; "\[msg\_part->body\]"  
+    &#124; "\[previous\_email\]"  
+    &#124; "\[sender\]"  
+    &#124; "\[subscriber->" subscriber\_key\_word "\]"  
+    &#124; "\[topic\]"  
+    &#124; "\[topic-auto\]"  
+    &#124; "\[topic-editor\]"  
+    &#124; "\[topic-needed\]"  
+    &#124; "\[topic-sender\]"  
+    &#124; "\[user->" user\_key\_word "\]"  
+    &#124; "\[user\_attributes->" user\_attributes\_keyword "\]"  
+    &#124; string
 
 listname : "\[listname\]"  
-    | listname\_string  
-    | listname\_string "@" domain\_string
+    &#124; listname\_string  
+    &#124; listname\_string "@" domain\_string
 
 date : "\[date\]"  
-    | date\_expr
-    | integer
+    &#124; date\_expr
+    &#124; integer
 
 user\_key\_word : "email"
-    | "gecos"  
-    | "lang"  
-    | "password"  
-    | "cookie\_delay\_user"  
-    | additional\_user\_fields
+    &#124; "gecos"  
+    &#124; "lang"  
+    &#124; "password"  
+    &#124; "cookie\_delay\_user"  
+    &#124; additional\_user\_fields
 
 subscriber\_key\_word : "email"  
-    | "date"  
-    | "bounce"  
-    | "gecos"  
-    | "reception"  
-    | "update\_date"  
-    | "visibility"  
-    | additional\_subscriber\_fields
+    &#124; "date"  
+    &#124; "bounce"  
+    &#124; "gecos"  
+    &#124; "reception"  
+    &#124; "update\_date"  
+    &#124; "visibility"  
+    &#124; additional\_subscriber\_fields
 
 list\_key\_word : "name"  
-    | "address"  
-    | "domain"  
-    | "lang"  
-    | "max\_size"  
-    | "priority"  
-    | "reply\_to"  
-    | "status"  
-    | "subject"  
-    | "total"  
-    | "account"
+    &#124; "address"  
+    &#124; "domain"  
+    &#124; "lang"  
+    &#124; "max\_size"  
+    &#124; "priority"  
+    &#124; "reply\_to"  
+    &#124; "status"  
+    &#124; "subject"  
+    &#124; "total"  
+    &#124; "account"
 
 conf\_key\_word : "domain"  
-    | "default\_list\_priority"  
-    | "email"  
-    | "lang"  
-    | "listmaster"  
-    | "max\_size"  
-    | "request\_priority"  
-    | "sympa\_priority"
+    &#124; "default\_list\_priority"  
+    &#124; "email"  
+    &#124; "lang"  
+    &#124; "listmaster"  
+    &#124; "max\_size"  
+    &#124; "request\_priority"  
+    &#124; "sympa\_priority"
 
 \# Authentication methods
 
 auth\_list : auth "," auth\_list  
-    | auth  
-    | ""
+    &#124; auth  
+    &#124; ""
 
 auth : "smtp"  
-    | "dkim"  
-    | "md5"  
-    | "smime"
+    &#124; "dkim"  
+    &#124; "md5"  
+    &#124; "smime"
 
 \# Actions
 
-action : "do\_it" ( "," "quiet" | "," "notify" )\*  
-    | "editor" \[ "," "quiet" \]  
-    | "editorkey" \[ "," "quiet" \]  
-    | "listmaster" \[ "," "notify" \]  
-    | "owner" \[ "," "quiet" \]  
-    | "reject" (  
+action : "do\_it" ( "," "quiet" &#124; "," "notify" )\*  
+    &#124; "editor" \[ "," "quiet" \]  
+    &#124; "editorkey" \[ "," "quiet" \]  
+    &#124; "listmaster" \[ "," "notify" \]  
+    &#124; "owner" \[ "," "quiet" \]  
+    &#124; "reject" (  
           "(" "reason=" reason\_key ")"  
-        | "(" "tt2=" tpl\_name ")"  
-        | "," "quiet"  
+        &#124; "(" "tt2=" tpl\_name ")"  
+        &#124; "," "quiet"  
       )\*  
-    | "reject(tt2=" tpl\_name ")" \[ "," "quiet" \]  
-    | "request\_auth" \[ "(\[email\])" \]
+    &#124; "reject(tt2=" tpl\_name ")" \[ "," "quiet" \]  
+    &#124; "request\_auth" \[ "(\[email\])" \]
 
 # FILES
 

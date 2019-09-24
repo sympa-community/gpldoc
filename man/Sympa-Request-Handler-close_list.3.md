@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::close_list(3)'
+release: '6.2.46'
 ---
 
 # NAME

@@ -1,5 +1,6 @@
 ---
 title: 'sympa(1)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -17,8 +18,9 @@ sympa, sympa.pl - Command line utility to manage Sympa
 \[ `--close_list`=_list_\[_@robot_\] \]
 \[ `--purge_list`=_list_\[_@robot_\] \]
 \[ `--lowercase` \] \[ `--make_alias_file` \]
-\[ `--dump_users` `--list`=_list_@_domain_|ALL \[ `--role`=_roles_ \] \]
-\[ `--restore_users` `--list`=_list_@_domain_|ALL \[ `--role`=_roles_ \] \]
+\[ `--dump_users` `--list`=_list_@_domain_&#124;ALL \[ `--role`=_roles_ \] \]
+\[ `--restore_users` `--list`=_list_@_domain_&#124;ALL \[ `--role`=_roles_ \] \]
+\[ `--show_pending_lists`=_robot_ \]
 
 # DESCRIPTION
 
@@ -88,11 +90,11 @@ With the following options `sympa.pl` will run in batch mode:
 
     Create a list with the XML file under robot robot\_name.
 
-- `--dump=`_list_@_domain_|`ALL`
+- `--dump=`_list_@_domain_&#124;`ALL`
 
     Obsoleted option.  Use `--dump_users`.
 
-- `--dump_users` `--list=`_list_@_domain_|`ALL` \[ `--role=`_roles_ \]
+- `--dump_users` `--list=`_list_@_domain_&#124;`ALL` \[ `--role=`_roles_ \]
 
     Dumps users of a list or all lists.
 
@@ -167,6 +169,10 @@ With the following options `sympa.pl` will run in batch mode:
 
     Remove the list (remove archive, configuration files, users and owners in admin table. Restore is not possible after this operation.
 
+- `--show_pending_lists`=_robot_
+
+    Print all pending lists for the robot, with informations.
+
 - `--reload_list_config`
 \[ `--list=`_mylist_@_mydom_ \] \[ `--robot=`_mydom_ \]
 
@@ -184,7 +190,7 @@ With the following options `sympa.pl` will run in batch mode:
     Send digest right now.
     If `--keep_digest` is specified, stocked digest will not be removed.
 
-- `--restore_users` `--list=`_list_@_domain_|`ALL` \[ `--role=`_roles_ \]
+- `--restore_users` `--list=`_list_@_domain_&#124;`ALL` \[ `--role=`_roles_ \]
 
     Restore users from files dumped by `--dump_users`.
 

@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::TransformIncoming(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -17,7 +18,7 @@ Transformation processes by this class are done in the following order:
 - Executes `pre_distribute` hook of [message hooks](./Sympa-Message-Plugin.3.md)
 if available.
 - Adds `X-Sympa-Topic` header field, if any message topics
-(see [Sympa::Topic](./Sympa-Topic.3.md)) are tagged for the message.
+(see [Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md)) are tagged for the message.
 - Anonymizes message,
 if [`anonymous_sender`](./list_config.5.md#anonymous_sender) list configuration
 parameter is enabled.
@@ -44,7 +45,7 @@ be altered.
 [Sympa::Message::Plugin](./Sympa-Message-Plugin.3.md),
 [Sympa::Spindle](./Sympa-Spindle.3.md),
 [Sympa::Spindle::DistributeMessage](./Sympa-Spindle-DistributeMessage.3.md),
-[Sympa::Topic](./Sympa-Topic.3.md),
+[Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md),
 [Sympa::Tracking](./Sympa-Tracking.3.md).
 
 # HISTORY

@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::ConfDef(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -55,15 +56,15 @@ and each robot.
 
             FIXME FIXME
 
-        - edit => 1|0
+        - edit => 1&#124;0
 
             This defines the parameters to be edited.
 
-        - optional => 1|0
+        - optional => 1&#124;0
 
             FIXME FIXME
 
-        - vhost => 1|0
+        - vhost => 1&#124;0
 
             If 1, the parameter can have a specific value in a
             virtual host.
@@ -72,15 +73,15 @@ and each robot.
 
             'db\_first', 'file\_first' or 'no'.
 
-        - obfuscated => 1|0
+        - obfuscated => 1&#124;0
 
             FIXME FIXME
 
-        - multiple => 1|0
+        - multiple => 1&#124;0
 
             If 1, the parameter can have multiple values. Default is 0.
 
-        - scenario => 1|0
+        - scenario => 1&#124;0
 
             If 1, the parameter is the name of scenario.
 

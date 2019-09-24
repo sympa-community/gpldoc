@@ -1,5 +1,6 @@
 ---
 title: 'Sympa(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -54,7 +55,7 @@ Site, Robot, Family and List.
     make an array of include path for tt2 parsing
 
     IN :
-          -$that(+) : ref(Sympa::List) | ref(Sympa::Family) | Robot | "\*"
+          -$that(+) : ref(Sympa::List) &#124; ref(Sympa::Family) &#124; Robot &#124; "\*"
           -%options : options
 
     Possible values for options:

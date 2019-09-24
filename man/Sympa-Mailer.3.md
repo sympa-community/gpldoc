@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Mailer(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -101,7 +102,8 @@ store messages to them.
 
 # SEE ALSO
 
-[Sympa::Alarm](./Sympa-Alarm.3.md), [Sympa::Bulk](./Sympa-Bulk.3.md), [Sympa::Message](./Sympa-Message.3.md), [Sympa::Process](./Sympa-Process.3.md).
+[Sympa::Message](./Sympa-Message.3.md), [Sympa::Process](./Sympa-Process.3.md),
+[Sympa::Spool::Listmaster](./Sympa-Spool-Listmaster.3.md), [Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md).
 
 # HISTORY
 

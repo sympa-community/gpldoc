@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::DatabaseDriver::Oracle::St(3)'
+release: '6.2.46'
 ---
 
 # NAME

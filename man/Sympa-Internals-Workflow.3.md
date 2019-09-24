@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Internals::Workflow(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -48,8 +49,8 @@ workflow of Sympa.  For more details see documentation on each class.
                         +-> [DoMessage]          /
                                   \             /---> [ToHeld] => Held
              *3 (CONFIRM)          +-> [AuthorizeMessage]
-             :                    /             \---> [ToModeration] => Mod.
-             v                   /               \
+             :                    /      :      \---> [ToModeration] => Mod.
+             v                   /     Topic     \
     Held => [ProcessHeld] ------+                 \
                                                    +-> [DistributeMessage]
                *3 (DISTRIBUTE)                    /           \
@@ -63,22 +64,24 @@ workflow of Sympa.  For more details see documentation on each class.
                           +-------------------------------------------+
                            \
                            [TransformIncoming]
-    <<wwsympa.fcgi>>         \
+                             \        :
+                              \     Topic
+    <<wwsympa.fcgi>>           \
                            [ToArchive] => Archive
-    (list archive)             \
+    (list archive)               \
      => [ResendArchive] -- [TransformOutgoing] -+
-                                 \               \
+                                   \             \
                            [ToDigest] => Digest   \
-                                   \               \
-                                    +---------------+-> [ToList] => Outgoing
-    
-                               +-> [TransformDigestFinal]  
-                              /                     \
-    <<Template sending>>     /         +----------> [ToOutgoing] => Outgoing 
+                                     \             \
+                                      +-------------+-> [ToList] => Outgoing
+                                                              :
+                               +-> [TransformDigestFinal]    Topic
+                              /                 \
+    <<Template sending>>     /         +------> [ToOutgoing] => Outgoing
                             /         / 
-    (mail template) => [ProcessTemplate] ---------> [ToAlarm] => Alarm
+    (mail template) => [ProcessTemplate] -----> [ToListmaster] => Listmaster
                           /           \
-                          ^            +----------> [ToMailer] => (Mailer)
+                          ^            +------> [ToMailer] => (Mailer)
                           |
                           *1
 
@@ -114,12 +117,9 @@ workflow of Sympa.  For more details see documentation on each class.
 
     Spool class.  Prefix `Sympa::Spool::` is omitted.
 
-    - `Alarm`
-    - `Outgoing`
     - `Tracking`
 
-        [Sympa::Alarm](./Sympa-Alarm.3.md), [Sympa::Bulk](./Sympa-Bulk.3.md) and [Sympa::Tracking](./Sympa-Tracking.3.md) classes
-        (they are named such by historical reason).
+        [Sympa::Tracking](./Sympa-Tracking.3.md) class
 
 - `[_ClassName_]`
 

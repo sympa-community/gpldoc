@@ -1,5 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessTemplate(3)'
+release: '6.2.46'
 ---
 
 # NAME
@@ -62,7 +63,7 @@ See also ["Properties" in Sympa::Spindle](./Sympa-Spindle.3.md#properties).
 
 [Sympa::Message::Template](./Sympa-Message-Template.3.md),
 [Sympa::Spindle](./Sympa-Spindle.3.md),
-[Sympa::Spindle::ToAlarm](./Sympa-Spindle-ToAlarm.3.md), [Sympa::Spindle::ToMailer](./Sympa-Spindle-ToMailer.3.md),
+[Sympa::Spindle::ToListmaster](./Sympa-Spindle-ToListmaster.3.md), [Sympa::Spindle::ToMailer](./Sympa-Spindle-ToMailer.3.md),
 [Sympa::Spindle::ToOutgoing](./Sympa-Spindle-ToOutgoing.3.md).
 
 # HISTORY
