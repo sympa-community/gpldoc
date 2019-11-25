@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Scenario(3)'
-release: '6.2.46'
+release: '6.2.49b.1'
 ---
 
 # NAME
@@ -118,6 +118,63 @@ on functions of Sympa software against users and clients.
 
 ## Functions
 
+- compile ( $that, $data,
+\[ function => $function \], \[ file\_path => $path \] )
+
+    _Function_.
+    Compiles scenario source and returns results.
+
+    Parameters:
+
+    - $that
+
+        Context.  [Sympa::List](./Sympa-List.3.md) instance or Robot.
+
+    - $data
+
+        Source text of scenario.
+
+    - function => $function
+
+        Name of function.  Optional.
+
+    - file\_path => $path
+
+        Path of scenario file.  Optional.
+
+    Returns:
+
+    Hashref with following items, or `undef` on failure.
+
+    - {compiled}
+
+        Compiled scenario represented by Perl code.
+
+    - {sub}
+
+        Compiled coderef.
+
+    - {data}
+
+        Source text of the scenario.
+
+    - {title}
+
+        Hashref representing titles of the scenario.
+
+    - {rules}
+
+        Arrayref to texts of rules.
+
+    - {purely\_closed}
+
+        True if the scenario is purely closed.
+
+    - {date}
+
+        Keep track of the current time if `file_path` is given.
+        This is used later to reload scenario files when they changed on disk.
+
 - get\_scenarios ( $that, $function )
 
     _Function_.
@@ -164,5 +221,6 @@ parameter and `name` options for them are mandatory.
 
 # HISTORY
 
-authz() method obsoleting request\_action() function introduced on
+authz() method obsoleting request\_action() function was introduced on
 Sympa 6.2.41b.
+compile() function was added on Sympa 6.2.49b.

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Archive(3)'
-release: '6.2.46'
+release: '6.2.49b.1'
 ---
 
 # NAME
@@ -33,7 +33,7 @@ Sympa::Archive - Archives of Sympa
 
 ## Methods and functions
 
-- new ( context => $list )
+- new ( context => $list, \[ create => 1 \] )
 
     _Constructor_.
     Creates new instance of [Sympa::Archive](./Sympa-Archive.3.md).
@@ -43,6 +43,12 @@ Sympa::Archive - Archives of Sympa
     - context => $list
 
         Context of object, a [Sympa::List](./Sympa-List.3.md) instance.
+
+    - create => 1
+
+        If necessary, creates directory structure of archive.
+        Dies if creation fails.
+        This parameter was introduced on Sympa 6.2.47b.
 
 - add\_archive ( $arc )
 

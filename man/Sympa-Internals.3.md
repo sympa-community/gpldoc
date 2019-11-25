@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Internals(3)'
-release: '6.2.46'
+release: '6.2.49b.1'
 ---
 
 # NAME
@@ -146,7 +146,7 @@ To know details of each module, run:
 
 - [Sympa::Family](./Sympa-Family.3.md)
 
-    TBD
+    List families
 
 - [Sympa::HTML::FormatText](./Sympa-HTML-FormatText.3.md)
 

@@ -1,6 +1,6 @@
 ---
 title: 'list_config(5)'
-release: '6.2.46'
+release: '6.2.49b.1'
 ---
 
 # NAME
@@ -72,7 +72,6 @@ Visibility of the list
     Name of `visibility` scenario:
 
     - `conceal` - conceal except for subscribers
-    - `intranet` - intranet access
     - `noconceal` - no conceal
     - `secret` - conceal even for subscribers
 
@@ -180,8 +179,6 @@ Who can send messages
     - `editorkey` - Moderated
     - `editorkeyonly` - Moderated, even for moderators
     - `editorkeyonlyauth` - Moderated, need authentication from moderator
-    - `intranet` - restricted to local domain
-    - `intranetorprivate` - restricted to local domain and subscribers
     - `newsletter` - Newsletter, restricted to moderators
     - `newsletterkeyonly` - Newsletter, restricted to moderators after confirmation
     - `owner` - Restricted to list owners only
@@ -679,8 +676,6 @@ Who can subscribe to the list
     - `auth_ownerdkim` - requires authentication unless DKIM signature is OK, then owner approval
     - `authdkim` - subscription request confirmed
     - `closed` - subscription is impossible
-    - `intranet` - restricted to local domain users
-    - `intranetorowner` - local domain users or owner approval
     - `open` - for anyone without authentication
     - `open_notify` - anyone, notification is sent to list owner
     - `open_quiet` - anyone, no welcome message
@@ -802,7 +797,6 @@ Who can review subscribers
     Name of `review` scenario:
 
     - `closed` - no one can review
-    - `intranet` - restricted to subscribers or local domain users
     - `listmaster` - listmaster only
     - `owner` - only owner (and listmaster)
     - `private` - restricted to subscribers
@@ -937,7 +931,6 @@ access right
     Name of `archive_web_access` scenario:
 
     - `closed` - closed
-    - `intranet` - restricted to local domain users
     - `listmaster` - listmaster
     - `owner` - by owner
     - `private` - subscribers only
