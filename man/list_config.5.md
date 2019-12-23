@@ -1,6 +1,6 @@
 ---
 title: 'list_config(5)'
-release: '6.2.49b.1'
+release: '6.2.50'
 ---
 
 # NAME

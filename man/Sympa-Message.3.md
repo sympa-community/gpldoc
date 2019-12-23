@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.46'
+release: '6.2.50'
 ---
 
 # NAME

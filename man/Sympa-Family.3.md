@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Family(3)'
-release: '6.2.49b.1'
+release: '6.2.50'
 ---
 
 # NAME

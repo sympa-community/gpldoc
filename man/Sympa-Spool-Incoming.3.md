@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spool::Incoming(3)'
-release: '6.2.46'
+release: '6.2.50'
 ---
 
 # NAME
