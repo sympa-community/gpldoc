@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spool(3)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -353,8 +353,8 @@ encodes the metadata
     domainpart => 'domain.name',
     date       => 143599229,
 
-Metadata always includes information of **context**: List, Robot or
-Site.  For example:
+Metadata always includes information of **context**: List, Robot, Site
+(or Family).  For example:
 
 \- Message in incoming spool bound for <listname@domain.name>:
 
@@ -372,6 +372,15 @@ Context is determined when the generator class is instantiated, and
 generally never changed through lifetime of instance.
 Thus, constructor of generator class should take context object as an
 argument.
+
+`localpart` is encoded in a bit complex manner.
+
+- If the context is Site or Robot, it is a value of `email` parameter,
+typically "`sympa`".
+- If the context is Family, it is encoded as `@_family name_`.
+This encoding was added on Sympa 6.2.53b.
+- If the context is List, it is encoded as local part of list address
+according to listtype (See also ["get\_address" in Sympa](./Sympa.3.md#get_address)).
 
 # CONFIGURATION PARAMETERS
 

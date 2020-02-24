@@ -1,6 +1,6 @@
 ---
 title: 'sympa_scenario(5)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -173,22 +173,22 @@ Some actions may have optional modifiers (see ["Actions"](#actions)).
 - `[topic]`
 
     Topic of the message.
-    This variable has a value if any of the previous
-    `[topic-*]` variable has a value.
+    This variable has a value if any of the following
+    `[topic_*]` variables has a value.
 
-- `[topic-auto]`
+- `[topic_auto]`
 
     Topic of the message if it has been automatically tagged.
 
-- `[topic-editor]`
+- `[topic_editor]`
 
     Topic of the message if it has been tagged by editor.
 
-- `[topic-needed]`
+- `[topic_needed]`
 
     The message has not got any topic and message topic are required for the list.
 
-- `[topic-sender]`
+- `[topic_sender]`
 
     Topic of the message if it has been tagged by sender.
 
@@ -328,10 +328,10 @@ var : "\[email\]"
     &#124; "\[sender\]"  
     &#124; "\[subscriber->" subscriber\_key\_word "\]"  
     &#124; "\[topic\]"  
-    &#124; "\[topic-auto\]"  
-    &#124; "\[topic-editor\]"  
-    &#124; "\[topic-needed\]"  
-    &#124; "\[topic-sender\]"  
+    &#124; "\[topic\_auto\]"  
+    &#124; "\[topic\_editor\]"  
+    &#124; "\[topic\_needed\]"  
+    &#124; "\[topic\_sender\]"  
     &#124; "\[user->" user\_key\_word "\]"  
     &#124; "\[user\_attributes->" user\_attributes\_keyword "\]"  
     &#124; string

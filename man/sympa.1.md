@@ -1,6 +1,6 @@
 ---
 title: 'sympa(1)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -121,6 +121,8 @@ With the following options `sympa.pl` will run in batch mode:
     The imported data should contain one entry per line : the first field
     is an email address, the second (optional) field is the free form name.
     Fields are spaces-separated.
+
+    Use `--quiet` to prevent welcome emails.
 
     Sample:
 

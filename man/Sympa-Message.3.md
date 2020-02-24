@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -326,6 +326,31 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
     1 if signature is successfully verified.
     0 otherwise.
     `undef` if something went wrong.
+
+- is\_signed ( )
+
+    _Instance method_.
+    Checks if the message is signed.
+
+    **Note**:
+    This checks if the message has appropriate content type and
+    header parameters.  Use check\_smime\_signature() to check if the message has
+    properly signed content.
+
+    Currently, S/MIME-signed messages with content type
+    "multipart/signed" or "application/pkcs7-mime" (with smime-type="signed-data"
+    parameter) are recognized.
+    Enveloped-only messages are not supported.
+    The other signature mechanisms such as PGP/MIME have not been supported yet.
+
+    Parameters:
+
+    None.
+
+    Returns:
+
+    `1` if the message is considered signed.
+    `0` otherwise.
 
 - personalize ( $list, \[ $rcpt \], \[ $data \] )
 

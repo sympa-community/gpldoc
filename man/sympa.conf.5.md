@@ -1,6 +1,6 @@
 ---
 title: 'sympa.conf(5)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -1873,6 +1873,20 @@ Parsed files for families
     Virtual domain
 
 comma-separated list of files that will be parsed by Sympa when instantiating a family (no space allowed in file names)
+
+#### `family_signoff`
+
+Global unsubscription
+
+- Default:
+
+    `auth`
+
+- Overrides:
+
+    Virtual domain
+
+Value of this parameter is name of `family_signoff` scenario.
 
 ## Tag based spam filtering
 

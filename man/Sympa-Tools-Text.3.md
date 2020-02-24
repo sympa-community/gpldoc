@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Text(3)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -31,6 +31,14 @@ This package provides some text-related functions.
 
     Returns canonical form of message ID without trailing or leading whitespaces
     or `<`, `>`.
+
+- canonic\_text ( $text )
+
+    Canonicalizes text.
+    `$text` should be a binary string encoded by UTF-8 character set or
+    a Unicode string.
+    Forbidden sequences in binary string will be replaced by
+    U+FFFD REPLACEMENT CHARACTERs, and Normalization Form C (NFC) will be applied.
 
 - decode\_filesystem\_safe ( $str )
 
@@ -241,6 +249,12 @@ This package provides some text-related functions.
     This should be obsoleted in the future release: Would be better to use
     ["encode\_filesystem\_safe"](#encode_filesystem_safe).
 
+- slurp ( $file )
+
+    Get entire content of the file.
+    Normalization by canonic\_text() is applied.
+    `$file` is the path to text file.
+
 - unescape\_chars ( $str )
 
     Unescape weird characters.
@@ -322,3 +336,5 @@ decode\_html(), encode\_html(), encode\_uri() and mailtourl()
 were added on Sympa 6.2.14, and escape\_url() was deprecated.
 
 guessed\_to\_utf8() and pad() were added on Sympa 6.2.17.
+
+canonic\_text() and slurp() were added on Sympa 6.2.53b.

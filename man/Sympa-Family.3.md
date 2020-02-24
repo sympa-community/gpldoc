@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Family(3)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -162,9 +162,12 @@ This module gathers all the family-specific operations.
 
     The name of family.
 
-- {robot}
+- {domain}
 
-    The robot the family belongs to.
+    The mail domain (a.k.a. "robot") the family belongs to.
+
+    **Note**:
+    On Sympa 6.2.52 or earlier, `{robot}` was used.
 
 - {dir}
 

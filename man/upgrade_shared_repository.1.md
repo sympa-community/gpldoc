@@ -1,6 +1,6 @@
 ---
 title: 'upgrade_shared_repository(1)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME

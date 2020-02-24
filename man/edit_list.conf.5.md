@@ -1,6 +1,6 @@
 ---
 title: 'edit_list.conf(5)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME

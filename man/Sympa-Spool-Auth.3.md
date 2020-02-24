@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spool::Auth(3)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
@@ -34,8 +34,12 @@ for moderation.
 
 See also ["Public methods" in Sympa::Spool](./Sympa-Spool.3.md#public-methods).
 
-- new ( \[ context => $list \], \[ action => $action \],
+- new ( \[ context => $that \], \[ action => $action \],
 \[ keyauth => $id \], \[ email => $email \])
+
+    Context may be either instance of [Sympa::List](./Sympa-List.3.md) or [Sympa::Family](./Sympa-Family.3.md),
+    or robot.
+
 - next ( \[ no\_lock => 1 \] )
 
     If the pairs describing metadatas are specified,

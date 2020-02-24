@@ -1,6 +1,6 @@
 ---
 title: 'ldap_alias_manager.conf(5)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME

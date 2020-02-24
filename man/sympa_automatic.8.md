@@ -1,6 +1,6 @@
 ---
 title: 'sympa_automatic(8)'
-release: '6.2.50'
+release: '6.2.54'
 ---
 
 # NAME
