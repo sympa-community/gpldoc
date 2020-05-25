@@ -1,6 +1,6 @@
 ---
 title: 'task_manager(8)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME

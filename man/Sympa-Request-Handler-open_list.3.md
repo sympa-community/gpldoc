@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::open_list(3)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME

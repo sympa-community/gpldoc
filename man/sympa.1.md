@@ -1,6 +1,6 @@
 ---
 title: 'sympa(1)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME
@@ -200,9 +200,9 @@ With the following options `sympa.pl` will run in batch mode:
 
     Note: This option was added on Sympa 6.2.34.
 
-- `--sync_include=`_listname_@_robot_
+- `--sync_include=`_listname_@_robot_ \[ `--role=`_role_ \]
 
-    Trigger the list members update.
+    Trigger update of the list users included from data sources.
 
 - `--sync_list_db` \[ `--list=`_listname_@_robot_ \]
 

@@ -1,6 +1,6 @@
 ---
 title: 'sympa.conf(5)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME
@@ -2572,7 +2572,7 @@ Example:
 
     wwsympa_url https://web.example.org/sympa
 
-#### `http_host`
+#### `wwsympa_url_local`
 
 URL prefix of WWSympa behind proxy
 
@@ -3155,6 +3155,8 @@ Protect web interface against spam harvesters
 - Overrides:
 
     Virtual domain
+
+    List
 
 These values are supported:
 
@@ -3811,6 +3813,16 @@ URL of SympaSOAP behind proxy
 - Overrides:
 
     None.
+
+#### `http_host`
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
 
 #### `automatic_list_prefix`
 

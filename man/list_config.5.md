@@ -1,6 +1,6 @@
 ---
 title: 'list_config(5)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME
@@ -3652,7 +3652,7 @@ email address protection method
     - `none` - do nothing
 - Default:
 
-    `javascript`
+    Value of [`spam_protection`](./sympa.conf.5.md#spam_protection) parameter in `sympa.conf` or `robot.conf`.
 
 There is a need to protect Sympa web sites against spambots which collect email addresses from public web sites. Various methods are available in Sympa and you can choose to use them with the spam\_protection and web\_archive\_spam\_protection parameters. Possible value are:
 

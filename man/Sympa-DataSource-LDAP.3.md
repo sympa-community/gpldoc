@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DataSource::LDAP(3)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME

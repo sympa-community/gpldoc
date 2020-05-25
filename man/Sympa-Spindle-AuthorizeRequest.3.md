@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spindle::AuthorizeRequest(3)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME

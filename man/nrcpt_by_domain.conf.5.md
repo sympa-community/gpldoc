@@ -1,6 +1,6 @@
 ---
 title: 'nrcpt_by_domain.conf(5)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Internals(3)'
-release: '6.2.54'
+release: '6.2.56'
 ---
 
 # NAME
@@ -503,6 +503,10 @@ To know details of each module, run:
 - [Sympa::WWW::Auth](./Sympa-WWW-Auth.3.md)
 
     TBD
+
+- [Sympa::WWW::FastCGI](./Sympa-WWW-FastCGI.3.md)
+
+    CGI Interface for FastCGI of Sympa
 
 - [Sympa::WWW::Marc](./Sympa-WWW-Marc.3.md)
 
