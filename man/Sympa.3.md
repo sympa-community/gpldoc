@@ -1,6 +1,6 @@
 ---
 title: 'Sympa(3)'
-release: '6.2.56'
+release: '6.2.57b.2'
 ---
 
 # NAME
@@ -207,7 +207,8 @@ These are accessors derived from configuration parameters.
 
     Site or robot:
     Returns the site or robot email address of type $type: email command address
-    (default, &lt;sympa> address), "owner" (&lt;sympa-request> address) or "listmaster".
+    (default, &lt;sympa> address), "sympaowner" (&lt;sympa-request> address) or
+    "listmaster".
 
     List:
     Returns the list email address of type $type: posting address (default),
@@ -215,9 +216,12 @@ These are accessors derived from configuration parameters.
     (<LIST-owner> address), "subscribe" or "unsubscribe".
 
     Note:
-    %Conf::Conf or Conf::get\_robot\_conf() may return &lt;sympa> and
+
+    - %Conf::Conf or Conf::get\_robot\_conf() may return &lt;sympa> and
     &lt;sympa-request> addresses by "sympa" and "request" arguments, respectively.
     They are obsoleted.  Use this function instead.
+    - `"sympaowner"` with robot context was introduced on 6.2.57b.2.
+    `"owner"` and `"request"` may also be used for convenience.
 
 - get\_listmasters\_email ( $that )
 

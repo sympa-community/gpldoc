@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Internals(3)'
-release: '6.2.56'
+release: '6.2.57b.2'
 ---
 
 # NAME
@@ -51,6 +51,10 @@ To know details of each module, run:
 - [Sympa::Config](./Sympa-Config.3.md)
 
     List configuration
+
+- [Sympa::Config::Schema](./Sympa-Config-Schema.3.md)
+
+    Definition of list configuration parameters
 
 - [Sympa::Config\_XML](./Sympa-Config_XML.3.md)
 
@@ -166,7 +170,7 @@ To know details of each module, run:
 
 - [Sympa::List](./Sympa-List.3.md)
 
-    TBD
+    Mailing list
 
 - [Sympa::List::Config](./Sympa-List-Config.3.md)
 

@@ -1,6 +1,6 @@
 ---
 title: 'sympa_toc(1)'
-release: '6.2.56'
+release: '6.2.57b.2'
 ---
 
 # NAME
@@ -175,17 +175,13 @@ Below is the list of documentation of Sympa.
 
     Configuration of LDAP alias management
 
-- [list\_config(5)](./list_config.5.md)
-
-    Configuration file for mailing list
-
 - [nrcpt\_by\_domain.conf(5)](./nrcpt_by_domain.conf.5.md)
 
     Grouping factor for SMTP sessions by recipient domains
 
-- [sympa.conf(5)](./sympa.conf.5.md), robot.conf(5)
+- [sympa\_config(5)](./sympa_config.5.md)
 
-    Configuration file for default site and robot
+    Configuration files for Sympa mailing list manager
 
 - [sympa\_scenario(5)](./sympa_scenario.5.md)
 
