@@ -1,6 +1,6 @@
 ---
 title: 'upgrade_sympa_password(1)'
-release: '6.2.56'
+release: '6.2.58'
 ---
 
 # NAME

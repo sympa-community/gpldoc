@@ -1,6 +1,6 @@
 ---
 title: 'sympa_database(5)'
-release: '6.2.56'
+release: '6.2.58'
 ---
 
 # NAME

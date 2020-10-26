@@ -1,6 +1,6 @@
 ---
 title: 'sympa_newaliases(1)'
-release: '6.2.56'
+release: '6.2.58'
 ---
 
 # NAME
@@ -26,11 +26,6 @@ then updates alias database.
 - `--domain=`_domain_
 
     Name of virtual robot on which aliases will be updated.
-
-- `-f`, `--config=`_file_
-
-    Force sympa\_newaliases to use an alternative configuration file instead
-    of `/etc/sympa/sympa.conf`.
 
 - `-h`, `--help`
 

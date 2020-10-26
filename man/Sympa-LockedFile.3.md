@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::LockedFile(3)'
-release: '6.2.56'
+release: '6.2.58'
 ---
 
 # NAME

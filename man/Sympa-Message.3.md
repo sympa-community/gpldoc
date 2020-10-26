@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.56'
+release: '6.2.58'
 ---
 
 # NAME
@@ -726,6 +726,10 @@ to prevent forgery.  To ensure it will be added to messages by MDA,
     - pipe(8)
 
         Add `R` to the `flags=` attributes in master.cf.
+
+        Additionally with Postfix 2.3 or later, add an empty `null_sender=`
+        attribute.
+        Or "null envelope sender" would be replaced with `<MAILER-DAEMON>`.
 - Exim
 
     Set `return_path_add` to be true with pipe\_transport.

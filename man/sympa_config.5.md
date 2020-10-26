@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.57b.2'
+release: '6.2.58'
 ---
 
 # NAME

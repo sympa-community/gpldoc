@@ -1,6 +1,6 @@
 ---
 title: 'sympa(1)'
-release: '6.2.56'
+release: '6.2.58'
 ---
 
 # NAME
@@ -21,6 +21,7 @@ sympa, sympa.pl - Command line utility to manage Sympa
 \[ `--dump_users` `--list`=_list_@_domain_&#124;ALL \[ `--role`=_roles_ \] \]
 \[ `--restore_users` `--list`=_list_@_domain_&#124;ALL \[ `--role`=_roles_ \] \]
 \[ `--show_pending_lists`=_robot_ \]
+\[ `--rebuildarc`=_list_\[_@robot_\] \]
 
 # DESCRIPTION
 
@@ -176,6 +177,10 @@ With the following options `sympa.pl` will run in batch mode:
 - `--show_pending_lists`=_robot_
 
     Print all pending lists for the robot, with informations.
+
+- `--rebuildarc`=_list_\[_@robot_\]
+
+    Rebuild the archives of the list.
 
 - `--reload_list_config`
 \[ `--list=`_mylist_@_mydom_ \] \[ `--robot=`_mydom_ \]
