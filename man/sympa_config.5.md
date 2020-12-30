@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.58'
+release: '6.2.59b.2'
 ---
 
 # NAME
@@ -52,7 +52,7 @@ Format of `config` is as following:
 
 - Lines beginning with `#` and containing only spaces are ignored.
 - There are simple parameters and compound parameters:
-    - A cimple parameter is expressed by single line by each.
+    - A simple parameter is expressed by single line by each.
     The line has the form "_parameter_ _value_".
     _value_ may contain spaces but may not contain newlines.
 
@@ -80,6 +80,12 @@ Format of `config` is as following:
 
         Several multiple line parameters may occur multiple times.
 
+        Example:
+
+            archive
+            web_access open
+            mail_access closed
+
 # PARAMETERS
 
 Below is entire list of configuration parameters.
@@ -87,10 +93,12 @@ Below is entire list of configuration parameters.
 - Sub-parameters in paragraph are listed as _paragraph_`.`_sub-parameter_
 by each.
 - "Default" is built-in default value if any.
+About symbols for paths, such as `$SENDMAIL_ALIASES`,
+see "[Directory layout](https://sympa-community.github.io/manual/layout.html)".
 
 ## Service description
 
-### `**domain**`
+### `domain`
 
 Primary mail domain name
 
@@ -110,7 +118,7 @@ Example:
 
     domain mail.example.org
 
-### `**listmaster**`
+### `listmaster`
 
 Email addresses of listmasters
 
@@ -134,7 +142,7 @@ Example:
 
     listmaster your_email_address@domain.tld
 
-### `**supported_lang**`
+### `supported_lang`
 
 Supported languages
 
@@ -152,7 +160,7 @@ Supported languages
 
 All supported languages for the user interface. Languages proper locale information not installed are ignored.
 
-### `**title**`
+### `title`
 
 Title of service
 
@@ -170,7 +178,7 @@ Title of service
 
 The name of your mailing list service. It will appear in the header of web interface and subjects of several service messages.
 
-### `**gecos**`
+### `gecos`
 
 Display name of Sympa
 
@@ -188,7 +196,7 @@ Display name of Sympa
 
 This parameter is used for display name in the "From:" header field for the messages sent by Sympa itself.
 
-### `**legacy_character_support_feature**`
+### `legacy_character_support_feature`
 
 Support of legacy character set
 
@@ -209,7 +217,7 @@ In some language environments, legacy encoding (character set) can be preferred 
 
 ## Database related
 
-### `**update_db_field_types**`
+### `update_db_field_types`
 
 Update database structure
 
@@ -228,7 +236,7 @@ auto: Updates database table structures automatically.
 
 However, since version 5.3b.5, Sympa will not shorten field size if it already have been longer than the size defined in database definition.
 
-### `**db_type**`
+### `db_type`
 
 Type of the database
 
@@ -246,7 +254,7 @@ Type of the database
 
 Possible types are "MySQL", "PostgreSQL", "Oracle" and "SQLite".
 
-### `**db_host**`
+### `db_host`
 
 Hostname of the database server
 
@@ -268,7 +276,7 @@ Example:
 
     db_host localhost
 
-### `**db_port**`
+### `db_port`
 
 Port of the database server
 
@@ -284,7 +292,7 @@ Port of the database server
 
     site (`sympa.conf`)
 
-### `**db_name**`
+### `db_name`
 
 Name of the database
 
@@ -304,7 +312,7 @@ With SQLite, this must be the full path to database file.
 
 With Oracle Database, this must be SID, net service name or easy connection identifier (to use net service name, db\_host should be set to "none" and HOST, PORT and SERVICE\_NAME should be defined in tnsnames.ora file).
 
-### `**db_user**`
+### `db_user`
 
 User for the database connection
 
@@ -324,7 +332,7 @@ Example:
 
     db_user sympa
 
-### `**db_passwd**`
+### `db_passwd`
 
 Password for the database connection
 
@@ -346,7 +354,7 @@ Example:
 
     db_passwd your_passwd
 
-### `**db_options**`
+### `db_options`
 
 Database options
 
@@ -368,7 +376,7 @@ Example:
 
     db_options mysql_read_default_file=/home/joe/my.cnf;mysql_socket=tmp/mysql.sock-test
 
-### `**db_env**`
+### `db_env`
 
 Environment variables setting for database
 
@@ -390,7 +398,7 @@ Example:
 
     db_env NLS_LANG=American_America.AL32UTF8;ORACLE_HOME=/u01/app/oracle/product/11.2.0/server
 
-### `**db_timeout**`
+### `db_timeout`
 
 Database processing timeout
 
@@ -408,7 +416,7 @@ Database processing timeout
 
 Currently, this parameter may be used for SQLite only.
 
-### `**db_additional_subscriber_fields**`
+### `db_additional_subscriber_fields`
 
 Database private extension to subscriber table
 
@@ -440,7 +448,7 @@ Example:
 
     db_additional_subscriber_fields billing_delay,subscription_expiration
 
-### `**db_additional_user_fields**`
+### `db_additional_user_fields`
 
 Database private extension to user table
 
@@ -470,7 +478,7 @@ Example:
 
 ## System log
 
-### `**syslog**`
+### `syslog`
 
 System log facility for Sympa
 
@@ -488,7 +496,7 @@ System log facility for Sympa
 
 Do not forget to configure syslog server.
 
-### `**log_socket_type**`
+### `log_socket_type`
 
 Communication mode with syslog server
 
@@ -504,7 +512,7 @@ Communication mode with syslog server
 
     site (`sympa.conf`)
 
-### `**log_level**`
+### `log_level`
 
 Log verbosity
 
@@ -532,7 +540,7 @@ Example:
 
 ## Mail server
 
-### `**sendmail**`
+### `sendmail`
 
 Path to sendmail
 
@@ -552,7 +560,7 @@ Absolute path to sendmail command line utility (e.g.: a binary named "sendmail" 
 
 Sympa expects this binary to be sendmail compatible (exim, Postfix, qmail and so on provide it).
 
-### `**sendmail_args**`
+### `sendmail_args`
 
 Command line parameters passed to sendmail
 
@@ -570,7 +578,7 @@ Command line parameters passed to sendmail
 
 Note that "-f", "-N" and "-V" options and recipient addresses should not be included, because they will be included by Sympa.
 
-### `**sendmail_aliases**`
+### `sendmail_aliases`
 
 Path of the file that contains all list related aliases
 
@@ -580,7 +588,7 @@ Path of the file that contains all list related aliases
 
 - Default:
 
-    `/etc/mail/sympa_aliases`
+    `$SENDMAIL_ALIASES`
 
 - Context:
 
@@ -590,7 +598,7 @@ It is recommended to create a specific alias file so that Sympa never overwrites
 
 Set this parameter to "none" if you want to disable alias management in Sympa.
 
-### `**aliases_program**`
+### `aliases_program`
 
 Program used to update alias database
 
@@ -608,7 +616,24 @@ Program used to update alias database
 
 This may be "makemap", "newaliases", "postalias", "postmap" or full path to custom program.
 
-### `**aliases_db_type**`
+### `aliases_wrapper`
+
+Whether to use the alias wrapper
+
+- Format:
+    - `off` - disabled
+    - `on` - enabled
+- Default:
+
+    `on`
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+If the program to update alias database does not require root privileges, set this parameter to "off" and remove the wrapper file sympa\_newaliases-wrapper.
+
+### `aliases_db_type`
 
 Type of alias database
 
@@ -626,7 +651,7 @@ Type of alias database
 
 "btree", "dbm", "hash" and so on.  Available when aliases\_program is "makemap", "postalias" or "postmap"
 
-### `**alias_manager**`
+### `alias_manager`
 
 Path to alias manager
 
@@ -636,7 +661,7 @@ Path to alias manager
 
 - Default:
 
-    `/home/sympa/sbin/alias_manager.pl`
+    `$SBINDIR/alias_manager.pl`
 
 - Context:
 
@@ -650,7 +675,7 @@ Example:
 
 ## List definition
 
-### `**subject**`
+### `subject`
 
 Subject of the list
 
@@ -668,7 +693,7 @@ Subject of the list
 
 This parameter indicates the subject of the list, which is sent in response to the LISTS mail command. The subject is a free form text limited to one line.
 
-### `**visibility**`
+### `visibility`
 
 Visibility of the list
 
@@ -690,7 +715,7 @@ Visibility of the list
 
 This parameter indicates whether the list should feature in the output generated in response to a LISTS command or should be shown in the list overview of the web-interface.
 
-### `**topics**`
+### `topics`
 
 Topics for the list
 
@@ -710,7 +735,7 @@ Topics for the list
 
 This parameter allows the classification of lists. You may define multiple topics as well as hierarchical ones. WWSympa's list of public lists uses this parameter.
 
-### `**lang**`
+### `lang`
 
 Language of the list
 
@@ -728,7 +753,7 @@ Language of the list
 
 This parameter defines the language used for the list. It is used to initialize a user's language preference; Sympa command reports are extracted from the associated message catalog.
 
-### `**family_name**`
+### `family_name`
 
 Family name
 
@@ -744,7 +769,7 @@ Family name
 
     list (`config`)
 
-### `**max_list_members**`
+### `max_list_members`
 
 Maximum number of list members
 
@@ -762,7 +787,7 @@ Maximum number of list members
 
 limit for the number of subscribers. 0 means no limit.
 
-### `**priority**`
+### `priority`
 
 Priority
 
@@ -790,7 +815,7 @@ The priority with which Sympa will process messages for this list. This level of
 
 ## Receiving
 
-### `**sender_headers**`
+### `sender_headers`
 
 Header field name(s) used to determine sender of the messages
 
@@ -809,7 +834,7 @@ Example:
 
     sender_headers Resent-From,From,Return-Path
 
-### `**misaddressed_commands**`
+### `misaddressed_commands`
 
 Reject misaddressed commands
 
@@ -824,7 +849,7 @@ Reject misaddressed commands
 
 When a mail command is sent to a list, by default Sympa rejects this message. This feature can be turned off setting this parameter to "ignore".
 
-### `**misaddressed_commands_regexp**`
+### `misaddressed_commands_regexp`
 
 Regular expression matching with misaddressed commands
 
@@ -839,7 +864,7 @@ Regular expression matching with misaddressed commands
 
 Perl regular expression applied on messages subject and body to detect misaddressed commands.
 
-### `**sympa_priority**`
+### `sympa_priority`
 
 Priority for command messages
 
@@ -865,7 +890,7 @@ Priority for command messages
 
 Priority applied to messages sent to Sympa command address.
 
-### `**request_priority**`
+### `request_priority`
 
 Priority for messages bound for list owners
 
@@ -891,7 +916,7 @@ Priority for messages bound for list owners
 
 Priority for processing of messages bound for "LIST-request" address, i.e. owners of the list
 
-### `**owner_priority**`
+### `owner_priority`
 
 Priority for non-VERP bounces
 
@@ -917,7 +942,7 @@ Priority for non-VERP bounces
 
 Priority for processing of messages bound for "LIST-owner" address, i.e. non-delivery reports (bounces).
 
-### `**incoming_max_count**`
+### `incoming_max_count`
 
 Max number of sympa.pl workers
 
@@ -935,7 +960,7 @@ Max number of sympa.pl workers
 
 Max number of workers of sympa.pl daemon processing incoming spool.
 
-### `**sleep**`
+### `sleep`
 
 Interval between scanning incoming message spool
 
@@ -955,7 +980,7 @@ Must not be 0.
 
 ## Sending/receiving setup
 
-### `**send**`
+### `send`
 
 Who can send messages
 
@@ -997,7 +1022,7 @@ Who can send messages
 
 This parameter specifies who can send messages to the list.
 
-### `**delivery_time**`
+### `delivery_time`
 
 Delivery time (hh:mm)
 
@@ -1015,7 +1040,7 @@ Delivery time (hh:mm)
 
 If this parameter is present, non-digest messages will be delivered to subscribers at this time: When this time has been past, delivery is postponed to the same time in next day.
 
-### `**digest**`
+### `digest`
 
 (Paragraph)
 Digest frequency
@@ -1074,7 +1099,7 @@ minute
 
     list (`config`)
 
-### `**digest_max_size**`
+### `digest_max_size`
 
 Digest maximum number of messages
 
@@ -1090,7 +1115,7 @@ Digest maximum number of messages
 
     list (`config`)
 
-### `**available_user_options**`
+### `available_user_options`
 
 (Paragraph)
 Available subscription options
@@ -1117,7 +1142,7 @@ reception mode
 
 Only these modes will be allowed for the subscribers of this list. If a subscriber has a reception mode not in the list, Sympa uses the mode specified in the default\_user\_options paragraph.
 
-### `**default_user_options**`
+### `default_user_options`
 
 (Paragraph)
 Subscription profile
@@ -1162,7 +1187,7 @@ visibility
 
 Visibility of the subscriber.
 
-### `**msg_topic**`
+### `msg_topic`
 
 (Paragraph)
 Topics for message categorization
@@ -1219,7 +1244,7 @@ Message topic title
 
     list (`config`)
 
-### `**msg_topic_keywords_apply_on**`
+### `msg_topic_keywords_apply_on`
 
 Defines to which part of messages topic keywords are applied
 
@@ -1237,7 +1262,7 @@ Defines to which part of messages topic keywords are applied
 
 This parameter indicates which part of the message is used to perform automatic tagging.
 
-### `**msg_topic_tagging**`
+### `msg_topic_tagging`
 
 Message tagging
 
@@ -1255,7 +1280,7 @@ Message tagging
 
 This parameter indicates if the tagging is optional or required for a list.
 
-### `**reply_to_header**`
+### `reply_to_header`
 
 (Paragraph)
 Reply address
@@ -1320,7 +1345,7 @@ respect of existing header field
 
 The default is to respect (preserve) the existing Reply-To: SMTP header field in incoming messages. If set to forced, Reply-To: SMTP header field will be overwritten.
 
-### `**anonymous_sender**`
+### `anonymous_sender`
 
 Anonymous sender
 
@@ -1338,7 +1363,7 @@ Anonymous sender
 
 To hide the sender's email address before distributing the message. It is replaced by the provided email address.
 
-### `**anonymous_header_fields**`
+### `anonymous_header_fields`
 
 Header fields removed when a mailing list is setup in anonymous mode
 
@@ -1357,7 +1382,7 @@ Default value prior to Sympa 6.1.19 is:
 
     Sender,X-Sender,Received,Message-id,From,X-Envelope-To,Resent-From,Reply-To,Organization,Disposition-Notification-To,X-Envelope-From,X-X-Sender
 
-### `**custom_header**`
+### `custom_header`
 
 Custom header field
 
@@ -1377,7 +1402,7 @@ Custom header field
 
 This parameter is optional. The headers specified will be added to the headers of messages distributed via the list. As of release 1.2.2 of Sympa, it is possible to put several custom header lines in the configuration file at the same time.
 
-### `**custom_subject**`
+### `custom_subject`
 
 Subject tagging
 
@@ -1395,7 +1420,7 @@ Subject tagging
 
 This parameter is optional. It specifies a string which is added to the subject of distributed messages (intended to help users who do not use automatic tools to sort incoming messages). This string will be surrounded by \[\] characters.
 
-### `**footer_type**`
+### `footer_type`
 
 Attachment type
 
@@ -1420,7 +1445,7 @@ append:
 
 Sympa will not create new MIME parts, but will try to append the header/footer to the body of the message. Predefined message-footers will be ignored. Headers/footers may be appended to text/plain messages only.
 
-### `**max_size**`
+### `max_size`
 
 Maximum message size
 
@@ -1442,7 +1467,7 @@ Example:
 
     max_size 2097152
 
-### `**merge_feature**`
+### `personalization_feature`
 
 Allow message personalization
 
@@ -1455,9 +1480,48 @@ Allow message personalization
 
 - Context:
 
-    list (`config`), site (`sympa.conf`)
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
-### `**message_hook**`
+### `personalization`
+
+(Paragraph)
+Message personalization
+
+- Single occurrence
+
+#### `personalization.web_apply_on`
+
+which part of message from web conversion is applied
+
+- Format:
+    - `none` - do nothing
+    - `footer` - header and footer
+    - `all` - all
+- Default:
+
+    `footer`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+#### `personalization.mail_apply_on`
+
+which part of e-mail message conversion is applied
+
+- Format:
+    - `none` - do nothing
+    - `footer` - header and footer
+    - `all` - all
+- Default:
+
+    `none`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+### `message_hook`
 
 (Paragraph)
 Hook modules for message processing
@@ -1496,7 +1560,7 @@ A hook on the messages just after archiving
 
     list (`config`)
 
-### `**reject_mail_from_automates_feature**`
+### `reject_mail_from_automates_feature`
 
 Reject mail from automatic processes (crontab, etc)?
 
@@ -1515,7 +1579,7 @@ Rejects messages that seem to be from automated services, based on a few header 
 
 Sympa also can be configured to reject messages based on the "From:" header field value (see "loop\_prevention\_regex").
 
-### `**remove_headers**`
+### `remove_headers`
 
 Header fields to be removed from incoming messages
 
@@ -1541,7 +1605,7 @@ Example:
 
     remove_headers Resent-Date,Resent-From,Resent-To,Resent-Message-Id,Sender,Delivered-To
 
-### `**remove_outgoing_headers**`
+### `remove_outgoing_headers`
 
 Header fields to be removed before message distribution
 
@@ -1565,7 +1629,7 @@ Example:
 
     remove_outgoing_headers X-no-archive
 
-### `**rfc2369_header_fields**`
+### `rfc2369_header_fields`
 
 RFC 2369 header fields
 
@@ -1594,7 +1658,7 @@ Specify which RFC 2369 mailing list header fields to be added.
 
 ## Distribution
 
-### `**urlize_min_size**`
+### `urlize_min_size`
 
 Minimum size to be urlized
 
@@ -1612,7 +1676,7 @@ Minimum size to be urlized
 
 When a subscriber chose "urlize" reception mode, attachments not smaller than this size will be urlized.
 
-### `**allowed_external_origin**`
+### `allowed_external_origin`
 
 Allowed external links in sanitized HTML
 
@@ -1634,7 +1698,7 @@ Example:
 
     allowed_external_origin *.example.org,www.example.com
 
-### `**sympa_packet_priority**`
+### `sympa_packet_priority`
 
 Default priority for a packet
 
@@ -1660,7 +1724,7 @@ Default priority for a packet
 
 The default priority set to a packet to be sent by the bulk.
 
-### `**bulk_fork_threshold**`
+### `bulk_fork_threshold`
 
 Fork threshold of bulk daemon
 
@@ -1678,7 +1742,7 @@ Fork threshold of bulk daemon
 
 The minimum number of packets before bulk daemon forks a new worker to increase sending rate.
 
-### `**bulk_max_count**`
+### `bulk_max_count`
 
 Maximum number of bulk workers
 
@@ -1694,7 +1758,7 @@ Maximum number of bulk workers
 
     site (`sympa.conf`)
 
-### `**bulk_lazytime**`
+### `bulk_lazytime`
 
 Idle timeout of bulk workers
 
@@ -1712,7 +1776,7 @@ Idle timeout of bulk workers
 
 The number of seconds a bulk worker will remain running without processing a message before it spontaneously exits.
 
-### `**bulk_sleep**`
+### `bulk_sleep`
 
 Sleep time of bulk workers
 
@@ -1732,7 +1796,7 @@ The number of seconds a bulk worker sleeps between starting a new loop if it did
 
 Keep it small if you want your server to be reactive.
 
-### `**bulk_wait_to_fork**`
+### `bulk_wait_to_fork`
 
 Interval between checks of packet numbers
 
@@ -1752,7 +1816,7 @@ Number of seconds a master bulk daemon waits between two packets number checks.
 
 Keep it small if you expect brutal increases in the message sending load.
 
-### `**log_smtp**`
+### `log_smtp`
 
 Log invocation of sendmail
 
@@ -1769,7 +1833,7 @@ Log invocation of sendmail
 
 This can be overwritten by "-m" option for sympa.pl.
 
-### `**maxsmtp**`
+### `maxsmtp`
 
 Maximum number of sendmail processes
 
@@ -1793,7 +1857,7 @@ Example:
 
     maxsmtp 500
 
-### `**nrcpt**`
+### `nrcpt`
 
 Maximum number of recipients per call to sendmail
 
@@ -1811,7 +1875,7 @@ Maximum number of recipients per call to sendmail
 
 This grouping factor makes it possible for the sendmail processes to optimize the number of SMTP sessions for message distribution. If needed, you can limit the number of recipients for a particular domain. Check the "nrcpt\_by\_domain.conf" configuration file.
 
-### `**avg**`
+### `avg`
 
 Maximum number of different mail domains per call to sendmail
 
@@ -1829,7 +1893,7 @@ Maximum number of different mail domains per call to sendmail
 
 ## Privileges
 
-### `**create_list**`
+### `create_list`
 
 Who is able to create lists
 
@@ -1854,7 +1918,7 @@ Example:
 
     create_list intranet
 
-### `**allow_subscribe_if_pending**`
+### `allow_subscribe_if_pending`
 
 Allow adding subscribers to a list not open
 
@@ -1871,7 +1935,7 @@ Allow adding subscribers to a list not open
 
 If set to "off", adding subscribers to, or removing subscribers from a list with status other than "open" is forbidden.
 
-### `**global_remind**`
+### `global_remind`
 
 Who is able to send remind messages over all lists
 
@@ -1889,7 +1953,7 @@ Who is able to send remind messages over all lists
 
     site (`sympa.conf`)
 
-### `**move_user**`
+### `move_user`
 
 Who is able to change user's email
 
@@ -1909,7 +1973,7 @@ Who is able to change user's email
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**use_blacklist**`
+### `use_blacklist`
 
 Use blacklist
 
@@ -1927,7 +1991,7 @@ Use blacklist
 
 List of operations separated by comma for which blacklist filter is applied.  Setting this parameter to "none" will hide the blacklist feature.
 
-### `**info**`
+### `info`
 
 Who can view list information
 
@@ -1947,7 +2011,7 @@ Who can view list information
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
-### `**subscribe**`
+### `subscribe`
 
 Who can subscribe to the list
 
@@ -1979,7 +2043,7 @@ Who can subscribe to the list
 
 The subscribe parameter defines the rules for subscribing to the list.
 
-### `**add**`
+### `add`
 
 Who can add subscribers
 
@@ -2004,7 +2068,7 @@ Who can add subscribers
 
 Privilege for adding (ADD command) a subscriber to the list
 
-### `**unsubscribe**`
+### `unsubscribe`
 
 Who can unsubscribe
 
@@ -2031,7 +2095,7 @@ Who can unsubscribe
 
 This parameter specifies the unsubscription method for the list. Use open\_notify or auth\_notify to allow owner notification of each unsubscribe command.
 
-### `**del**`
+### `del`
 
 Who can delete subscribers
 
@@ -2054,7 +2118,7 @@ Who can delete subscribers
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
-### `**invite**`
+### `invite`
 
 Who can invite people
 
@@ -2075,7 +2139,7 @@ Who can invite people
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
-### `**remind**`
+### `remind`
 
 Who can start a remind process
 
@@ -2098,7 +2162,7 @@ Who can start a remind process
 
 This parameter specifies who is authorized to use the remind command.
 
-### `**review**`
+### `review`
 
 Who can review subscribers
 
@@ -2122,7 +2186,7 @@ Who can review subscribers
 
 This parameter specifies who can access the list of members. Since subscriber addresses can be abused by spammers, it is strongly recommended that you only authorize owners or subscribers to access the subscriber list. 
 
-### `**owner_domain**`
+### `owner_domain`
 
 Required domains for list owners
 
@@ -2140,7 +2204,7 @@ Required domains for list owners
 
 Restrict list ownership to addresses in the specified domains. This can be used to reserve list ownership to a group of trusted users from a set of domains associated with an organization, while allowing moderators and subscribers from the Internet at large.
 
-### `**owner_domain_min**`
+### `owner_domain_min`
 
 Minimum owners in required domains
 
@@ -2158,7 +2222,7 @@ Minimum owners in required domains
 
 Minimum number of owners for each list must satisfy the owner\_domain restriction. The default of zero (0) means \*all\* list owners must match. Setting to 1 requires only one list owner to match owner\_domain; all other owners can be from any domain. This setting can be used to ensure that there is always at least one known contact point for any mailing list.
 
-### `**shared_doc**`
+### `shared_doc`
 
 (Paragraph)
 Shared documents
@@ -2228,7 +2292,7 @@ quota
 
 ## Archives
 
-### `**ignore_x_no_archive_header_feature**`
+### `ignore_x_no_archive_header_feature`
 
 Ignore "X-no-archive:" header field
 
@@ -2249,7 +2313,7 @@ Example:
 
     ignore_x_no_archive_header_feature on
 
-### `**custom_archiver**`
+### `custom_archiver`
 
 Custom archiver
 
@@ -2277,7 +2341,7 @@ The address of the list including domain part.
 
 Absolute path to the message to be archived.
 
-### `**process_archive**`
+### `process_archive`
 
 Store distributed messages into archive
 
@@ -2296,7 +2360,7 @@ If enabled, distributed messages via lists will be archived. Otherwise archiving
 
 Note that even if setting this parameter disabled, past archives will not be removed and will be accessible according to access settings by each list.
 
-### `**archive**`
+### `archive`
 
 (Paragraph)
 Archives
@@ -2390,7 +2454,7 @@ Maximum number of month archived
 
     list (`config`)
 
-### `**archive_crypted_msg**`
+### `archive_crypted_msg`
 
 Archive encrypted mails as cleartext
 
@@ -2405,7 +2469,7 @@ Archive encrypted mails as cleartext
 
     list (`config`)
 
-### `**web_archive_spam_protection**`
+### `web_archive_spam_protection`
 
 Protect web archive against spam harvesters
 
@@ -2427,7 +2491,7 @@ Idem spam\_protection is provided but it can be used only for web archives. Acce
 
 ## Bounces
 
-### `**bounce**`
+### `bounce`
 
 (Paragraph)
 Bounces management
@@ -2456,7 +2520,7 @@ The list owner receives a warning whenever a message is distributed and the numb
 
 Deprecated.
 
-### `**bouncers_level1**`
+### `bouncers_level1`
 
 (Paragraph)
 Management of bouncers, 1st level
@@ -2521,7 +2585,7 @@ notification
 
 When automatic task is executed on level 1 bouncers, a notification email can be send to listowner or listmaster.
 
-### `**bouncers_level2**`
+### `bouncers_level2`
 
 (Paragraph)
 Management of bouncers, 2nd level
@@ -2586,7 +2650,7 @@ notification
 
 When automatic task is executed on level 2 bouncers, a notification email can be send to listowner or listmaster.
 
-### `**verp_rate**`
+### `verp_rate`
 
 percentage of list members in VERP mode
 
@@ -2616,7 +2680,7 @@ Uses variable envelope return path (VERP) to detect bouncing subscriber addresse
 
 VERP requires address with extension to be supported by MTA. If tracking is enabled for a list or a message, VERP is applied for 100% of subscribers.
 
-### `**tracking**`
+### `tracking`
 
 (Paragraph)
 Message tracking feature
@@ -2689,7 +2753,7 @@ Tracking datas are removed after this number of days
 
     list (`config`), site (`sympa.conf`)
 
-### `**welcome_return_path**`
+### `welcome_return_path`
 
 Welcome return-path
 
@@ -2706,7 +2770,7 @@ Welcome return-path
 
 If set to unique, the welcome message is sent using a unique return path in order to remove the subscriber immediately in the case of a bounce.
 
-### `**remind_return_path**`
+### `remind_return_path`
 
 Return-path of the REMIND command
 
@@ -2723,7 +2787,7 @@ Return-path of the REMIND command
 
 Same as welcome\_return\_path, but applied to remind messages.
 
-### `**expire_bounce_task**`
+### `expire_bounce_task`
 
 Task for expiration of old bounces
 
@@ -2741,7 +2805,7 @@ Task for expiration of old bounces
 
 This task resets bouncing information for addresses not bouncing in the last 10 days after the latest message distribution.
 
-### `**purge_orphan_bounces_task**`
+### `purge_orphan_bounces_task`
 
 Task for cleaning invalidated bounces
 
@@ -2759,7 +2823,7 @@ Task for cleaning invalidated bounces
 
 This task deletes bounce information for unsubscribed users.
 
-### `**eval_bouncers_task**`
+### `eval_bouncers_task`
 
 Task for updating bounce scores
 
@@ -2777,7 +2841,7 @@ Task for updating bounce scores
 
 This task scans all bouncing users for all lists, and updates "bounce\_score\_subscriber" field in "subscriber\_table" table. The scores may be used for management of bouncers.
 
-### `**process_bouncers_task**`
+### `process_bouncers_task`
 
 Task for management of bouncers
 
@@ -2795,7 +2859,7 @@ Task for management of bouncers
 
 This task executes actions on bouncing users configured by each list, according to their scores.
 
-### `**purge_tables_task**`
+### `purge_tables_task`
 
 Task for cleaning tables
 
@@ -2813,7 +2877,7 @@ Task for cleaning tables
 
 This task cleans old tracking information from "notification\_table" table.
 
-### `**minimum_bouncing_count**`
+### `minimum_bouncing_count`
 
 Minimum number of bounces
 
@@ -2831,7 +2895,7 @@ Minimum number of bounces
 
 The minimum number of bounces received to update bounce score of a user.
 
-### `**minimum_bouncing_period**`
+### `minimum_bouncing_period`
 
 Minimum bouncing period
 
@@ -2849,7 +2913,7 @@ Minimum bouncing period
 
 The minimum period for which bouncing lasted to update bounce score of a user.
 
-### `**bounce_delay**`
+### `bounce_delay`
 
 Delay of bounces
 
@@ -2867,7 +2931,7 @@ Delay of bounces
 
 Average time for a bounce sent back to mailing list server after a post was sent to a list. Usually bounces are sent back on the same day as the original message.
 
-### `**bounce_email_prefix**`
+### `bounce_email_prefix`
 
 Prefix of VERP return address
 
@@ -2887,7 +2951,7 @@ The prefix to consist the return-path of probe messages used for bounce manageme
 
 If you change the default value, you must modify the mail aliases too.
 
-### `**return_path_suffix**`
+### `return_path_suffix`
 
 Suffix of list return address
 
@@ -2907,7 +2971,7 @@ The suffix appended to the list name to form the return-path of messages distrib
 
 ## Loop prevention
 
-### `**loop_command_max**`
+### `loop_command_max`
 
 Maximum number of responses to command message
 
@@ -2925,7 +2989,7 @@ Maximum number of responses to command message
 
 The maximum number of command reports sent to an email address. Messages are stored in "bad" subdirectory of incoming message spool, and reports are not longer sent.
 
-### `**loop_command_sampling_delay**`
+### `loop_command_sampling_delay`
 
 Delay before counting responses to command message
 
@@ -2943,7 +3007,7 @@ Delay before counting responses to command message
 
 This parameter defines the delay in seconds before decrementing the counter of reports sent to an email address.
 
-### `**loop_command_decrease_factor**`
+### `loop_command_decrease_factor`
 
 Decrementing factor of responses to command message
 
@@ -2961,7 +3025,7 @@ Decrementing factor of responses to command message
 
 The decrementation factor (from 0 to 1), used to determine the new report counter after expiration of the delay.
 
-### `**msgid_table_cleanup_ttl**`
+### `msgid_table_cleanup_ttl`
 
 Expiration period of message ID table
 
@@ -2979,7 +3043,7 @@ Expiration period of message ID table
 
 Expiration period of entries in the table maintained by sympa\_msg.pl daemon to prevent delivery of duplicate messages caused by loop.
 
-### `**msgid_table_cleanup_frequency**`
+### `msgid_table_cleanup_frequency`
 
 Cleanup interval of message ID table
 
@@ -2999,7 +3063,7 @@ Interval between cleanups of the table maintained by sympa\_msg.pl daemon to pre
 
 ## Automatic lists
 
-### `**automatic_list_feature**`
+### `automatic_list_feature`
 
 Automatic list
 
@@ -3014,7 +3078,7 @@ Automatic list
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**automatic_list_removal**`
+### `automatic_list_removal`
 
 Remove empty automatic list
 
@@ -3035,7 +3099,7 @@ Example:
 
     automatic_list_removal if_empty
 
-### `**automatic_list_creation**`
+### `automatic_list_creation`
 
 Who is able to create automatic list
 
@@ -3055,7 +3119,7 @@ Who is able to create automatic list
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**automatic_list_families**`
+### `automatic_list_families`
 
 Definition of automatic list families
 
@@ -3089,7 +3153,7 @@ Example:
 
     automatic_list_families name=family_one:prefix=f1:display=My automatic lists:prefix_separator=+:classes separator=-:family_owners_list=alist@domain.tld;name=family_two:prefix=f2:display=My other automatic lists:prefix_separator=+:classes separator=-:family_owners_list=anotherlist@domain.tld;
 
-### `**parsed_family_files**`
+### `parsed_family_files`
 
 Parsed files for families
 
@@ -3107,7 +3171,7 @@ Parsed files for families
 
 comma-separated list of files that will be parsed by Sympa when instantiating a family (no space allowed in file names)
 
-### `**family_signoff**`
+### `family_signoff`
 
 Global unsubscription
 
@@ -3128,7 +3192,7 @@ Global unsubscription
 
 ## Tag based spam filtering
 
-### `**antispam_feature**`
+### `antispam_feature`
 
 Tag based spam filtering
 
@@ -3143,7 +3207,7 @@ Tag based spam filtering
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**antispam_tag_header_name**`
+### `antispam_tag_header_name`
 
 Header field to tag spams
 
@@ -3161,7 +3225,7 @@ Header field to tag spams
 
 If a spam filter (like spamassassin or j-chkmail) add a header field to tag spams, name of this header field (example X-Spam-Status)
 
-### `**antispam_tag_header_spam_regexp**`
+### `antispam_tag_header_spam_regexp`
 
 Regular expression to check header field to tag spams
 
@@ -3179,7 +3243,7 @@ Regular expression to check header field to tag spams
 
 Regular expression applied on this header to verify message is a spam (example Yes)
 
-### `**antispam_tag_header_ham_regexp**`
+### `antispam_tag_header_ham_regexp`
 
 Regular expression to determine spam or ham.
 
@@ -3197,7 +3261,7 @@ Regular expression to determine spam or ham.
 
 Regular expression applied on this header field to verify message is NOT a spam (example No)
 
-### `**spam_status**`
+### `spam_status`
 
 Name of header field to inform
 
@@ -3219,7 +3283,7 @@ Messages are supposed to be filtered by an spam filter that adds them one or mor
 
 ## Directories
 
-### `**home**`
+### `home`
 
 List home
 
@@ -3229,7 +3293,7 @@ List home
 
 - Default:
 
-    `/home/sympa/var/lib/sympa/list_data`
+    `$EXPLDIR`
 
 - Context:
 
@@ -3237,7 +3301,7 @@ List home
 
 Base directory of list configurations.
 
-### `**etc**`
+### `etc`
 
 Directory for configuration files
 
@@ -3247,7 +3311,7 @@ Directory for configuration files
 
 - Default:
 
-    `/home/sympa/etc`
+    `$SYSCONFDIR`
 
 - Context:
 
@@ -3255,7 +3319,7 @@ Directory for configuration files
 
 Base directory of global configuration (except "sympa.conf").
 
-### `**spool**`
+### `spool`
 
 Base directory of spools
 
@@ -3265,7 +3329,7 @@ Base directory of spools
 
 - Default:
 
-    `/home/sympa/var/spool/sympa`
+    `$SPOOLDIR`
 
 - Context:
 
@@ -3273,7 +3337,7 @@ Base directory of spools
 
 Base directory of all spools which are created at runtime. This directory must be writable by Sympa user.
 
-### `**queue**`
+### `queue`
 
 Directory for message incoming spool
 
@@ -3283,7 +3347,7 @@ Directory for message incoming spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/msg`
+    `$SPOOLDIR/msg`
 
 - Context:
 
@@ -3291,7 +3355,7 @@ Directory for message incoming spool
 
 This spool is used both by "queue" program and "sympa\_msg.pl" daemon.
 
-### `**queuemod**`
+### `queuemod`
 
 Directory for moderation spool
 
@@ -3301,13 +3365,13 @@ Directory for moderation spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/moderation`
+    `$SPOOLDIR/moderation`
 
 - Context:
 
     site (`sympa.conf`)
 
-### `**queuedigest**`
+### `queuedigest`
 
 Directory for digest spool
 
@@ -3317,13 +3381,13 @@ Directory for digest spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/digest`
+    `$SPOOLDIR/digest`
 
 - Context:
 
     site (`sympa.conf`)
 
-### `**queueauth**`
+### `queueauth`
 
 Directory for held message spool
 
@@ -3333,7 +3397,7 @@ Directory for held message spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/auth`
+    `$SPOOLDIR/auth`
 
 - Context:
 
@@ -3341,7 +3405,7 @@ Directory for held message spool
 
 This parameter is named such by historical reason.
 
-### `**queueoutgoing**`
+### `queueoutgoing`
 
 Directory for archive spool
 
@@ -3351,7 +3415,7 @@ Directory for archive spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/outgoing`
+    `$SPOOLDIR/outgoing`
 
 - Context:
 
@@ -3359,7 +3423,7 @@ Directory for archive spool
 
 This parameter is named such by historical reason.
 
-### `**queuesubscribe**`
+### `queuesubscribe`
 
 Directory for held request spool
 
@@ -3369,7 +3433,7 @@ Directory for held request spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/subscribe`
+    `$SPOOLDIR/subscribe`
 
 - Context:
 
@@ -3377,7 +3441,7 @@ Directory for held request spool
 
 This parameter is named such by historical reason.
 
-### `**queuetopic**`
+### `queuetopic`
 
 Directory for topic spool
 
@@ -3387,13 +3451,13 @@ Directory for topic spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/topic`
+    `$SPOOLDIR/topic`
 
 - Context:
 
     site (`sympa.conf`)
 
-### `**queuebounce**`
+### `queuebounce`
 
 Directory for bounce incoming spool
 
@@ -3403,7 +3467,7 @@ Directory for bounce incoming spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/bounce`
+    `$SPOOLDIR/bounce`
 
 - Context:
 
@@ -3411,7 +3475,7 @@ Directory for bounce incoming spool
 
 This spool is used both by "bouncequeue" program and "bounced.pl" daemon.
 
-### `**queuetask**`
+### `queuetask`
 
 Directory for task spool
 
@@ -3421,13 +3485,13 @@ Directory for task spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/task`
+    `$SPOOLDIR/task`
 
 - Context:
 
     site (`sympa.conf`)
 
-### `**queueautomatic**`
+### `queueautomatic`
 
 Directory for automatic list creation spool
 
@@ -3437,7 +3501,7 @@ Directory for automatic list creation spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/automatic`
+    `$SPOOLDIR/automatic`
 
 - Context:
 
@@ -3445,7 +3509,7 @@ Directory for automatic list creation spool
 
 This spool is used both by "familyqueue" program and "sympa\_automatic.pl" daemon.
 
-### `**queuebulk**`
+### `queuebulk`
 
 Directory for message outgoing spool
 
@@ -3455,7 +3519,7 @@ Directory for message outgoing spool
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/bulk`
+    `$SPOOLDIR/bulk`
 
 - Context:
 
@@ -3463,7 +3527,7 @@ Directory for message outgoing spool
 
 This parameter is named such by historical reason.
 
-### `**tmpdir**`
+### `tmpdir`
 
 Temporary directory used by external programs such as virus scanner. Also, outputs to daemons' standard error are redirected to the files under this directory.
 
@@ -3473,13 +3537,13 @@ Temporary directory used by external programs such as virus scanner. Also, outpu
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/tmp`
+    `$SPOOLDIR/tmp`
 
 - Context:
 
     site (`sympa.conf`)
 
-### `**viewmail_dir**`
+### `viewmail_dir`
 
 Directory to cache formatted messages
 
@@ -3489,7 +3553,7 @@ Directory to cache formatted messages
 
 - Default:
 
-    `/home/sympa/var/spool/sympa/viewmail`
+    `$SPOOLDIR/viewmail`
 
 - Context:
 
@@ -3497,7 +3561,7 @@ Directory to cache formatted messages
 
 Base directory path of directories where HTML view of messages are cached.
 
-### `**bounce_path**`
+### `bounce_path`
 
 Directory for storing bounces
 
@@ -3507,7 +3571,7 @@ Directory for storing bounces
 
 - Default:
 
-    `/home/sympa/var/lib/sympa/bounce`
+    `$BOUNCEDIR`
 
 - Context:
 
@@ -3519,7 +3583,7 @@ Users can access to these messages using web interface in the bounce management 
 
 Don't confuse with "queuebounce" parameter which defines the spool where incoming error reports are stored and picked by bounced.pl daemon.
 
-### `**arc_path**`
+### `arc_path`
 
 Directory for storing archives
 
@@ -3529,7 +3593,7 @@ Directory for storing archives
 
 - Default:
 
-    `/home/sympa/var/lib/sympa/arc`
+    `$ARCDIR`
 
 - Context:
 
@@ -3537,7 +3601,7 @@ Directory for storing archives
 
 Where to store HTML archives. This parameter is used by the "archived.pl" daemon. It is a good idea to install the archive outside the web document hierarchy to prevent overcoming of WWSympa's access control.
 
-### `**purge_spools_task**`
+### `purge_spools_task`
 
 Task for cleaning spools
 
@@ -3555,7 +3619,7 @@ Task for cleaning spools
 
 This task cleans old content in spools.
 
-### `**clean_delay_queue**`
+### `clean_delay_queue`
 
 Max age of incoming bad messages
 
@@ -3573,7 +3637,7 @@ Max age of incoming bad messages
 
 Number of days "bad" messages are kept in message incoming spool (as specified by "queue" parameter). Sympa keeps messages rejected for various reasons (badly formatted, looping etc.).
 
-### `**clean_delay_queueoutgoing**`
+### `clean_delay_queueoutgoing`
 
 Max age of bad messages for archives
 
@@ -3591,7 +3655,7 @@ Max age of bad messages for archives
 
 Number of days "bad" messages are kept in message archive spool (as specified by "queueoutgoing" parameter). Sympa keeps messages rejected for various reasons (unable to create archive directory, to copy file etc.).
 
-### `**clean_delay_queuebounce**`
+### `clean_delay_queuebounce`
 
 Max age of bad bounce messages
 
@@ -3609,7 +3673,7 @@ Max age of bad bounce messages
 
 Number of days "bad" messages are kept in bounce spool (as specified by "queuebounce" parameter). Sympa keeps messages rejected for various reasons (unknown original sender, unknown report type).
 
-### `**clean_delay_queueauth**`
+### `clean_delay_queueauth`
 
 Max age of held messages
 
@@ -3627,7 +3691,7 @@ Max age of held messages
 
 Number of days messages are kept in held message spool (as specified by "queueauth" parameter). Beyond this deadline, messages that have not been confirmed are deleted.
 
-### `**clean_delay_queuesubscribe**`
+### `clean_delay_queuesubscribe`
 
 Max age of held requests
 
@@ -3645,7 +3709,7 @@ Max age of held requests
 
 Number of days requests are kept in held request spool (as specified by "queuesubscribe" parameter). Beyond this deadline, requests that have not been validated nor declined are deleted.
 
-### `**clean_delay_queuetopic**`
+### `clean_delay_queuetopic`
 
 Max age of tagged topics
 
@@ -3663,7 +3727,7 @@ Max age of tagged topics
 
 Number of days (automatically or manually) tagged topics are kept in topic spool (as specified by "queuetopic" parameter). Beyond this deadline, tagging is forgotten.
 
-### `**clean_delay_queueautomatic**`
+### `clean_delay_queueautomatic`
 
 Max age of incoming bad messages in automatic list creation spool
 
@@ -3681,7 +3745,7 @@ Max age of incoming bad messages in automatic list creation spool
 
 Number of days "bad" messages are kept in automatic list creation spool (as specified by "queueautomatic" parameter). Sympa keeps messages rejected for various reasons (badly formatted, looping etc.).
 
-### `**clean_delay_queuebulk**`
+### `clean_delay_queuebulk`
 
 Max age of outgoing bad messages
 
@@ -3699,7 +3763,7 @@ Max age of outgoing bad messages
 
 Number of days "bad" messages are kept in message outgoing spool (as specified by "queuebulk" parameter). Sympa keeps messages rejected for various reasons (failed personalization, bad configuration on MTA etc.).
 
-### `**clean_delay_queuedigest**`
+### `clean_delay_queuedigest`
 
 Max age of bad messages in digest spool
 
@@ -3717,7 +3781,7 @@ Max age of bad messages in digest spool
 
 Number of days "bad" messages are kept in digest spool (as specified by "queuedigest" parameter). Sympa keeps messages rejected for various reasons (syntax errors in "digest.tt2" template etc.).
 
-### `**clean_delay_tmpdir**`
+### `clean_delay_tmpdir`
 
 Max age of temporary files
 
@@ -3741,7 +3805,7 @@ S/MIME authentication, decryption and re-encryption. It requires these external 
 
 TLS client authentication. It requires an external module: IO-Socket-SSL.
 
-### `**cafile**`
+### `cafile`
 
 File containing trusted CA certificates
 
@@ -3759,7 +3823,7 @@ File containing trusted CA certificates
 
 This can be used alternatively and/or additionally to "capath".
 
-### `**capath**`
+### `capath`
 
 Directory containing trusted CA certificates
 
@@ -3779,7 +3843,7 @@ CA certificates in this directory are used for client authentication.
 
 The certificates need to have names including hash of subject, or symbolic links to them with such names. The links may be created by using "c\_rehash" script bundled in OpenSSL.
 
-### `**key_passwd**`
+### `key_passwd`
 
 Password used to crypt lists private keys
 
@@ -3801,7 +3865,7 @@ Example:
 
     key_passwd your_password
 
-### `**ssl_cert_dir**`
+### `ssl_cert_dir`
 
 Directory containing user certificates
 
@@ -3811,7 +3875,7 @@ Directory containing user certificates
 
 - Default:
 
-    `/home/sympa/var/lib/sympa/list_data/X509-user-certs`
+    `$EXPLDIR/X509-user-certs`
 
 - Context:
 
@@ -3821,7 +3885,7 @@ Directory containing user certificates
 
 Including subscribers, owners and moderators from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
 
-### `**inclusion_notification_feature**`
+### `inclusion_notification_feature`
 
 Notify subscribers when they are included from a data source?
 
@@ -3836,7 +3900,7 @@ Notify subscribers when they are included from a data source?
 
     list (`config`)
 
-### `**member_include**`
+### `member_include`
 
 (Paragraph)
 Subscribers defined in an external data source
@@ -3875,7 +3939,7 @@ data source parameters
 
     list (`config`)
 
-### `**owner_include**`
+### `owner_include`
 
 (Paragraph)
 Owners defined in an external data source
@@ -3959,7 +4023,7 @@ visibility
 
     list (`config`)
 
-### `**editor_include**`
+### `editor_include`
 
 (Paragraph)
 Moderators defined in an external data source
@@ -4028,7 +4092,7 @@ visibility
 
     list (`config`)
 
-### `**sql_fetch_timeout**`
+### `sql_fetch_timeout`
 
 Timeout for fetch of include\_sql\_query
 
@@ -4044,7 +4108,7 @@ Timeout for fetch of include\_sql\_query
 
     list (`config`), site (`sympa.conf`)
 
-### `**include_file**`
+### `include_file`
 
 File inclusion
 
@@ -4064,7 +4128,7 @@ File inclusion
 
 Include subscribers from this file.  The file should contain one e-mail address per line (lines beginning with a "#" are ignored).
 
-### `**include_remote_file**`
+### `include_remote_file`
 
 (Paragraph)
 Remote file inclusion
@@ -4219,7 +4283,7 @@ Time ranges when inclusion is not allowed
 
     list (`config`)
 
-### `**include_sympa_list**`
+### `include_sympa_list`
 
 (Paragraph)
 List inclusion
@@ -4292,7 +4356,7 @@ Time ranges when inclusion is not allowed
 
     list (`config`)
 
-### `**include_remote_sympa_list**`
+### `include_remote_sympa_list`
 
 (Paragraph)
 remote list inclusion
@@ -4509,7 +4573,7 @@ Time ranges when inclusion is not allowed
 
     list (`config`)
 
-### `**include_ldap_query**`
+### `include_ldap_query`
 
 (Paragraph)
 LDAP query inclusion
@@ -4793,7 +4857,7 @@ Obsoleted. Use [`use_tls`](#include_ldap_queryuse_tls).
 
 Obsoleted. Use [`bind_dn`](#include_ldap_querybind_dn).
 
-### `**include_ldap_2level_query**`
+### `include_ldap_2level_query`
 
 (Paragraph)
 LDAP 2-level query inclusion
@@ -5189,7 +5253,7 @@ Obsoleted. Use [`use_tls`](#include_ldap_2level_queryuse_tls).
 
 Obsoleted. Use [`bind_dn`](#include_ldap_2level_querybind_dn).
 
-### `**include_sql_query**`
+### `include_sql_query`
 
 (Paragraph)
 SQL query inclusion
@@ -5406,7 +5470,7 @@ Obsoleted. Use [`db_passwd`](#include_sql_querydb_passwd).
 
 Obsoleted. Use [`db_user`](#include_sql_querydb_user).
 
-### `**ttl**`
+### `ttl`
 
 Inclusions timeout
 
@@ -5424,7 +5488,7 @@ Inclusions timeout
 
 Sympa caches user data extracted using the include parameter. Their TTL (time-to-live) within Sympa can be controlled using this parameter. The default value is 3600
 
-### `**distribution_ttl**`
+### `distribution_ttl`
 
 Inclusions timeout for message distribution
 
@@ -5446,7 +5510,7 @@ This parameter defines the delay since the last synchronization after which the 
 
 \* Message distribution
 
-### `**include_ldap_ca**`
+### `include_ldap_ca`
 
 (Paragraph)
 LDAP query custom attribute
@@ -5744,7 +5808,7 @@ Obsoleted. Use [`use_tls`](#include_ldap_cause_tls).
 
 Obsoleted. Use [`bind_dn`](#include_ldap_cabind_dn).
 
-### `**include_ldap_2level_ca**`
+### `include_ldap_2level_ca`
 
 (Paragraph)
 LDAP 2-level query custom attribute
@@ -6154,7 +6218,7 @@ Obsoleted. Use [`use_tls`](#include_ldap_2level_cause_tls).
 
 Obsoleted. Use [`bind_dn`](#include_ldap_2level_cabind_dn).
 
-### `**include_sql_ca**`
+### `include_sql_ca`
 
 (Paragraph)
 SQL query custom attribute
@@ -6391,7 +6455,7 @@ DKIM signature verification and re-signing. It requires an external module: Mail
 
 ARC seals on forwarded messages. It requires an external module: Mail-DKIM.
 
-### `**dkim_add_signature_to**`
+### `dkim_add_signature_to`
 
 Which service messages to be signed
 
@@ -6409,7 +6473,7 @@ Which service messages to be signed
 
 Inserts a DKIM signature to service messages in context of robot, list or both
 
-### `**dkim_signer_identity**`
+### `dkim_signer_identity`
 
 The "i=" tag as defined in rfc 4871
 
@@ -6427,7 +6491,7 @@ The "i=" tag as defined in rfc 4871
 
 Default is null.
 
-### `**dkim_feature**`
+### `dkim_feature`
 
 Insert DKIM signature to messages sent to the list
 
@@ -6440,11 +6504,11 @@ Insert DKIM signature to messages sent to the list
 
 - Context:
 
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+    domain (`robot.conf`), site (`sympa.conf`)
 
 If set to "on", Sympa may verify DKIM signatures of incoming messages and/or insert DKIM signature to outgoing messages.
 
-### `**dkim_parameters**`
+### `dkim_parameters`
 
 (Paragraph)
 DKIM configuration
@@ -6529,7 +6593,7 @@ DKIM "i=" tag, you should probably leave this parameter empty
 
 DKIM "i=" tag, you should probably not use this parameter, as recommended by RFC 4871, default for list brodcasted messages is i=&lt;listname>-request@&lt;domain>
 
-### `**dkim_signature_apply_on**`
+### `dkim_signature_apply_on`
 
 The categories of messages sent to the list that will be signed using DKIM.
 
@@ -6554,7 +6618,7 @@ The categories of messages sent to the list that will be signed using DKIM.
 
 This parameter controls in which case messages must be signed using DKIM, you may sign every message choosing 'any' or a subset. The parameter value is a comma separated list of keywords
 
-### `**arc_feature**`
+### `arc_feature`
 
 Add ARC seals to messages sent to the list
 
@@ -6571,7 +6635,7 @@ Add ARC seals to messages sent to the list
 
 Enable/Disable ARC. This feature requires Mail::DKIM::ARC to be installed, and maybe some custom scenario to be updated
 
-### `**arc_srvid**`
+### `arc_srvid`
 
 SRV ID for Authentication-Results used in ARC seal
 
@@ -6589,7 +6653,7 @@ SRV ID for Authentication-Results used in ARC seal
 
 Typically the domain of the mail server
 
-### `**arc_parameters**`
+### `arc_parameters`
 
 (Paragraph)
 ARC configuration
@@ -6652,7 +6716,7 @@ ARC "d=" tag, you should probably use the default value
 
 The ARC "d=" tag is the domain of the signing entity. The DKIM d= domain name is used as its default value
 
-### `**dmarc_protection**`
+### `dmarc_protection`
 
 (Paragraph)
 DMARC Protection
@@ -6752,7 +6816,7 @@ This is the format to be used for the sender name part of the new From header fi
 
 Checks if an alias with the same name as the list to be created already exists on the SMTP server. This feature requires an external module: Net-SMTP.
 
-### `**list_check_helo**`
+### `list_check_helo`
 
 SMTP HELO (EHLO) parameter used for address verification
 
@@ -6770,7 +6834,7 @@ SMTP HELO (EHLO) parameter used for address verification
 
 Default value is the host part of "list\_check\_smtp" parameter.
 
-### `**list_check_smtp**`
+### `list_check_smtp`
 
 SMTP server to verify existence of the same addresses as the list to be created
 
@@ -6790,7 +6854,7 @@ This is needed if you are running Sympa on a host but you handle all your mail o
 
 Default value is real FQDN of the host. Port number may be specified as "mail.example.org:25" or "203.0.113.1:25".  If port is not specified, standard port (25) will be used.
 
-### `**list_check_suffixes**`
+### `list_check_suffixes`
 
 Address suffixes to verify
 
@@ -6812,7 +6876,7 @@ This parameter is used with the "list\_check\_smtp" parameter. It is also used t
 
 ## Antivirus plug-in
 
-### `**antivirus_path**`
+### `antivirus_path`
 
 Path to the antivirus scanner engine
 
@@ -6834,7 +6898,7 @@ Example:
 
     antivirus_path /usr/local/bin/clamscan
 
-### `**antivirus_args**`
+### `antivirus_args`
 
 Antivirus plugin command line arguments
 
@@ -6854,7 +6918,7 @@ Example:
 
     antivirus_args --no-summary --database /usr/local/share/clamav
 
-### `**antivirus_notify**`
+### `antivirus_notify`
 
 Notify sender if virus checker detects malicious content
 
@@ -6874,7 +6938,7 @@ Notify sender if virus checker detects malicious content
 
 ## Miscellaneous
 
-### `**email**`
+### `email`
 
 Local part of Sympa email address
 
@@ -6894,7 +6958,7 @@ Local part (the part preceding the "@" sign) of the address by which mail interf
 
 If you change the default value, you must modify the mail aliases too.
 
-### `**listmaster_email**`
+### `listmaster_email`
 
 Local part of listmaster email address
 
@@ -6914,7 +6978,7 @@ Local part (the part preceding the "@" sign) of the address by which listmasters
 
 If you change the default value, you must modify the mail aliases too.
 
-### `**custom_robot_parameter**`
+### `custom_robot_parameter`
 
 Custom robot parameter
 
@@ -6940,7 +7004,7 @@ Example:
 
     custom_robot_parameter param_name ; param_value
 
-### `**cache_list_config**`
+### `cache_list_config`
 
 Use of binary cache of list configuration
 
@@ -6959,7 +7023,7 @@ binary\_file: Sympa processes will maintain a binary version of the list configu
 
 You can recreate cache by running "sympa.pl --reload\_list\_config".
 
-### `**db_list_cache**`
+### `db_list_cache`
 
 Use database cache to search lists
 
@@ -6978,7 +7042,7 @@ Note that "list\_table" database table should be filled at the first time by run
 
     # sympa.pl --sync_list_db
 
-### `**purge_user_table_task**`
+### `purge_user_table_task`
 
 Task for expiring inactive users
 
@@ -6996,7 +7060,7 @@ Task for expiring inactive users
 
 This task removes rows in the "user\_table" table which have not corresponding entries in the "subscriber\_table" table.
 
-### `**purge_logs_table_task**`
+### `purge_logs_table_task`
 
 Task for cleaning tables
 
@@ -7014,7 +7078,7 @@ Task for cleaning tables
 
 This task cleans old logs from "logs\_table" table.
 
-### `**logs_expiration_period**`
+### `logs_expiration_period`
 
 Max age of logs in database
 
@@ -7032,7 +7096,7 @@ Max age of logs in database
 
 Number of months that elapse before a log is expired
 
-### `**stats_expiration_period**`
+### `stats_expiration_period`
 
 Max age of statistics information in database
 
@@ -7050,7 +7114,7 @@ Max age of statistics information in database
 
 Number of months that elapse before statistics information are expired
 
-### `**umask**`
+### `umask`
 
 Umask
 
@@ -7068,7 +7132,7 @@ Umask
 
 Default mask for file creation (see umask(2)). Note that it will be interpreted as an octal value.
 
-### `**clean_delay_queuemod**`
+### `clean_delay_queuemod`
 
 Max age of moderated messages
 
@@ -7086,7 +7150,7 @@ Max age of moderated messages
 
 Number of days messages are kept in moderation spool (as specified by "queuemod" parameter). Beyond this deadline, messages that have not been processed are deleted.
 
-### `**cookie**`
+### `cookie`
 
 Secret string for generating unique keys
 
@@ -7110,7 +7174,7 @@ Example:
 
     cookie 123456789
 
-### `**custom_attribute**`
+### `custom_attribute`
 
 (Paragraph)
 Custom user attributes
@@ -7213,7 +7277,7 @@ is the attribute optional?
 
     list (`config`)
 
-### `**custom_vars**`
+### `custom_vars`
 
 (Paragraph)
 custom parameters
@@ -7252,7 +7316,7 @@ var value
 
     list (`config`)
 
-### `**loop_prevention_regex**`
+### `loop_prevention_regex`
 
 Regular expression applied to prevent loops with robots
 
@@ -7270,7 +7334,7 @@ Regular expression applied to prevent loops with robots
 
 If the sender address matches the regular expression, then the message is rejected.
 
-### `**pictures_feature**`
+### `pictures_feature`
 
 Pictures
 
@@ -7289,7 +7353,7 @@ Enables or disables the pictures feature by default.  If enabled, subscribers ca
 
 Pictures are stored in a directory specified by the "static\_content\_path" parameter.
 
-### `**remind_task**`
+### `remind_task`
 
 Periodical subscription reminder task
 
@@ -7307,7 +7371,7 @@ Periodical subscription reminder task
 
 This parameter states which model is used to create a remind task. A remind task regularly sends  subscribers a message which reminds them of their list subscriptions.
 
-### `**latest_instantiation**`
+### `latest_instantiation`
 
 (Paragraph)
 Latest family instantiation
@@ -7350,7 +7414,7 @@ date
 
 Deprecated.
 
-### `**creation**`
+### `creation`
 
 (Paragraph)
 Creation of the list
@@ -7393,7 +7457,7 @@ date
 
 Deprecated.
 
-### `**update**`
+### `update`
 
 (Paragraph)
 Last update of config
@@ -7436,7 +7500,7 @@ date
 
 Deprecated.
 
-### `**status**`
+### `status`
 
 Status of the list
 
@@ -7452,7 +7516,7 @@ Status of the list
 
     list (`config`)
 
-### `**serial**`
+### `serial`
 
 Serial number of the config
 
@@ -7470,7 +7534,7 @@ Serial number of the config
 
 ## Web interface parameters
 
-### `**wwsympa_url**`
+### `wwsympa_url`
 
 URL prefix of web interface
 
@@ -7489,7 +7553,7 @@ Example:
 
     wwsympa_url https://web.example.org/sympa
 
-### `**wwsympa_url_local**`
+### `wwsympa_url_local`
 
 URL prefix of WWSympa behind proxy
 
@@ -7502,7 +7566,7 @@ URL prefix of WWSympa behind proxy
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**static_content_url**`
+### `static_content_url`
 
 URL for static contents
 
@@ -7517,27 +7581,27 @@ URL for static contents
 
 HTTP server have to map it with "static\_content\_path" directory.
 
-### `**static_content_path**`
+### `static_content_path`
 
 Directory for static contents
 
 - Format:
 - Default:
 
-    `/home/sympa/var/lib/sympa/static_content`
+    `$STATICDIR`
 
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**css_path**`
+### `css_path`
 
 Directory for static style sheets (CSS)
 
 - Format:
 - Default:
 
-    `/home/sympa/var/lib/sympa/static_content/css`
+    `$CSSDIR`
 
 - Context:
 
@@ -7545,7 +7609,7 @@ Directory for static style sheets (CSS)
 
 After an upgrade, static CSS files are upgraded with the newly installed "css.tt2" template. Therefore, this is not a good place to store customized CSS files.
 
-### `**css_url**`
+### `css_url`
 
 URL for style sheets (CSS)
 
@@ -7560,20 +7624,20 @@ URL for style sheets (CSS)
 
 To use auto-generated static CSS, HTTP server have to map it with "css\_path".
 
-### `**pictures_path**`
+### `pictures_path`
 
 Directory for subscribers pictures
 
 - Format:
 - Default:
 
-    `/home/sympa/var/lib/sympa/static_content/pictures`
+    `$PICTURESDIR`
 
 - Context:
 
     site (`sympa.conf`)
 
-### `**pictures_url**`
+### `pictures_url`
 
 URL for subscribers pictures
 
@@ -7588,7 +7652,7 @@ URL for subscribers pictures
 
 HTTP server have to map it with "pictures\_path" directory.
 
-### `**mhonarc**`
+### `mhonarc`
 
 Path to MHonArc mail-to-HTML converter
 
@@ -7603,7 +7667,7 @@ Path to MHonArc mail-to-HTML converter
 
 This is required for HTML mail archiving.
 
-### `**log_facility**`
+### `log_facility`
 
 System log facility for web interface
 
@@ -7620,7 +7684,7 @@ System log facility for WWSympa, archived.pl and bounced.pl. Default is to use v
 
 ## Web interface parameters: Appearances
 
-### `**logo_html_definition**`
+### `logo_html_definition`
 
 Custom logo
 
@@ -7639,7 +7703,7 @@ Example:
 
     logo_html_definition <a href="http://www.example.com"><img style="float: left; margin-top: 7px; margin-left: 37px;" src="http://www.example.com/logos/mylogo.jpg" alt="My Company" /></a>
 
-### `**favicon_url**`
+### `favicon_url`
 
 Custom favicon
 
@@ -7682,7 +7746,7 @@ Colors for web interface, obsoleted
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**default_home**`
+### `default_home`
 
 Type of main web page
 
@@ -7697,7 +7761,7 @@ Type of main web page
 
 "lists" for the page of list of lists. "home" for home page.
 
-### `**archive_default_index**`
+### `archive_default_index`
 
 Default index organization of web archive
 
@@ -7714,7 +7778,7 @@ thrd: Threaded index.
 
 mail: Chronological index.
 
-### `**review_page_size**`
+### `review_page_size`
 
 Size of review page
 
@@ -7729,7 +7793,7 @@ Size of review page
 
 Default number of lines of the array displaying users in the review page
 
-### `**viewlogs_page_size**`
+### `viewlogs_page_size`
 
 Size of viewlogs page
 
@@ -7769,7 +7833,7 @@ Example:
 
 Checks if the password the user submitted has sufficient strength. This feature requires an external module: Data-Password.
 
-### `**password_validation**`
+### `password_validation`
 
 Password validation
 
@@ -7792,7 +7856,7 @@ Example:
 
 Authenticates users based on the directory on LDAP server. This feature requires an external module: Net-LDAP. And also, if secure connection (LDAPS) is required: IO-Socket-SSL.
 
-### `**ldap_force_canonical_email**`
+### `ldap_force_canonical_email`
 
 Use canonical email address for LDAP authentication
 
@@ -7811,7 +7875,7 @@ When using LDAP authentication, if the identifier provided by the user was a val
 
 Provides some functions of Sympa through the SOAP HTTP interface. This feature requires an external module: SOAP-Lite.
 
-### `**soap_url**`
+### `soap_url`
 
 URL of SympaSOAP
 
@@ -7830,7 +7894,7 @@ Example:
 
     soap_url http://web.example.org/sympasoap
 
-### `**soap_url_local**`
+### `soap_url_local`
 
 URL of SympaSOAP behind proxy
 
@@ -7845,7 +7909,7 @@ URL of SympaSOAP behind proxy
 
 ## Web interface parameters: Miscellaneous
 
-### `**cookie_domain**`
+### `cookie_domain`
 
 HTTP cookies validity domain
 
@@ -7864,7 +7928,7 @@ Example:
 
     cookie_domain .renater.fr
 
-### `**cookie_expire**`
+### `cookie_expire`
 
 HTTP cookies lifetime
 
@@ -7879,7 +7943,7 @@ HTTP cookies lifetime
 
 This is the default value when not set explicitly by users. "0" means the cookie may be retained during browser sessions.
 
-### `**cookie_refresh**`
+### `cookie_refresh`
 
 Average interval to refresh HTTP session ID.
 
@@ -7892,7 +7956,7 @@ Average interval to refresh HTTP session ID.
 
     site (`sympa.conf`)
 
-### `**purge_session_table_task**`
+### `purge_session_table_task`
 
 Task for cleaning old sessions
 
@@ -7910,7 +7974,7 @@ Task for cleaning old sessions
 
 This task removes old entries in the "session\_table" table.
 
-### `**session_table_ttl**`
+### `session_table_ttl`
 
 Max age of sessions
 
@@ -7927,7 +7991,7 @@ Session duration is controlled by "sympa\_session" cookie validity attribute. Ho
 
 Format of values is a string without spaces including "y" for years, "m" for months, "d" for days, "h" for hours, "min" for minutes and "sec" for seconds.
 
-### `**anonymous_session_table_ttl**`
+### `anonymous_session_table_ttl`
 
 Max age of sessions for anonymous users
 
@@ -7940,7 +8004,7 @@ Max age of sessions for anonymous users
 
     site (`sympa.conf`)
 
-### `**shared_feature**`
+### `shared_feature`
 
 Enable shared repository
 
@@ -7957,7 +8021,7 @@ Enable shared repository
 
 If set to "on", list owners can open shared repository.
 
-### `**use_html_editor**`
+### `use_html_editor`
 
 Use HTML editor
 
@@ -7978,7 +8042,7 @@ Example:
 
     use_html_editor on
 
-### `**html_editor_url**`
+### `html_editor_url`
 
 URL of HTML editor
 
@@ -7999,7 +8063,7 @@ Example:
 
     html_editor_url js/tinymce/tinymce.min.js
 
-### `**html_editor_init**`
+### `html_editor_init`
 
 HTML editor initialization
 
@@ -8018,7 +8082,7 @@ Example:
 
     html_editor_init tinymce.init({selector:"#body",language:lang.split(/[^a-zA-Z]+/).join("_")});
 
-### `**max_wrong_password**`
+### `max_wrong_password`
 
 Count limit of wrong password submission
 
@@ -8033,7 +8097,7 @@ Count limit of wrong password submission
 
 If this limit is reached, the account is locked until the user renews their password. The default value is chosen in order to block bots trying to log in using brute force strategy. This value should never be reached by real users that will probably uses the renew password service before they performs so many tries.
 
-### `**password_case**`
+### `password_case`
 
 Password case
 
@@ -8052,7 +8116,7 @@ If set to "insensitive", WWSympa's password check will be insensitive. This only
 
 Should not be changed! May invalid all user password.
 
-### `**password_hash**`
+### `password_hash`
 
 Password hashing algorithm
 
@@ -8071,7 +8135,7 @@ If set to "md5", Sympa will use MD5 password hashes. If set to "bcrypt", bcrypt 
 
 Should not be changed! May invalid all user passwords.
 
-### `**password_hash_update**`
+### `password_hash_update`
 
 Update password hashing algorithm when users log in
 
@@ -8086,7 +8150,7 @@ Update password hashing algorithm when users log in
 
 On successful login, update the encrypted user password to use the algorithm specified by "password\_hash". This allows for a graceful transition to a new password hash algorithm. A value of 0 disables updating of existing password hashes.  New and reset passwords will use the "password\_hash" setting in all cases.
 
-### `**bcrypt_cost**`
+### `bcrypt_cost`
 
 Bcrypt hash cost
 
@@ -8103,7 +8167,7 @@ When "password\_hash" is set to "bcrypt", this sets the "cost" parameter of the 
 
 Can be changed but any new cost setting will only apply to new passwords.
 
-### `**one_time_ticket_lifetime**`
+### `one_time_ticket_lifetime`
 
 Age of one time ticket
 
@@ -8118,7 +8182,7 @@ Age of one time ticket
 
 Duration before the one time tickets are expired
 
-### `**one_time_ticket_lockout**`
+### `one_time_ticket_lockout`
 
 Restrict access to one time ticket
 
@@ -8133,7 +8197,7 @@ Restrict access to one time ticket
 
 Is access to the one time ticket restricted, if any users previously accessed? (one\_time &#124; remote\_addr &#124; open)
 
-### `**purge_one_time_ticket_table_task**`
+### `purge_one_time_ticket_table_task`
 
 Task for expiring old one time tickets
 
@@ -8149,7 +8213,7 @@ Task for expiring old one time tickets
 
     site (`sympa.conf`)
 
-### `**one_time_ticket_table_ttl**`
+### `one_time_ticket_table_ttl`
 
 Expiration period of one time ticket
 
@@ -8162,7 +8226,7 @@ Expiration period of one time ticket
 
     site (`sympa.conf`)
 
-### `**pictures_max_size**`
+### `pictures_max_size`
 
 The maximum size of uploaded picture
 
@@ -8178,7 +8242,7 @@ The maximum size of uploaded picture
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `**spam_protection**`
+### `spam_protection`
 
 Protect web interface against spam harvesters
 
@@ -8208,7 +8272,7 @@ none:
 
 no protection against spammer.
 
-### `**reporting_spam_script_path**`
+### `reporting_spam_script_path`
 
 Script to report spam
 
@@ -8223,7 +8287,7 @@ Script to report spam
 
 If set, when a list moderator report undetected spams for list moderation, this external script is invoked and the message is injected into standard input of the script.
 
-### `**domains_blacklist**`
+### `domains_blacklist`
 
 Prevent people to subscribe to a list with adresses using these domains
 
@@ -8242,7 +8306,7 @@ Example:
 
     domains_blacklist example.org,spammer.com
 
-### `**quiet_subscription**`
+### `quiet_subscription`
 
 Quiet subscriptions policy
 
@@ -8260,7 +8324,7 @@ Quiet subscriptions policy
 
 Global policy for quiet subscriptions: "on" means that subscriptions will never send a notice to the subscriber, "off" will enforce a notice sending, and "optional" (default) allows the use of the list policy.
 
-### `**show_report_abuse**`
+### `show_report_abuse`
 
 Add a "Report abuse" link in the side menu of the lists
 
@@ -8277,7 +8341,7 @@ Add a "Report abuse" link in the side menu of the lists
 
 The link is a mailto link, you can change that by overriding web\_tt2/report\_abuse.tt2
 
-### `**allow_account_deletion**`
+### `allow_account_deletion`
 
 EXPERIMENTAL! Allow users to delete their account. If enabled, shows a "delete my account" form in user's preferences page.
 
@@ -8293,6 +8357,54 @@ EXPERIMENTAL! Allow users to delete their account. If enabled, shows a "delete m
     site (`sympa.conf`)
 
 Account deletion unsubscribes the users from his/her lists and removes him/her from lists ownership. It is only available to users using internal authentication (i.e. no LDAP, no SSO...). See https://github.com/sympa-community/sympa/issues/300 for details
+
+## Renamed parameters
+
+These parameters were renamed.  Though older names are still available, their use is no longer recommended.
+
+### `custom-header`
+
+See [`custom_header`](#custom_header).
+
+### `custom-subject`
+
+See [`custom_subject`](#custom_subject).
+
+### `forced_reply-to`
+
+See [`forced_reply_to`](#forced_reply_to).
+
+### `forced_replyto`
+
+See [`forced_reply_to`](#forced_reply_to).
+
+### `key_password`
+
+See [`key_passwd`](#key_passwd).
+
+### `max-size`
+
+See [`max_size`](#max_size).
+
+### `merge_feature`
+
+See [`personalization_feature`](#personalization_feature).
+
+### `reply-to`
+
+See [`reply_to`](#reply_to).
+
+### `replyto`
+
+See [`reply_to`](#reply_to).
+
+### `subscription`
+
+See [`subscribe`](#subscribe).
+
+### `unsubscription`
+
+See [`unsubscribe`](#unsubscribe).
 
 ## Obsoleted `sympa.conf` parameters
 
@@ -8417,6 +8529,102 @@ See [`tracking.delivery_status_notification`](#trackingdelivery_status_notificat
 ### `tracking_message_disposition_notification`
 
 See [`tracking.message_disposition_notification`](#trackingmessage_disposition_notification).
+
+## Deprecated parameters
+
+These parameters were deprecated. They may not be used anymore.
+
+### `account`
+
+### `archived_pidfile`
+
+### `automatic_list_prefix`
+
+### `bounced_pidfile`
+
+### `clean_delay_queueother`
+
+### `default_distribution_ttl`
+
+### `distribution_mode`
+
+### `edit_list`
+
+### `editor`
+
+### `email_gecos`
+
+### `expire_task`
+
+### `filesystem_encoding`
+
+### `forced_reply_to`
+
+### `host`
+
+### `html_editor_file`
+
+### `htmlarea_url`
+
+### `http_host`
+
+### `include_list`
+
+### `ldap_export_connection_timeout`
+
+### `ldap_export_dnmanager`
+
+### `ldap_export_host`
+
+### `ldap_export_name`
+
+### `ldap_export_password`
+
+### `ldap_export_suffix`
+
+### `localedir`
+
+### `lock_method`
+
+### `log_condition`
+
+### `log_module`
+
+### `msgcat`
+
+### `openssl`
+
+### `owner`
+
+### `pidfile`
+
+### `pidfile_bulk`
+
+### `pidfile_creation`
+
+### `pidfile_distribute`
+
+### `queuedistribute`
+
+### `queueexpire`
+
+### `reply_to`
+
+### `sort`
+
+### `task_manager_pidfile`
+
+### `tri`
+
+### `trusted_ca_options`
+
+### `use_fast_cgi`
+
+### `user_data_source`
+
+### `web_archive`
+
+### `web_recode_to`
 
 # FILES
 

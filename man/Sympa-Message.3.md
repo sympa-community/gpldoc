@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.58'
+release: '6.2.59b.2'
 ---
 
 # NAME
@@ -352,7 +352,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
     `1` if the message is considered signed.
     `0` otherwise.
 
-- personalize ( $list, \[ $rcpt \], \[ $data \] )
+- personalize ( $list, \[ $rcpt \] )
 
     _Instance method_.
     Personalizes a message with custom attributes of a user.
@@ -431,10 +431,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 
     Returns modified message object itself, or `undef` if transformation failed.
 
-- decorate ( )
-
-    OBSOLETED.
-    Use prepare\_message\_according\_to\_mode('mail', $list).
+- decorate ($list, \[ mode => _personalization mode_ \] )
 
     _Instance method_.
     Adds footer/header to a message.
@@ -635,6 +632,10 @@ These are accessible as hash elements of objects.
     Hashref with multiple items.
     Currently these items are available:
 
+    - decorate => 1
+
+        Adding footer/header if any.
+
     - dkim\_sign => 1
 
         Adding DKIM signature.
@@ -643,9 +644,11 @@ These are accessible as hash elements of objects.
 
         DMARC protection.  See also ["dmarc\_protect"](#dmarc_protect)().
 
-    - merge => 1
+    - merge => `footer`&#124;`all`
 
         Personalizing.
+
+        On Sympa 6.2.58 or earlier, there was no distiction between `footer` and `all`.
 
     - smime\_encrypt => 1
 

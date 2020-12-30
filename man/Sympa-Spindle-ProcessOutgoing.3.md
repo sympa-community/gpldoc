@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessOutgoing(3)'
-release: '6.2.58'
+release: '6.2.59b.2'
 ---
 
 # NAME
@@ -31,6 +31,7 @@ Message transformations are done in the following order:
 - DMARC protection
 - Processing for tracking and VERP (see also <Sympa::Tracking>)
 - Personalization (a.k.a. "merge")
+and decoration (adding footer/header)
 - S/MIME signing
 - S/MIME encryption
 - Removal of existing DKIM signature(s) which are invalidated by
