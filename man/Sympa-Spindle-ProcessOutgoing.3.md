@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spindle::ProcessOutgoing(3)'
-release: '6.2.59b.2'
+release: '6.2.60'
 ---
 
 # NAME
@@ -37,6 +37,7 @@ and decoration (adding footer/header)
 - Removal of existing DKIM signature(s) which are invalidated by
 preceding transformations.
 - DKIM signing
+and ARC sealing
 
 Then spin() method stores transformed message into mailer
 (See [Sympa::Mailer](./Sympa-Mailer.3.md)).
@@ -74,3 +75,6 @@ See also ["Properties" in Sympa::Spindle](./Sympa-Spindle.3.md#properties).
 # HISTORY
 
 [Sympa::Spindle::ProcessOutgoing](./Sympa-Spindle-ProcessOutgoing.3.md) appeared on Sympa 6.2.13.
+
+Message decoration was moved from [Sympa::Spindle::ToList](./Sympa-Spindle-ToList.3.md)
+to this module on Sympa 6.2.59b.

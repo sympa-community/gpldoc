@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.59b.2'
+release: '6.2.60'
 ---
 
 # NAME
@@ -636,6 +636,9 @@ These are accessible as hash elements of objects.
 
         Adding footer/header if any.
 
+        This item was added on Sympa 6.2.59b.2 to avoid processing decoration twice
+        with the messages stored into outgoing spool by earlier version of Sympa.
+
     - dkim\_sign => 1
 
         Adding DKIM signature.
@@ -649,6 +652,8 @@ These are accessible as hash elements of objects.
         Personalizing.
 
         On Sympa 6.2.58 or earlier, there was no distiction between `footer` and `all`.
+        The `merge` item in the messages stored into outgoing spool by earlier version
+        of Sympa will be treated as `all`.
 
     - smime\_encrypt => 1
 

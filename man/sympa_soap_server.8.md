@@ -1,6 +1,6 @@
 ---
 title: 'sympa_soap_server(8)'
-release: '6.2.58'
+release: '6.2.60'
 ---
 
 # NAME
