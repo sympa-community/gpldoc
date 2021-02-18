@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Text(3)'
-release: '6.2.60'
+release: '6.2.61b.1'
 ---
 
 # NAME
@@ -200,6 +200,12 @@ This package provides some text-related functions.
 
         E-mail address.
 
+    - clip ( $string, $length )
+
+        Clips $string according to $length by bytes,
+        considering boundary of grapheme clusters.
+        UTF-8 is assumed for $string as bytestring.
+
     - decode\_html => 1
 
         If set, arguments are assumed to include HTML entities.
@@ -338,3 +344,5 @@ were added on Sympa 6.2.14, and escape\_url() was deprecated.
 guessed\_to\_utf8() and pad() were added on Sympa 6.2.17.
 
 canonic\_text() and slurp() were added on Sympa 6.2.53b.
+
+clip() was added on Sympa 6.2.61b.

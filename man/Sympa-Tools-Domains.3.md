@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Domains(3)'
-release: '6.2.60'
+release: '6.2.61b.1'
 ---
 
 # NAME
@@ -13,9 +13,9 @@ This package provides some email's domains-related functions.
 
 ## Functions
 
-- is\_blacklisted ( $email )
+- is\_blocklisted ( $email )
 
-    Says if the domain of the given email is blacklisted (`domains_blacklist`
+    Says if the domain of the given email is blocklisted (`domains_blocklist`
     setting).
 
-    Returns 1 if it's blacklisted, 0 otherwise
+    Returns 1 if it's blocklisted, 0 otherwise

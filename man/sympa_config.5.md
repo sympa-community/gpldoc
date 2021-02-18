@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.60'
+release: '6.2.61b.1'
 ---
 
 # NAME
@@ -604,7 +604,7 @@ Program used to update alias database
 
 - Format:
 
-    /`makemap|newaliases|postalias|postmap|/.+`/
+    /`makemap|newaliases|postalias|postmap|/.+|none`/
 
 - Default:
 
@@ -1491,7 +1491,7 @@ Message personalization
 
 #### `personalization.web_apply_on`
 
-which part of message from web conversion is applied
+Scope for messages from the web interface
 
 - Format:
     - `none` - do nothing
@@ -1507,7 +1507,7 @@ which part of message from web conversion is applied
 
 #### `personalization.mail_apply_on`
 
-which part of e-mail message conversion is applied
+Scope for messsages from incoming email
 
 - Format:
     - `none` - do nothing
@@ -1973,9 +1973,9 @@ Who is able to change user's email
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-### `use_blacklist`
+### `use_blocklist`
 
-Use blacklist
+Use blocklist
 
 - Format:
 
@@ -1989,7 +1989,7 @@ Use blacklist
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-List of operations separated by comma for which blacklist filter is applied.  Setting this parameter to "none" will hide the blacklist feature.
+List of operations separated by comma for which blocklist filter is applied.  Setting this parameter to "none" will hide the blocklist feature.
 
 ### `info`
 
@@ -2477,7 +2477,7 @@ Protect web archive against spam harvesters
     - `cookie` - use HTTP cookie
     - `javascript` - use JavaScript
     - `at` - replace @ characters
-    - `gecos` - only show gecos
+    - `concealed` - never show address
     - `none` - do nothing
 - Default:
 
@@ -2487,7 +2487,13 @@ Protect web archive against spam harvesters
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
-Idem spam\_protection is provided but it can be used only for web archives. Access requires a cookie, and users must submit a small form in order to receive a cookie before browsing the archives. This blocks all robot, even google and co.
+The same as "spam\_protection", but restricted to the web archive.
+
+In addition to it:
+
+cookie: users must submit a small form in order to receive a cookie before browsing the web archive.
+
+concealed: e-mail addresses will never be displayed.
 
 ## Bounces
 
@@ -7150,30 +7156,6 @@ Max age of moderated messages
 
 Number of days messages are kept in moderation spool (as specified by "queuemod" parameter). Beyond this deadline, messages that have not been processed are deleted.
 
-### `cookie`
-
-Secret string for generating unique keys
-
-- Format:
-
-    The value to be concealed.
-
-- Default:
-
-    None.
-
-- Context:
-
-    list (`config`), site (`sympa.conf`)
-
-This allows generated authentication keys to differ from a site to another. It is also used for encryption of user passwords stored in the database. The presence of this string is one reason why access to "sympa.conf" needs to be restricted to the "sympa" user.
-
-Note that changing this parameter will break all HTTP cookies stored in users' browsers, as well as all user passwords and lists X509 private keys. To prevent a catastrophe, Sympa refuses to start if this "cookie" parameter was changed.
-
-Example:
-
-    cookie 123456789
-
 ### `custom_attribute`
 
 (Paragraph)
@@ -7547,7 +7529,7 @@ URL prefix of web interface
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-This is used to construct URLs of web interface.
+This is used to construct URLs of web interface. The protocol (either https:// or http://) is required.
 
 Example:
 
@@ -8287,7 +8269,7 @@ Script to report spam
 
 If set, when a list moderator report undetected spams for list moderation, this external script is invoked and the message is injected into standard input of the script.
 
-### `domains_blacklist`
+### `domains_blocklist`
 
 Prevent people to subscribe to a list with adresses using these domains
 
@@ -8304,7 +8286,7 @@ This parameter is a comma-separated list.
 
 Example:
 
-    domains_blacklist example.org,spammer.com
+    domains_blocklist example.org,spammer.com
 
 ### `quiet_subscription`
 
@@ -8370,6 +8352,10 @@ See [`custom_header`](#custom_header).
 
 See [`custom_subject`](#custom_subject).
 
+### `domains_blacklist`
+
+See [`domains_blocklist`](#domains_blocklist).
+
 ### `forced_reply-to`
 
 See [`forced_reply_to`](#forced_reply_to).
@@ -8405,6 +8391,10 @@ See [`subscribe`](#subscribe).
 ### `unsubscription`
 
 See [`unsubscribe`](#unsubscribe).
+
+### `use_blacklist`
+
+See [`use_blocklist`](#use_blocklist).
 
 ## Obsoleted `sympa.conf` parameters
 
@@ -8543,6 +8533,8 @@ These parameters were deprecated. They may not be used anymore.
 ### `bounced_pidfile`
 
 ### `clean_delay_queueother`
+
+### `cookie`
 
 ### `default_distribution_ttl`
 

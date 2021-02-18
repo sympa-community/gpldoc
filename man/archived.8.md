@@ -1,6 +1,6 @@
 ---
 title: 'archived(8)'
-release: '6.2.60'
+release: '6.2.61b.1'
 ---
 
 # NAME
@@ -51,7 +51,10 @@ options is included below.
 
 `$SPOOLDIR/outgoing/` outgoing Sympa directory.
 
-`$DEFAULTDIR/mhonarc-ressources.tt2` template of MHonArc resource file.
+`$DEFAULTDIR/mhonarc_rc.tt2` template of MHonArc resource file.
+
+- `mhonarc-ressources.tt2` was replaced with `mhonarc_rc.tt2`
+on Sympa 6.2.61b.1.
 
 `/etc/sympa/sympa.conf` Sympa configuration file.
 

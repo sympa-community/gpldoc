@@ -1,6 +1,6 @@
 ---
 title: 'upgrade_send_spool(1)'
-release: '6.2.60'
+release: '6.2.61b.1'
 ---
 
 # NAME
@@ -35,6 +35,9 @@ Otherwise exits with non-zero status.
 Following site configuration parameters in `/etc/sympa/sympa.conf` are referred.
 
 - cookie
+
+    (obsoleted by Sympa 6.2.61b)
+
 - queue
 - umask
 

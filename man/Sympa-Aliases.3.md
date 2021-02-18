@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Aliases(3)'
-release: '6.2.60'
+release: '6.2.61b.1'
 ---
 
 # NAME
@@ -46,6 +46,11 @@ This module is the base class for subclasses to manage list aliases of Sympa.
         Use a subclass `Sympa::Aliases::_name_` to manage aliases.
 
     For invalid types returns `undef`.
+
+    Note:
+    For compatibility to the earlier versions of Sympa,
+    if a string `SBINDIR/alias_manager.pl` was given as $type,
+    [Sympa::Aliases::Template](./Sympa-Aliases-Template.3.md) subclass will be used.
 
     Optional `_key_ => _value_` pairs are included in the instance as
     hash entries.
