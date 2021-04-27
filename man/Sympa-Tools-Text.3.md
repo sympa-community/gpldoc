@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Text(3)'
-release: '6.2.61b.1'
+release: '6.2.62'
 ---
 
 # NAME
@@ -39,6 +39,13 @@ This package provides some text-related functions.
     a Unicode string.
     Forbidden sequences in binary string will be replaced by
     U+FFFD REPLACEMENT CHARACTERs, and Normalization Form C (NFC) will be applied.
+
+- clip ( $string, $length )
+
+    _Function_.
+    Clips $string according to $length by bytes,
+    considering boundary of grapheme clusters.
+    UTF-8 is assumed for $string as bytestring.
 
 - decode\_filesystem\_safe ( $str )
 
@@ -199,12 +206,6 @@ This package provides some text-related functions.
     - $email
 
         E-mail address.
-
-    - clip ( $string, $length )
-
-        Clips $string according to $length by bytes,
-        considering boundary of grapheme clusters.
-        UTF-8 is assumed for $string as bytestring.
 
     - decode\_html => 1
 

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.60'
+release: '6.2.62'
 ---
 
 # NAME
@@ -454,6 +454,14 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
     Returns:
 
     string
+
+- shelve\_personalization ( type => $type )
+
+    _Instance method_.
+    Shelve personalization ("merge feature") if necessary.
+    $type is either `'web'` or `'mail'`.
+
+    Dies if the context of the message was not List.
 
 - get\_plain\_body ( )
 

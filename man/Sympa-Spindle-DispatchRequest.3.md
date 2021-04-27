@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Spindle::DispatchRequest(3)'
-release: '6.2.60'
+release: '6.2.62'
 ---
 
 # NAME

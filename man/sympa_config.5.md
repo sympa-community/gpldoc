@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.61b.1'
+release: '6.2.62'
 ---
 
 # NAME
@@ -828,7 +828,7 @@ Header field name(s) used to determine sender of the messages
 
     site (`sympa.conf`)
 
-"Return-Path" means envelope sender (a.k.a. "UNIX From") which will be alternative to sender of messages without "From" field.  "Resent-From" may also be inserted before "From", because some mailers add it into redirected messages and keep original "From" field intact.  In particular cases, "Return-Path" can not give right sender: several mail gateway products rewrite envelope sender and add original one as non-standard field such as "X-Envelope-From".  If that is the case, you might want to insert it in place of "Return-Path".
+"Return-Path" means envelope sender (a.k.a. "UNIX From") which will be alternative to sender of messages without "From" field.  "Resent-From" may also be inserted before "From", because some mailers add it into redirected messages and keep original "From" field intact.  In particular cases, "Return-Path" can not give right sender: Several mail gateway products rewrite envelope sender and add original one as non-standard field such as "X-Envelope-From".  If that is the case, you might want to insert it in place of "Return-Path".
 
 Example:
 
@@ -847,7 +847,7 @@ Reject misaddressed commands
 
     site (`sympa.conf`)
 
-When a mail command is sent to a list, by default Sympa rejects this message. This feature can be turned off setting this parameter to "ignore".
+When a mail command is sent to a list, by default Sympa rejects this message. This feature can be turned off by setting this parameter to "ignore".
 
 ### `misaddressed_commands_regexp`
 
@@ -1507,7 +1507,7 @@ Scope for messages from the web interface
 
 #### `personalization.mail_apply_on`
 
-Scope for messsages from incoming email
+Scope for messages from incoming email
 
 - Format:
     - `none` - do nothing
