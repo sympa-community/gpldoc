@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::WWW::FastCGI(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -17,7 +17,7 @@ TBD.
 
 # SEE ALSO
 
-[CGI::Fast](https://metacpan.org/pod/CGI::Fast).
+[CGI::Fast](https://metacpan.org/pod/CGI%3A%3AFast).
 
 RFC 3875, The Common Gateway Interface (CGI) Version 1.1.
 [https://tools.ietf.org/html/rfc3875](https://tools.ietf.org/html/rfc3875).

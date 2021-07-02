@@ -1,6 +1,6 @@
 ---
 title: 'sympa_test_ldap(1)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME

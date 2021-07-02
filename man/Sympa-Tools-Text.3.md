@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Text(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -144,10 +144,10 @@ This package provides some text-related functions.
 
 - escape\_chars ( $str )
 
-    Escape weird characters.
+    **Deprecated**.
+    Use ["encode\_filesystem\_safe"](#encode_filesystem_safe).
 
-    ToDo: This should be obsoleted in the future release: Would be better to use
-    ["encode\_filesystem\_safe"](#encode_filesystem_safe).
+    Escape weird characters.
 
 - escape\_url ( $str )
 
@@ -264,10 +264,10 @@ This package provides some text-related functions.
 
 - unescape\_chars ( $str )
 
-    Unescape weird characters.
+    **Deprecated**.
+    Use ["decode\_filesystem\_safe"](#decode_filesystem_safe).
 
-    ToDo: This should be obsoleted in the future release: Would be better to use
-    ["decode\_filesystem\_safe"](#decode_filesystem_safe).
+    Unescape weird characters.
 
 - valid\_email ( $string )
 

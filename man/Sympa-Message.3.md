@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -89,7 +89,7 @@ easier.
 - head
 
     _Instance method_.
-    Gets header of the message as [MIME::Head](https://metacpan.org/pod/MIME::Head) instance.
+    Gets header of the message as [MIME::Head](https://metacpan.org/pod/MIME%3A%3AHead) instance.
 
     Note that returned value is real reference to internal data structure.
     Even if it was changed, string representation of message may not be updated.
@@ -135,7 +135,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 - as\_entity ( )
 
     _Instance method_.
-    Gets message content as MIME entity ([MIME::Entity](https://metacpan.org/pod/MIME::Entity) instance).
+    Gets message content as MIME entity ([MIME::Entity](https://metacpan.org/pod/MIME%3A%3AEntity) instance).
 
     Note that returned value is real reference to internal data structure.
     Even if it was changed, string representation of message may not be updated.
@@ -148,7 +148,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 - set\_entity ( $entity )
 
     _Instance method_.
-    Updates message with MIME entity ([MIME::Entity](https://metacpan.org/pod/MIME::Entity) instance).
+    Updates message with MIME entity ([MIME::Entity](https://metacpan.org/pod/MIME%3A%3AEntity) instance).
     String representation will be automatically updated.
 
 - as\_string ( )

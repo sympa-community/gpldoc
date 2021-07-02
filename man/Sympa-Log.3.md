@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Log(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -78,7 +78,7 @@ Instance of [Sympa::Log](./Sympa-Log.3.md) has following properties.
 
 # SEE ALSO
 
-[Sys::Syslog](https://metacpan.org/pod/Sys::Syslog), [Sympa::DatabaseManager](./Sympa-DatabaseManager.3.md).
+[Sys::Syslog](https://metacpan.org/pod/Sys%3A%3ASyslog), [Sympa::DatabaseManager](./Sympa-DatabaseManager.3.md).
 
 # HISTORY
 

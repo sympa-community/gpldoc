@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Template(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -91,7 +91,7 @@ Instance of [Sympa::Template](./Sympa-Template.3.md) may have following attribut
 ## Filters
 
 These custom filters are defined by [Sympa::Template](./Sympa-Template.3.md).
-See [Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filters) about usage of filters.
+See [Template::Manual::Filters](https://metacpan.org/pod/Template%3A%3AManual%3A%3AFilters) about usage of filters.
 
 - canonic\_email
 
@@ -128,7 +128,7 @@ See [Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filte
 
 - escape\_xml
 
-    OBSOLETED.  Use ["xml" in Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filters#xml).
+    OBSOLETED.  Use ["xml" in Template::Manual::Filters](https://metacpan.org/pod/Template%3A%3AManual%3A%3AFilters#xml).
 
 - helploc ( parameters )
 - l ( parameters )
@@ -325,7 +325,7 @@ about usage of plugins.
 
 # SEE ALSO
 
-[Template::Manual](https://metacpan.org/pod/Template::Manual).
+[Template::Manual](https://metacpan.org/pod/Template%3A%3AManual).
 
 # HISTORY
 

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::LockedFile(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -60,7 +60,7 @@ This class implements a filehandle with locking.
 
 ## Instance Methods
 
-Instances of [Sympa::LockedFile](./Sympa-LockedFile.3.md) support the methods provided by [IO::File](https://metacpan.org/pod/IO::File).
+Instances of [Sympa::LockedFile](./Sympa-LockedFile.3.md) support the methods provided by [IO::File](https://metacpan.org/pod/IO%3A%3AFile).
 
 - open ( $file, \[ $blocking\_timeout, \[ $mode \] \] )
 
@@ -185,7 +185,7 @@ Following methods are specific to this module.
 
 ["Functions for filehandles, files or directories" in perlfunc](https://metacpan.org/pod/perlfunc#Functions-for-filehandles-files-or-directories),
 ["I/O Operators" in perlop](https://metacpan.org/pod/perlop#I-O-Operators),
-[IO::File](https://metacpan.org/pod/IO::File), [File::NFSLock](https://metacpan.org/pod/File::NFSLock).
+[IO::File](https://metacpan.org/pod/IO%3A%3AFile), [File::NFSLock](https://metacpan.org/pod/File%3A%3ANFSLock).
 
 # HISTORY
 

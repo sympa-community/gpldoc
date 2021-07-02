@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::confirm(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME

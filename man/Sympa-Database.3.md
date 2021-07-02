@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Database(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -32,11 +32,11 @@ TBD.
 
     _Instance method_, _only for LDAP_.
     Performs LDAP search operation.
-    About options see ["search" in Net::LDAP](https://metacpan.org/pod/Net::LDAP#search).
+    About options see ["search" in Net::LDAP](https://metacpan.org/pod/Net%3A%3ALDAP#search).
 
     Returns:
 
-    Operation handle ([LDAP::Search](https://metacpan.org/pod/LDAP::Search) object or such), or `undef`.
+    Operation handle ([LDAP::Search](https://metacpan.org/pod/LDAP%3A%3ASearch) object or such), or `undef`.
 
 - do\_prepared\_query ( $statement, parameters... )
 
@@ -46,7 +46,7 @@ TBD.
 
     Returns:
 
-    Statement handle ([DBI::st](https://metacpan.org/pod/DBI::st) object or such), or `undef`.
+    Statement handle ([DBI::st](https://metacpan.org/pod/DBI%3A%3Ast) object or such), or `undef`.
 
 - do\_query ( $statement, parameters... )
 
@@ -56,7 +56,7 @@ TBD.
 
     Returns:
 
-    Statement handle ([DBI::st](https://metacpan.org/pod/DBI::st) object or such), or `undef`.
+    Statement handle ([DBI::st](https://metacpan.org/pod/DBI%3A%3Ast) object or such), or `undef`.
 
 # SEE ALSO
 

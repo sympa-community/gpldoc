@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DatabaseDriver::LDAP(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -18,7 +18,7 @@ TBD.
     **Obsoleted**.
 
     _Instance method_.
-    See ["canonical\_dn" in Net::LDAP::Util](https://metacpan.org/pod/Net::LDAP::Util#canonical_dn).
+    See ["canonical\_dn" in Net::LDAP::Util](https://metacpan.org/pod/Net%3A%3ALDAP%3A%3AUtil#canonical_dn).
 
     However, this method try to use RFC 1779 escaping as much as possible.
 
@@ -27,14 +27,14 @@ TBD.
     **Obsoleted**.
 
     _Instance method_.
-    See ["escape\_dn\_value" in Net::LDAP::Util](https://metacpan.org/pod/Net::LDAP::Util#escape_dn_value).
+    See ["escape\_dn\_value" in Net::LDAP::Util](https://metacpan.org/pod/Net%3A%3ALDAP%3A%3AUtil#escape_dn_value).
 
 - escape\_filter\_value ( $string )
 
     **Obsoleted**.
 
     _Instance method_.
-    See ["escape\_filter\_value" in Net::LDAP::Util](https://metacpan.org/pod/Net::LDAP::Util#escape_filter_value).
+    See ["escape\_filter\_value" in Net::LDAP::Util](https://metacpan.org/pod/Net%3A%3ALDAP%3A%3AUtil#escape_filter_value).
 
 # SEE ALSO
 

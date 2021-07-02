@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Aliases::CheckSMTP(3)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -36,7 +36,7 @@ TBD.
 
     Returns:
 
-    Instance of [Net::SMTP](https://metacpan.org/pod/Net::SMTP) class or false value.
+    Instance of [Net::SMTP](https://metacpan.org/pod/Net%3A%3ASMTP) class or false value.
 
 ## Configuration parameters
 

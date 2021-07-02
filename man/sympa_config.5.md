@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.62'
+release: '6.2.64'
 ---
 
 # NAME
@@ -702,6 +702,7 @@ Visibility of the list
     Name of `visibility` scenario:
 
     - `conceal` - conceal except for subscribers
+    - `identified` - conceal from anonymous users
     - `noconceal` - no conceal
     - `secret` - conceal even for subscribers
 
@@ -1901,6 +1902,7 @@ Who is able to create lists
 
     Name of `create_list` scenario:
 
+    - `closed` - closed
     - `listmaster` - restricted to listmaster
     - `public_listmaster` - anybody by validation by listmaster required
 
@@ -3904,7 +3906,7 @@ Notify subscribers when they are included from a data source?
 
 - Context:
 
-    list (`config`)
+    list (`config`), site (`sympa.conf`)
 
 ### `member_include`
 
@@ -5508,7 +5510,7 @@ Inclusions timeout for message distribution
 
 - Context:
 
-    list (`config`)
+    list (`config`), site (`sympa.conf`)
 
 This parameter defines the delay since the last synchronization after which the user's list will be updated before performing either of following actions:
 
@@ -7009,6 +7011,44 @@ You will be able to access the custom parameter value in web templates by variab
 Example:
 
     custom_robot_parameter param_name ; param_value
+
+### `prohibited_listnames`
+
+Prevent people to use some names for their lists names
+
+- Format:
+- Default:
+
+    None.
+
+- Context:
+
+    site (`sympa.conf`)
+
+This parameter is a comma-separated list of names. You can use \* as a wildcard character. To use a regex for this, please use prohibited\_listnames\_regex setting.
+
+Example:
+
+    prohibited_listnames www,root,*master
+
+### `prohibited_listnames_regex`
+
+Prevent people to use some names for their lists names, based on a regex
+
+- Format:
+- Default:
+
+    None.
+
+- Context:
+
+    site (`sympa.conf`)
+
+This parameter is a regex. Please note that prohibited\_listnames and prohibited\_listnames\_regex will both be applied if set, they are not exclusive.
+
+Example:
+
+    prohibited_listnames_regex www|root|.*master
 
 ### `cache_list_config`
 
