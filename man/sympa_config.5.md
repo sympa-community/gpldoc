@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.64'
+release: '6.2.65b.1'
 ---
 
 # NAME
@@ -124,7 +124,7 @@ Email addresses of listmasters
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     /`$addrspec`/
 
@@ -193,6 +193,10 @@ Display name of Sympa
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.34 and later.
 
 This parameter is used for display name in the "From:" header field for the messages sent by Sympa itself.
 
@@ -422,7 +426,7 @@ Database private extension to subscriber table
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     /`.+`/
 
@@ -454,7 +458,7 @@ Database private extension to user table
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     /`.+`/
 
@@ -631,6 +635,10 @@ Whether to use the alias wrapper
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.59b.1 and later.
+
 If the program to update alias database does not require root privileges, set this parameter to "off" and remove the wrapper file sympa\_newaliases-wrapper.
 
 ### `aliases_db_type`
@@ -722,7 +730,7 @@ Topics for the list
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     List topic.
 
@@ -786,6 +794,10 @@ Maximum number of list members
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.5 and later.
+
 limit for the number of subscribers. 0 means no limit.
 
 ### `priority`
@@ -821,6 +833,9 @@ The priority with which Sympa will process messages for this list. This level of
 Header field name(s) used to determine sender of the messages
 
 - Format:
+
+    Any.
+
 - Default:
 
     `From`
@@ -840,6 +855,9 @@ Example:
 Reject misaddressed commands
 
 - Format:
+
+    Any.
+
 - Default:
 
     `reject`
@@ -855,6 +873,9 @@ When a mail command is sent to a list, by default Sympa rejects this message. Th
 Regular expression matching with misaddressed commands
 
 - Format:
+
+    Any.
+
 - Default:
 
     `((subscribe\s+(\S+)|unsubscribe\s+(\S+)|signoff\s+(\S+)|set\s+(\S+)\s+(mail|nomail|digest))\s*)`
@@ -958,6 +979,10 @@ Max number of sympa.pl workers
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2b.5 and later.
 
 Max number of workers of sympa.pl daemon processing incoming spool.
 
@@ -1129,7 +1154,7 @@ reception mode
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     Reception mode of list member.
 
@@ -1369,6 +1394,9 @@ To hide the sender's email address before distributing the message. It is replac
 Header fields removed when a mailing list is setup in anonymous mode
 
 - Format:
+
+    Any.
+
 - Default:
 
     `Authentication-Results,Disposition-Notification-To,DKIM-Signature,Injection-Info,Organisation,Organization,Original-Recipient,Originator,Path,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,X-Envelope-From,X-Envelope-To,X-Sender,X-X-Sender`
@@ -1483,6 +1511,10 @@ Allow message personalization
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.59b.2 and later.
+
 ### `personalization`
 
 (Paragraph)
@@ -1576,6 +1608,10 @@ Reject mail from automatic processes (crontab, etc)?
 
     list (`config`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.0 and later.
+
 Rejects messages that seem to be from automated services, based on a few header fields ("Content-Identifier:", "Auto-Submitted:").
 
 Sympa also can be configured to reject messages based on the "From:" header field value (see "loop\_prevention\_regex").
@@ -1586,7 +1622,7 @@ Header fields to be removed from incoming messages
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     /`\S+`/
 
@@ -1612,7 +1648,7 @@ Header fields to be removed before message distribution
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     /`\S+`/
 
@@ -1636,7 +1672,7 @@ RFC 2369 header fields
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     - `help` - help
     - `subscribe` - subscription
@@ -1692,6 +1728,10 @@ Allowed external links in sanitized HTML
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.19b.2 and later.
 
 When the HTML content of a message must be sanitized, links ("href" or "src" attributes) with the hosts listed in this parameter will not be scrubbed. If "\*" character is included, it matches any subdomains. Single "\*" allows any hosts.
 
@@ -1975,6 +2015,10 @@ Who is able to change user's email
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.19b.1 and later.
+
 ### `use_blocklist`
 
 Use blocklist
@@ -1990,6 +2034,10 @@ Use blocklist
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.61b.1 and later.
 
 List of operations separated by comma for which blocklist filter is applied.  Setting this parameter to "none" will hide the blocklist feature.
 
@@ -2204,6 +2252,10 @@ Required domains for list owners
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.23b.3 and later.
+
 Restrict list ownership to addresses in the specified domains. This can be used to reserve list ownership to a group of trusted users from a set of domains associated with an organization, while allowing moderators and subscribers from the Internet at large.
 
 ### `owner_domain_min`
@@ -2221,6 +2273,10 @@ Minimum owners in required domains
 - Context:
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.23b.3 and later.
 
 Minimum number of owners for each list must satisfy the owner\_domain restriction. The default of zero (0) means \*all\* list owners must match. Setting to 1 requires only one list owner to match owner\_domain; all other owners can be from any domain. This setting can be used to ensure that there is always at least one known contact point for any mailing list.
 
@@ -2358,6 +2414,10 @@ Store distributed messages into archive
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2b.1 and later.
+
 If enabled, distributed messages via lists will be archived. Otherwise archiving is disabled.
 
 Note that even if setting this parameter disabled, past archives will not be removed and will be accessible according to access settings by each list.
@@ -2377,9 +2437,21 @@ Defines who can access the list's web archive.
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
 #### `archive.access`
 
 Deprecated.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2a.43.
 
 #### `archive.web_access`
 
@@ -2403,6 +2475,10 @@ access right
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2b.1 and later.
+
 #### `archive.mail_access`
 
 access right by mail commands
@@ -2424,6 +2500,10 @@ access right by mail commands
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2b.1 and later.
+
 #### `archive.quota`
 
 quota
@@ -2440,6 +2520,10 @@ quota
 
     list (`config`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2b.1 and later.
+
 #### `archive.max_month`
 
 Maximum number of month archived
@@ -2455,6 +2539,10 @@ Maximum number of month archived
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2b.1 and later.
 
 ### `archive_crypted_msg`
 
@@ -2527,6 +2615,10 @@ The list owner receives a warning whenever a message is distributed and the numb
 #### `bounce.halt_rate`
 
 Deprecated.
+
+- Context:
+
+    list (`config`), site (`sympa.conf`)
 
 ### `bouncers_level1`
 
@@ -2726,6 +2818,10 @@ tracking message by message disposition notification
 
     list (`config`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.41 and later.
+
 #### `tracking.tracking`
 
 who can view message tracking
@@ -2745,6 +2841,10 @@ who can view message tracking
 
     list (`config`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.3 and later.
+
 #### `tracking.retention_period`
 
 Tracking datas are removed after this number of days
@@ -2760,6 +2860,22 @@ Tracking datas are removed after this number of days
 - Context:
 
     list (`config`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.3 and later.
+
+#### `tracking.message_delivery_notification`
+
+See [`message_disposition_notification`](#message_disposition_notification).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    6.2a.0 to 6.2a.40.
 
 ### `welcome_return_path`
 
@@ -3198,6 +3314,10 @@ Global unsubscription
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.54 and later.
+
 ## Tag based spam filtering
 
 ### `antispam_feature`
@@ -3533,6 +3653,10 @@ Directory for message outgoing spool
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.41 and later.
+
 This parameter is named such by historical reason.
 
 ### `tmpdir`
@@ -3624,6 +3748,10 @@ Task for cleaning spools
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2b.4 and later.
 
 This task cleans old content in spools.
 
@@ -3787,6 +3915,10 @@ Max age of bad messages in digest spool
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.6 and later.
+
 Number of days "bad" messages are kept in digest spool (as specified by "queuedigest" parameter). Sympa keeps messages rejected for various reasons (syntax errors in "digest.tt2" template etc.).
 
 ### `clean_delay_tmpdir`
@@ -3829,6 +3961,10 @@ File containing trusted CA certificates
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    3.3.6b.1 and later.
+
 This can be used alternatively and/or additionally to "capath".
 
 ### `capath`
@@ -3846,6 +3982,10 @@ Directory containing trusted CA certificates
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    3.3.6b.1 and later.
 
 CA certificates in this directory are used for client authentication.
 
@@ -4115,6 +4255,10 @@ Timeout for fetch of include\_sql\_query
 - Context:
 
     list (`config`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.0 and later.
 
 ### `include_file`
 
@@ -4407,6 +4551,10 @@ data location URL
 
     list (`config`)
 
+- Available versions:
+
+    6.2.45b.1 and later.
+
 #### `include_remote_sympa_list.user`
 
 remote user
@@ -4423,6 +4571,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.45b.1 and later.
+
 #### `include_remote_sympa_list.passwd`
 
 remote password
@@ -4438,6 +4590,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.45b.1 and later.
 
 #### `include_remote_sympa_list.host`
 
@@ -4497,6 +4653,14 @@ obsoleted.  Use "data location URL".
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.44.
+
 #### `include_remote_sympa_list.timeout`
 
 idle timeout
@@ -4512,6 +4676,10 @@ idle timeout
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.45b.1 and later.
 
 #### `include_remote_sympa_list.ssl_version`
 
@@ -4533,6 +4701,10 @@ SSL version
 
     list (`config`)
 
+- Available versions:
+
+    6.2.45b.1 and later.
+
 #### `include_remote_sympa_list.ssl_ciphers`
 
 SSL ciphers used
@@ -4549,6 +4721,10 @@ SSL ciphers used
 
     list (`config`)
 
+- Available versions:
+
+    6.2.45b.1 and later.
+
 #### `include_remote_sympa_list.ca_verify`
 
 Certificate verification
@@ -4564,6 +4740,10 @@ Certificate verification
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.45b.1 and later.
 
 #### `include_remote_sympa_list.nosync_time_ranges`
 
@@ -4626,6 +4806,10 @@ remote host
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_query.use_tls`
 
 use TLS (formerly SSL)
@@ -4641,6 +4825,10 @@ use TLS (formerly SSL)
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.15 and later.
 
 #### `include_ldap_query.ssl_version`
 
@@ -4693,6 +4881,10 @@ Certificate verification
 
     list (`config`)
 
+- Available versions:
+
+    6.2.13 and later.
+
 #### `include_ldap_query.bind_dn`
 
 remote user
@@ -4709,6 +4901,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_ldap_query.bind_password`
 
 remote password
@@ -4724,6 +4920,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.57b.1 and later.
 
 #### `include_ldap_query.suffix`
 
@@ -4853,17 +5053,45 @@ Time ranges when inclusion is not allowed
 
     list (`config`)
 
+- Available versions:
+
+    6.2a.16 and later.
+
 #### `include_ldap_query.passwd`
 
-Obsoleted. Use [`bind_password`](#include_ldap_querybind_password).
+See [`bind_password`](#bind_password).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_ldap_query.use_ssl`
 
-Obsoleted. Use [`use_tls`](#include_ldap_queryuse_tls).
+See [`use_tls`](#use_tls).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    5.3a.2 to 6.2.14.
 
 #### `include_ldap_query.user`
 
-Obsoleted. Use [`bind_dn`](#include_ldap_querybind_dn).
+See [`bind_dn`](#bind_dn).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `include_ldap_2level_query`
 
@@ -4910,6 +5138,10 @@ remote host
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_2level_query.use_tls`
 
 use TLS (formerly SSL)
@@ -4925,6 +5157,10 @@ use TLS (formerly SSL)
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.15 and later.
 
 #### `include_ldap_2level_query.ssl_version`
 
@@ -4977,6 +5213,10 @@ Certificate verification
 
     list (`config`)
 
+- Available versions:
+
+    6.2.13 and later.
+
 #### `include_ldap_2level_query.bind_dn`
 
 remote user
@@ -4993,6 +5233,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_ldap_2level_query.bind_password`
 
 remote password
@@ -5008,6 +5252,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.57b.1 and later.
 
 #### `include_ldap_2level_query.suffix1`
 
@@ -5249,17 +5497,45 @@ Time ranges when inclusion is not allowed
 
     list (`config`)
 
+- Available versions:
+
+    6.2a.16 and later.
+
 #### `include_ldap_2level_query.passwd`
 
-Obsoleted. Use [`bind_password`](#include_ldap_2level_querybind_password).
+See [`bind_password`](#bind_password).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_ldap_2level_query.use_ssl`
 
-Obsoleted. Use [`use_tls`](#include_ldap_2level_queryuse_tls).
+See [`use_tls`](#use_tls).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    5.3a.2 to 6.2.14.
 
 #### `include_ldap_2level_query.user`
 
-Obsoleted. Use [`bind_dn`](#include_ldap_2level_querybind_dn).
+See [`bind_dn`](#bind_dn).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `include_sql_query`
 
@@ -5318,6 +5594,10 @@ remote host
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_sql_query.db_port`
 
 database port
@@ -5366,6 +5646,10 @@ connection options
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_sql_query.db_env`
 
 environment variables for database connection
@@ -5398,6 +5682,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_sql_query.db_passwd`
 
 remote password
@@ -5413,6 +5701,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.57b.1 and later.
 
 #### `include_sql_query.sql_query`
 
@@ -5462,21 +5754,57 @@ Time ranges when inclusion is not allowed
 
     list (`config`)
 
+- Available versions:
+
+    6.2a.16 and later.
+
 #### `include_sql_query.connect_options`
 
-Obsoleted. Use [`db_options`](#include_sql_querydb_options).
+See [`db_options`](#db_options).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_sql_query.host`
 
-Obsoleted. Use [`db_host`](#include_sql_querydb_host).
+See [`db_host`](#db_host).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_sql_query.passwd`
 
-Obsoleted. Use [`db_passwd`](#include_sql_querydb_passwd).
+See [`db_passwd`](#db_passwd).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_sql_query.user`
 
-Obsoleted. Use [`db_user`](#include_sql_querydb_user).
+See [`db_user`](#db_user).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `ttl`
 
@@ -5561,6 +5889,10 @@ remote host
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_ca.use_tls`
 
 use TLS (formerly SSL)
@@ -5576,6 +5908,10 @@ use TLS (formerly SSL)
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.15 and later.
 
 #### `include_ldap_ca.ssl_version`
 
@@ -5628,6 +5964,10 @@ Certificate verification
 
     list (`config`)
 
+- Available versions:
+
+    6.2.13 and later.
+
 #### `include_ldap_ca.bind_dn`
 
 remote user
@@ -5644,6 +5984,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_ldap_ca.bind_password`
 
 remote password
@@ -5659,6 +6003,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.57b.1 and later.
 
 #### `include_ldap_ca.suffix`
 
@@ -5806,15 +6154,39 @@ Time ranges when inclusion is not allowed
 
 #### `include_ldap_ca.passwd`
 
-Obsoleted. Use [`bind_password`](#include_ldap_cabind_password).
+See [`bind_password`](#bind_password).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_ldap_ca.use_ssl`
 
-Obsoleted. Use [`use_tls`](#include_ldap_cause_tls).
+See [`use_tls`](#use_tls).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    6.2a? to 6.2.14.
 
 #### `include_ldap_ca.user`
 
-Obsoleted. Use [`bind_dn`](#include_ldap_cabind_dn).
+See [`bind_dn`](#bind_dn).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `include_ldap_2level_ca`
 
@@ -5859,6 +6231,10 @@ remote host
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_2level_ca.use_tls`
 
 use TLS (formerly SSL)
@@ -5874,6 +6250,10 @@ use TLS (formerly SSL)
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.15 and later.
 
 #### `include_ldap_2level_ca.ssl_version`
 
@@ -5926,6 +6306,10 @@ Certificate verification
 
     list (`config`)
 
+- Available versions:
+
+    6.2.13 and later.
+
 #### `include_ldap_2level_ca.bind_dn`
 
 remote user
@@ -5942,6 +6326,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_ldap_2level_ca.bind_password`
 
 remote password
@@ -5957,6 +6345,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.57b.1 and later.
 
 #### `include_ldap_2level_ca.suffix1`
 
@@ -6216,15 +6608,39 @@ Time ranges when inclusion is not allowed
 
 #### `include_ldap_2level_ca.passwd`
 
-Obsoleted. Use [`bind_password`](#include_ldap_2level_cabind_password).
+See [`bind_password`](#bind_password).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_ldap_2level_ca.use_ssl`
 
-Obsoleted. Use [`use_tls`](#include_ldap_2level_cause_tls).
+See [`use_tls`](#use_tls).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    6.2a? to 6.2.14.
 
 #### `include_ldap_2level_ca.user`
 
-Obsoleted. Use [`bind_dn`](#include_ldap_2level_cabind_dn).
+See [`bind_dn`](#bind_dn).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `include_sql_ca`
 
@@ -6281,6 +6697,10 @@ remote host
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_sql_ca.db_port`
 
 database port
@@ -6329,6 +6749,10 @@ connection options
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_sql_ca.db_env`
 
 environment variables for database connection
@@ -6361,6 +6785,10 @@ remote user
 
     list (`config`)
 
+- Available versions:
+
+    6.2.57b.1 and later.
+
 #### `include_sql_ca.db_passwd`
 
 remote password
@@ -6376,6 +6804,10 @@ remote password
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    6.2.57b.1 and later.
 
 #### `include_sql_ca.sql_query`
 
@@ -6443,19 +6875,51 @@ Time ranges when inclusion is not allowed
 
 #### `include_sql_ca.connect_options`
 
-Obsoleted. Use [`db_options`](#include_sql_cadb_options).
+See [`db_options`](#db_options).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_sql_ca.host`
 
-Obsoleted. Use [`db_host`](#include_sql_cadb_host).
+See [`db_host`](#db_host).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_sql_ca.passwd`
 
-Obsoleted. Use [`db_passwd`](#include_sql_cadb_passwd).
+See [`db_passwd`](#db_passwd).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 #### `include_sql_ca.user`
 
-Obsoleted. Use [`db_user`](#include_sql_cadb_user).
+See [`db_user`](#db_user).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ## DKIM/DMARC/ARC
 
@@ -6565,6 +7029,10 @@ The selector is used in order to build the DNS query for public key. It is up to
 
 Deprecated.
 
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
 #### `dkim_parameters.signer_domain`
 
 DKIM "d=" tag, you should probably use the default value
@@ -6607,7 +7075,7 @@ The categories of messages sent to the list that will be signed using DKIM.
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     - `md5_authenticated_messages` - authenticated by password
     - `smime_authenticated_messages` - authenticated by S/MIME signature
@@ -6641,6 +7109,10 @@ Add ARC seals to messages sent to the list
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.37b.1 and later.
+
 Enable/Disable ARC. This feature requires Mail::DKIM::ARC to be installed, and maybe some custom scenario to be updated
 
 ### `arc_srvid`
@@ -6658,6 +7130,10 @@ SRV ID for Authentication-Results used in ARC seal
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.37b.1 and later.
 
 Typically the domain of the mail server
 
@@ -6739,7 +7215,7 @@ Protection modes
 
 - Format:
 
-    Multiple values allowed, separated by `,`.
+    Multiple values allowed, separated by "`,`".
 
     - `none` - do nothing
     - `all` - all
@@ -6839,6 +7315,10 @@ SMTP HELO (EHLO) parameter used for address verification
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.0 and later.
 
 Default value is the host part of "list\_check\_smtp" parameter.
 
@@ -7017,6 +7497,9 @@ Example:
 Prevent people to use some names for their lists names
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7024,6 +7507,10 @@ Prevent people to use some names for their lists names
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.63b.1 and later.
 
 This parameter is a comma-separated list of names. You can use \* as a wildcard character. To use a regex for this, please use prohibited\_listnames\_regex setting.
 
@@ -7036,6 +7523,9 @@ Example:
 Prevent people to use some names for their lists names, based on a regex
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7043,6 +7533,10 @@ Prevent people to use some names for their lists names, based on a regex
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.63b.1 and later.
 
 This parameter is a regex. Please note that prohibited\_listnames and prohibited\_listnames\_regex will both be applied if set, they are not exclusive.
 
@@ -7157,6 +7651,10 @@ Max age of statistics information in database
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2b.7 and later.
 
 Number of months that elapse before statistics information are expired
 
@@ -7436,6 +7934,14 @@ date
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.16.
+
 ### `creation`
 
 (Paragraph)
@@ -7478,6 +7984,14 @@ date
 #### `creation.date`
 
 Deprecated.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.16.
 
 ### `update`
 
@@ -7522,6 +8036,14 @@ date
 
 Deprecated.
 
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.16.
+
 ### `status`
 
 Status of the list
@@ -7561,6 +8083,9 @@ Serial number of the config
 URL prefix of web interface
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7580,6 +8105,9 @@ Example:
 URL prefix of WWSympa behind proxy
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7588,11 +8116,18 @@ URL prefix of WWSympa behind proxy
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.56 and later.
+
 ### `static_content_url`
 
 URL for static contents
 
 - Format:
+
+    Any.
+
 - Default:
 
     `/static-sympa`
@@ -7608,6 +8143,9 @@ HTTP server have to map it with "static\_content\_path" directory.
 Directory for static contents
 
 - Format:
+
+    Any.
+
 - Default:
 
     `$STATICDIR`
@@ -7621,6 +8159,9 @@ Directory for static contents
 Directory for static style sheets (CSS)
 
 - Format:
+
+    Any.
+
 - Default:
 
     `$CSSDIR`
@@ -7636,6 +8177,9 @@ After an upgrade, static CSS files are upgraded with the newly installed "css.tt
 URL for style sheets (CSS)
 
 - Format:
+
+    Any.
+
 - Default:
 
     `/static-sympa/css`
@@ -7651,6 +8195,9 @@ To use auto-generated static CSS, HTTP server have to map it with "css\_path".
 Directory for subscribers pictures
 
 - Format:
+
+    Any.
+
 - Default:
 
     `$PICTURESDIR`
@@ -7659,11 +8206,18 @@ Directory for subscribers pictures
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.25b.2 and later.
+
 ### `pictures_url`
 
 URL for subscribers pictures
 
 - Format:
+
+    Any.
+
 - Default:
 
     `/static-sympa/pictures`
@@ -7672,6 +8226,10 @@ URL for subscribers pictures
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.25b.2 and later.
+
 HTTP server have to map it with "pictures\_path" directory.
 
 ### `mhonarc`
@@ -7679,6 +8237,9 @@ HTTP server have to map it with "pictures\_path" directory.
 Path to MHonArc mail-to-HTML converter
 
 - Format:
+
+    Any.
+
 - Default:
 
     `/usr/bin/mhonarc`
@@ -7694,6 +8255,9 @@ This is required for HTML mail archiving.
 System log facility for web interface
 
 - Format:
+
+    Any.
+
 - Default:
 
     `LOCAL1`
@@ -7711,6 +8275,9 @@ System log facility for WWSympa, archived.pl and bounced.pl. Default is to use v
 Custom logo
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7730,6 +8297,9 @@ Example:
 Custom favicon
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7738,6 +8308,10 @@ Custom favicon
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.5 and later.
+
 URL of favicon image
 
 ### `color_0`, ..., `color_15`
@@ -7745,6 +8319,9 @@ URL of favicon image
 Colors for web interface
 
 - Format:
+
+    Any.
+
 - Default:
 
     See description on web interface.
@@ -7760,6 +8337,9 @@ Colors are used in style sheet (CSS). They may be changed using web interface by
 Colors for web interface, obsoleted
 
 - Format:
+
+    Any.
+
 - Default:
 
     See description on web interface.
@@ -7773,6 +8353,9 @@ Colors for web interface, obsoleted
 Type of main web page
 
 - Format:
+
+    Any.
+
 - Default:
 
     `home`
@@ -7788,6 +8371,9 @@ Type of main web page
 Default index organization of web archive
 
 - Format:
+
+    Any.
+
 - Default:
 
     `thrd`
@@ -7805,6 +8391,9 @@ mail: Chronological index.
 Size of review page
 
 - Format:
+
+    Any.
+
 - Default:
 
     `25`
@@ -7820,6 +8409,9 @@ Default number of lines of the array displaying users in the review page
 Size of viewlogs page
 
 - Format:
+
+    Any.
+
 - Default:
 
     `25`
@@ -7835,6 +8427,9 @@ Default number of lines of the array displaying the log entries in the logs page
 Custom menus
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7860,6 +8455,9 @@ Checks if the password the user submitted has sufficient strength. This feature 
 Password validation
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7867,6 +8465,10 @@ Password validation
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.1.23 and later.
 
 The password validation techniques to be used against user passwords that are added to mailing lists. Options come from Data::Password (http://search.cpan.org/~razinf/Data-Password-1.07/Password.pm#VARIABLES)
 
@@ -7883,6 +8485,9 @@ Authenticates users based on the directory on LDAP server. This feature requires
 Use canonical email address for LDAP authentication
 
 - Format:
+
+    Any.
+
 - Default:
 
     `1`
@@ -7902,6 +8507,9 @@ Provides some functions of Sympa through the SOAP HTTP interface. This feature r
 URL of SympaSOAP
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7921,6 +8529,9 @@ Example:
 URL of SympaSOAP behind proxy
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -7929,6 +8540,10 @@ URL of SympaSOAP behind proxy
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.19b.1 and later.
+
 ## Web interface parameters: Miscellaneous
 
 ### `cookie_domain`
@@ -7936,6 +8551,9 @@ URL of SympaSOAP behind proxy
 HTTP cookies validity domain
 
 - Format:
+
+    Any.
+
 - Default:
 
     `localhost`
@@ -7955,6 +8573,9 @@ Example:
 HTTP cookies lifetime
 
 - Format:
+
+    Any.
+
 - Default:
 
     `0`
@@ -7970,6 +8591,9 @@ This is the default value when not set explicitly by users. "0" means the cookie
 Average interval to refresh HTTP session ID.
 
 - Format:
+
+    Any.
+
 - Default:
 
     `60`
@@ -8001,6 +8625,9 @@ This task removes old entries in the "session\_table" table.
 Max age of sessions
 
 - Format:
+
+    Any.
+
 - Default:
 
     `2d`
@@ -8018,6 +8645,9 @@ Format of values is a string without spaces including "y" for years, "m" for mon
 Max age of sessions for anonymous users
 
 - Format:
+
+    Any.
+
 - Default:
 
     `1h`
@@ -8041,6 +8671,10 @@ Enable shared repository
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.41b.2 and later.
+
 If set to "on", list owners can open shared repository.
 
 ### `use_html_editor`
@@ -8058,6 +8692,10 @@ Use HTML editor
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.0 and later.
+
 If set to "on", users will be able to post messages in HTML using a javascript WYSIWYG editor.
 
 Example:
@@ -8069,6 +8707,9 @@ Example:
 URL of HTML editor
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -8076,6 +8717,10 @@ URL of HTML editor
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.34 and later.
 
 URL path to the javascript file making the WYSIWYG HTML editor available.  Relative path under &lt;static\_content\_url> or absolute path.
 
@@ -8090,6 +8735,9 @@ Example:
 HTML editor initialization
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -8097,6 +8745,10 @@ HTML editor initialization
 - Context:
 
     domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.0 and later.
 
 Javascript excerpt that enables and configures the WYSIWYG HTML editor.
 
@@ -8109,6 +8761,9 @@ Example:
 Count limit of wrong password submission
 
 - Format:
+
+    Any.
+
 - Default:
 
     `19`
@@ -8124,6 +8779,9 @@ If this limit is reached, the account is locked until the user renews their pass
 Password case
 
 - Format:
+
+    Any.
+
 - Default:
 
     `insensitive`
@@ -8143,6 +8801,9 @@ Should not be changed! May invalid all user password.
 Password hashing algorithm
 
 - Format:
+
+    Any.
+
 - Default:
 
     `md5`
@@ -8150,6 +8811,10 @@ Password hashing algorithm
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.25b.3 and later.
 
 "md5" or "bcrypt".
 
@@ -8162,6 +8827,9 @@ Should not be changed! May invalid all user passwords.
 Update password hashing algorithm when users log in
 
 - Format:
+
+    Any.
+
 - Default:
 
     `1`
@@ -8170,6 +8838,10 @@ Update password hashing algorithm when users log in
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.25b.3 and later.
+
 On successful login, update the encrypted user password to use the algorithm specified by "password\_hash". This allows for a graceful transition to a new password hash algorithm. A value of 0 disables updating of existing password hashes.  New and reset passwords will use the "password\_hash" setting in all cases.
 
 ### `bcrypt_cost`
@@ -8177,6 +8849,9 @@ On successful login, update the encrypted user password to use the algorithm spe
 Bcrypt hash cost
 
 - Format:
+
+    Any.
+
 - Default:
 
     `12`
@@ -8184,6 +8859,10 @@ Bcrypt hash cost
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.25b.3 and later.
 
 When "password\_hash" is set to "bcrypt", this sets the "cost" parameter of the bcrypt hash function. The default of 12 is expected to require approximately 250ms to calculate the password hash on a 3.2GHz CPU. This only concerns passwords stored in the Sympa database, not the ones in LDAP.
 
@@ -8194,6 +8873,9 @@ Can be changed but any new cost setting will only apply to new passwords.
 Age of one time ticket
 
 - Format:
+
+    Any.
+
 - Default:
 
     `2d`
@@ -8209,6 +8891,9 @@ Duration before the one time tickets are expired
 Restrict access to one time ticket
 
 - Format:
+
+    Any.
+
 - Default:
 
     `one_time`
@@ -8240,6 +8925,9 @@ Task for expiring old one time tickets
 Expiration period of one time ticket
 
 - Format:
+
+    Any.
+
 - Default:
 
     `10d`
@@ -8299,6 +8987,9 @@ no protection against spammer.
 Script to report spam
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -8307,6 +8998,10 @@ Script to report spam
 
     domain (`robot.conf`), site (`sympa.conf`)
 
+- Available versions:
+
+    6.2a.0 and later.
+
 If set, when a list moderator report undetected spams for list moderation, this external script is invoked and the message is injected into standard input of the script.
 
 ### `domains_blocklist`
@@ -8314,6 +9009,9 @@ If set, when a list moderator report undetected spams for list moderation, this 
 Prevent people to subscribe to a list with adresses using these domains
 
 - Format:
+
+    Any.
+
 - Default:
 
     None.
@@ -8321,6 +9019,10 @@ Prevent people to subscribe to a list with adresses using these domains
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.61b.1 and later.
 
 This parameter is a comma-separated list.
 
@@ -8344,6 +9046,10 @@ Quiet subscriptions policy
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.41b.1 and later.
+
 Global policy for quiet subscriptions: "on" means that subscriptions will never send a notice to the subscriber, "off" will enforce a notice sending, and "optional" (default) allows the use of the list policy.
 
 ### `show_report_abuse`
@@ -8360,6 +9066,10 @@ Add a "Report abuse" link in the side menu of the lists
 - Context:
 
     site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.37b.3 and later.
 
 The link is a mailto link, you can change that by overriding web\_tt2/report\_abuse.tt2
 
@@ -8378,187 +9088,491 @@ EXPERIMENTAL! Allow users to delete their account. If enabled, shows a "delete m
 
     site (`sympa.conf`)
 
+- Available versions:
+
+    6.2.41b.1 and later.
+
 Account deletion unsubscribes the users from his/her lists and removes him/her from lists ownership. It is only available to users using internal authentication (i.e. no LDAP, no SSO...). See https://github.com/sympa-community/sympa/issues/300 for details
 
 ## Renamed parameters
 
 These parameters were renamed.  Though older names are still available, their use is no longer recommended.
 
-### `custom-header`
-
-See [`custom_header`](#custom_header).
-
-### `custom-subject`
-
-See [`custom_subject`](#custom_subject).
-
-### `domains_blacklist`
-
-See [`domains_blocklist`](#domains_blocklist).
-
-### `forced_reply-to`
-
-See [`forced_reply_to`](#forced_reply_to).
-
-### `forced_replyto`
-
-See [`forced_reply_to`](#forced_reply_to).
-
-### `key_password`
-
-See [`key_passwd`](#key_passwd).
-
-### `max-size`
-
-See [`max_size`](#max_size).
-
-### `merge_feature`
-
-See [`personalization_feature`](#personalization_feature).
-
-### `reply-to`
-
-See [`reply_to`](#reply_to).
-
-### `replyto`
-
-See [`reply_to`](#reply_to).
-
-### `subscription`
-
-See [`subscribe`](#subscribe).
-
-### `unsubscription`
-
-See [`unsubscribe`](#unsubscribe).
-
-### `use_blacklist`
-
-See [`use_blocklist`](#use_blocklist).
-
-## Obsoleted `sympa.conf` parameters
-
-These parameters were used in `sympa.conf` or `robot.conf` on Sympa 6.2.56 or earlier and are no longer recommended.
-
 ### `arc_private_key_path`
 
 See [`arc_parameters.arc_private_key_path`](#arc_parametersarc_private_key_path).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.37b.1 to 6.2.56.
 
 ### `arc_selector`
 
 See [`arc_parameters.arc_selector`](#arc_parametersarc_selector).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.37b.1 to 6.2.56.
+
 ### `arc_signer_domain`
 
 See [`arc_parameters.arc_signer_domain`](#arc_parametersarc_signer_domain).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.37b.1 to 6.2.56.
 
 ### `archive_mail_access`
 
 See [`archive.mail_access`](#archivemail_access).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `archive_web_access`
 
 See [`archive.web_access`](#archiveweb_access).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `bounce_halt_rate`
 
 See [`bounce.halt_rate`](#bouncehalt_rate).
 
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `bounce_warn_rate`
 
 See [`bounce.warn_rate`](#bouncewarn_rate).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
+### `custom-header`
+
+See [`custom_header`](#custom_header).
+
+- Context:
+
+    Unknown.
+
+### `custom-subject`
+
+See [`custom_subject`](#custom_subject).
+
+- Context:
+
+    Unknown.
 
 ### `d_edit`
 
 See [`shared_doc.d_edit`](#shared_docd_edit).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `d_read`
 
 See [`shared_doc.d_read`](#shared_docd_read).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `default_archive_quota`
 
 See [`archive.quota`](#archivequota).
 
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `default_bounce_level1_rate`
 
 See [`bouncers_level1.rate`](#bouncers_level1rate).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `default_bounce_level2_rate`
 
 See [`bouncers_level2.rate`](#bouncers_level2rate).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `default_list_priority`
 
 See [`priority`](#priority).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `default_max_list_members`
 
 See [`max_list_members`](#max_list_members).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `default_remind_task`
 
 See [`remind_task`](#remind_task).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `default_shared_quota`
 
 See [`shared_doc.quota`](#shared_docquota).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `default_sql_fetch_timeout`
 
 See [`sql_fetch_timeout`](#sql_fetch_timeout).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.0 to 6.2.56.
 
 ### `default_ttl`
 
 See [`ttl`](#ttl).
 
-### `dkim_header_list`
+- Context:
 
-See [`dkim_parameters.header_list`](#dkim_parametersheader_list).
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `dkim_private_key_path`
 
 See [`dkim_parameters.private_key_path`](#dkim_parametersprivate_key_path).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `dkim_selector`
 
 See [`dkim_parameters.selector`](#dkim_parametersselector).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `dkim_signer_domain`
 
 See [`dkim_parameters.signer_domain`](#dkim_parameterssigner_domain).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `dmarc_protection_domain_regex`
 
 See [`dmarc_protection.domain_regex`](#dmarc_protectiondomain_regex).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `dmarc_protection_mode`
 
 See [`dmarc_protection.mode`](#dmarc_protectionmode).
 
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
 ### `dmarc_protection_other_email`
 
 See [`dmarc_protection.other_email`](#dmarc_protectionother_email).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `dmarc_protection_phrase`
 
 See [`dmarc_protection.phrase`](#dmarc_protectionphrase).
 
-### `tracking`
+- Context:
 
-See [`tracking.tracking`](#trackingtracking).
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
+
+### `domains_blacklist`
+
+See [`domains_blocklist`](#domains_blocklist).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.41b.1 to 6.2.60.
+
+### `email_gecos`
+
+See [`gecos`](#gecos).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.5 to 6.2a.33.
+
+### `forced_reply-to`
+
+See [`forced_reply_to`](#forced_reply_to).
+
+- Context:
+
+    Unknown.
+
+### `forced_replyto`
+
+See [`forced_reply_to`](#forced_reply_to).
+
+- Context:
+
+    Unknown.
+
+### `key_password`
+
+See [`key_passwd`](#key_passwd).
+
+- Context:
+
+    site (`sympa.conf`)
+
+### `max-size`
+
+See [`max_size`](#max_size).
+
+- Context:
+
+    Unknown.
+
+### `merge_feature`
+
+See [`personalization_feature`](#personalization_feature).
+
+- Context:
+
+    Unknown.
+
+- Available versions:
+
+    6.0b.2 to 6.2.59b.1.
+
+### `reply-to`
+
+See [`reply_to`](#reply_to).
+
+- Context:
+
+    Unknown.
+
+### `replyto`
+
+See [`reply_to`](#reply_to).
+
+- Context:
+
+    Unknown.
+
+### `subscription`
+
+See [`subscribe`](#subscribe).
+
+- Context:
+
+    Unknown.
 
 ### `tracking_default_retention_period`
 
 See [`tracking.retention_period`](#trackingretention_period).
 
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.3 to 6.2.56.
+
 ### `tracking_delivery_status_notification`
 
 See [`tracking.delivery_status_notification`](#trackingdelivery_status_notification).
 
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.0 to 6.2.56.
+
+### `tracking_message_delivery_notification`
+
+See [`tracking_message_disposition_notification`](#tracking_message_disposition_notification).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.0 to 6.2a.40.
+
 ### `tracking_message_disposition_notification`
 
 See [`tracking.message_disposition_notification`](#trackingmessage_disposition_notification).
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.41 to 6.2.56.
+
+### `unsubscription`
+
+See [`unsubscribe`](#unsubscribe).
+
+- Context:
+
+    Unknown.
+
+### `use_blacklist`
+
+See [`use_blocklist`](#use_blocklist).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    5.3a.4 to 6.2.60.
 
 ## Deprecated parameters
 
@@ -8566,97 +9580,531 @@ These parameters were deprecated. They may not be used anymore.
 
 ### `account`
 
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 ### `archived_pidfile`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
 
 ### `automatic_list_prefix`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
 ### `bounced_pidfile`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
 
 ### `clean_delay_queueother`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    5.4a.9 to 5.4.7.
+
 ### `cookie`
+
+Deprecated.
+
+- Context:
+
+    list (`config`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.60.
 
 ### `default_distribution_ttl`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
 ### `distribution_mode`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    5.0a.1 to 6.2a.40.
 
 ### `edit_list`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
 ### `editor`
 
-### `email_gecos`
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.32.
 
 ### `expire_task`
 
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 ### `filesystem_encoding`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    5.3a.7 to 6.2.52.
 
 ### `forced_reply_to`
 
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 ### `host`
+
+Deprecated.
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
 ### `html_editor_file`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    6.0a.0 to 6.2a.33.
+
 ### `htmlarea_url`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.35b.1.
 
 ### `http_host`
 
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.54.
+
 ### `include_list`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    2.2.6 to 6.2.15.
 
 ### `ldap_export_connection_timeout`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    3.3b.3 to 4.1?.
+
 ### `ldap_export_dnmanager`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    3.3b.3 to 4.1?.
 
 ### `ldap_export_host`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    3.3b.3 to 4.1?.
+
 ### `ldap_export_name`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    3.3b.3 to 4.1?.
 
 ### `ldap_export_password`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    3.3b.3 to 4.1?.
+
 ### `ldap_export_suffix`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    3.3b.3 to 4.1?.
 
 ### `localedir`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    4.2b.2 to 6.2a.32.
+
 ### `lock_method`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    5.3b.3 to 6.2a.33.
 
 ### `log_condition`
 
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.29 to 6.2.41b.1.
+
 ### `log_module`
+
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2a.29 to 6.2.41b.1.
 
 ### `msgcat`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 4.2b.1.
+
 ### `openssl`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2a.40.
 
 ### `owner`
 
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.32.
+
 ### `pidfile`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
 
 ### `pidfile_bulk`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
+
 ### `pidfile_creation`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
 
 ### `pidfile_distribute`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
+
 ### `queuedistribute`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    5.0a.1 to 6.2a.40.
 
 ### `queueexpire`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 5.1.2.
+
 ### `reply_to`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
 
 ### `sort`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    1.4.0 and later.
+
 ### `task_manager_pidfile`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.1.17.
+
+### `tracking` (domain and site)
+
+See [`tracking.tracking`](#trackingtracking).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.56.
 
 ### `tri`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 1.3.4-1.
+
 ### `trusted_ca_options`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 3.3.5.
 
 ### `use_fast_cgi`
 
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.22.
+
 ### `user_data_source`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
 
 ### `web_archive`
 
+Deprecated.
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2a.43.
+
 ### `web_recode_to`
+
+Deprecated.
+
+- Context:
+
+    site (`sympa.conf`)
+
+- Available versions:
+
+    up to 5.2.
 
 # FILES
 

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Config::Schema(3)'
-release: '6.2.64'
+release: '6.2.65b.1'
 ---
 
 # NAME
@@ -126,7 +126,7 @@ This module keeps definition of configuration parameters for each list.
         nor saved.
 
         As of 6.2.16, if the value is true value and is not `1`,
-        defines parameter alias name mainly for backward compatibility.
+        it defines reference to a fully upper-compatible new parameter.
 
     - obsolete\_values
 
@@ -135,6 +135,13 @@ This module keeps definition of configuration parameters for each list.
         Defined obsolete values for a parameter.
         These values should not get proposed on the web interface
         edition form.
+
+    - not\_before, not\_after
+
+        The duration between these versions (inclusive) during which the parameter
+        is available.
+
+        Introduced on Sympa 6.2.65b.
 
     - order
 

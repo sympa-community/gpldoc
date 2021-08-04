@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DataSource(3)'
-release: '6.2.64'
+release: '6.2.65b.1'
 ---
 
 # NAME
@@ -81,6 +81,20 @@ TBD.
 
     _Instance method_.
     Closes backend and does cleanup.
+
+- is\_external ( )
+
+    _Instance method_.
+    Returns true value if the data source is external data source.
+    "External" means that it is not `include_sympa_list` (the instance of
+    [Sympa::DataSource::List](./Sympa-DataSource-List.3.md)) or not including any lists on local domain.
+
+    Known bug:
+
+    - If a data source is a list included from the other external data source(s),
+    this method will treat it as non-external so that some requests not allowed
+    for external data sources, such as `move_user` request, on corresponding
+    users may be allowed.
 
 - next ( )
 

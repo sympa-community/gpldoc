@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Database(3)'
-release: '6.2.64'
+release: '6.2.65b.1'
 ---
 
 # NAME
@@ -27,6 +27,16 @@ TBD.
 
     _Constructor_.
     Creates new database instance.
+
+- begin ( )
+
+    _Instance method_, _only for SQL_.
+    Begin transaction.
+
+- commit ( )
+
+    _Instance method_, _only for SQL_.
+    Commit transaction.
 
 - do\_operation ( $operation, options... )
 
@@ -57,6 +67,11 @@ TBD.
     Returns:
 
     Statement handle ([DBI::st](https://metacpan.org/pod/DBI%3A%3Ast) object or such), or `undef`.
+
+- rollback ( )
+
+    _Instance method_, _only for SQL_.
+    Rollback transaction.
 
 # SEE ALSO
 
