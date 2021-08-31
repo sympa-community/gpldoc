@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::List(3)'
-release: '6.2.64'
+release: '6.2.65b.2'
 ---
 
 # NAME
@@ -358,7 +358,7 @@ Destroy multiton instance. FIXME
 - is\_member\_excluded ( $email )
 
     _Instance method_.
-    FIXME @todo doc
+    **Deprecated**.
 
 - is\_moderated ()
 

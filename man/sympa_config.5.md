@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.65b.1'
+release: '6.2.65b.2'
 ---
 
 # NAME
@@ -126,7 +126,7 @@ Email addresses of listmasters
 
     Multiple values allowed, separated by "`,`".
 
-    /`$addrspec`/
+    /`$email`/
 
 - Default:
 
