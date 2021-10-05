@@ -1,6 +1,6 @@
 ---
 title: 'upgrade_bulk_spool(1)'
-release: '6.2.64'
+release: '6.2.66'
 ---
 
 # NAME

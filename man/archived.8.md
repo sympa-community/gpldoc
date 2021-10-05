@@ -1,6 +1,6 @@
 ---
 title: 'archived(8)'
-release: '6.2.64'
+release: '6.2.66'
 ---
 
 # NAME
