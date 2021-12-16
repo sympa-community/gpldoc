@@ -74,6 +74,6 @@ Sympa Reference Manual
     as wiki site using DokuWiki.  Some versions have PDF format (See above).
 
   * With Sympa 5.2.x or earlier, the manual was bundled in source
-    distribution as TeX sources.  To get them, see
-    [repository of historical releases](https://github.com/sympa-community/historic-sympa/releases?after=5.3b.4).
+    distribution as LaTeX sources.  To get them, see
+    [repository of historical releases](https://github.com/sympa-community/historic-sympa/tags?after=5.3b.4).
 
