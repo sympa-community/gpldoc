@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::add(3)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -14,6 +14,11 @@ the proper authorization and sends acknowledgements unless
 quiet add has been chosen (which requires the
 quiet\_subscription setting to be "optional") or forced (which
 requires the quiet\_subscription setting to be "on").
+
+**Note**:
+The autharization secenario `add.*` is applicable only when the {role}
+attribute is `'member'` (default).
+In the other cases the scenario processing should be skipped.
 
 ## Attributes
 
@@ -34,6 +39,14 @@ See also ["Attributes" in Sympa::Request](./Sympa-Request.3.md#attributes).
 
     _Optional_.
     Display name of the user to be added.
+
+- {role}
+
+    _Optional_.
+    Role of the user to be added: `'member'`, `'owner'` or `'editor'`.
+    Default value is `'member'`.
+
+    This attribute was introduced on Sympa 6.2.67b.2.
 
 - {quiet}
 

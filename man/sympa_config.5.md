@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -1213,6 +1213,111 @@ visibility
 
 Visibility of the subscriber.
 
+### `default_owner_options`
+
+(Paragraph)
+Owner profile
+
+- Single occurrence
+
+Default profile for the owners of the list.
+
+#### `default_owner_options.profile`
+
+profile
+
+- Format:
+    - `privileged` - privileged owner
+    - `normal` - normal owner
+- Default:
+
+    `normal`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+#### `default_owner_options.reception`
+
+reception mode
+
+- Format:
+
+    Reception mode of list member.
+
+- Default:
+
+    `mail`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Mail reception mode.
+
+#### `default_owner_options.visibility`
+
+visibility
+
+- Format:
+
+    Visibility mode of list memeber.
+
+- Default:
+
+    `noconceal`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Visibility of the owner.
+
+### `default_editor_options`
+
+(Paragraph)
+Moderator profile
+
+- Single occurrence
+
+Default profile for the moderators of the list.
+
+#### `default_editor_options.reception`
+
+reception mode
+
+- Format:
+
+    Reception mode of list member.
+
+- Default:
+
+    `mail`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Mail reception mode.
+
+#### `default_editor_options.visibility`
+
+visibility
+
+- Format:
+
+    Visibility mode of list memeber.
+
+- Default:
+
+    `noconceal`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Visibility of the moderator.
+
 ### `msg_topic`
 
 (Paragraph)
@@ -1472,7 +1577,7 @@ The default value. Sympa will add the footer/header as a new MIME part.
 
 append: 
 
-Sympa will not create new MIME parts, but will try to append the header/footer to the body of the message. Predefined message-footers will be ignored. Headers/footers may be appended to text/plain messages only.
+Sympa will not create new MIME parts, but will try to append the header/footer to the body of the message. Predefined message-footers will be ignored.
 
 ### `max_size`
 
@@ -1958,7 +2063,7 @@ Defines who can create lists (or request list creation) by creating new lists or
 
 Example:
 
-    create_list intranet
+    create_list listmaster
 
 ### `allow_subscribe_if_pending`
 
@@ -4087,6 +4192,50 @@ data source parameters
 
     list (`config`)
 
+#### `member_include.reception`
+
+reception mode
+
+- Format:
+
+    Reception mode of list member.
+
+- Default:
+
+    None.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    6.2.67b.2 and later.
+
+Mail reception mode.
+
+#### `member_include.visibility`
+
+visibility
+
+- Format:
+
+    Visibility mode of list memeber.
+
+- Default:
+
+    None.
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    6.2.67b.2 and later.
+
+Visibility of the subscriber.
+
 ### `owner_include`
 
 (Paragraph)
@@ -4126,6 +4275,10 @@ data source parameters
 
     list (`config`)
 
+- Available versions:
+
+    5.0a and later.
+
 #### `owner_include.profile`
 
 profile
@@ -4135,7 +4288,7 @@ profile
     - `normal` - normal owner
 - Default:
 
-    `normal`
+    None.
 
 - Context:
 
@@ -4150,7 +4303,7 @@ reception mode
     - `nomail` - no notifications
 - Default:
 
-    `mail`
+    None.
 
 - Context:
 
@@ -4165,11 +4318,15 @@ visibility
     - `noconceal` - listed on the list menu
 - Default:
 
-    `noconceal`
+    None.
 
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    5.4a.6 and later.
 
 ### `editor_include`
 
@@ -4210,6 +4367,10 @@ data source parameters
 
     list (`config`)
 
+- Available versions:
+
+    5.0a and later.
+
 #### `editor_include.reception`
 
 reception mode
@@ -4219,7 +4380,7 @@ reception mode
     - `nomail` - no notifications
 - Default:
 
-    `mail`
+    None.
 
 - Context:
 
@@ -4234,11 +4395,15 @@ visibility
     - `noconceal` - listed on the list menu
 - Default:
 
-    `noconceal`
+    None.
 
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    5.4a.6 and later.
 
 ### `sql_fetch_timeout`
 
@@ -8819,8 +8984,6 @@ Password hashing algorithm
 "md5" or "bcrypt".
 
 If set to "md5", Sympa will use MD5 password hashes. If set to "bcrypt", bcrypt hashes will be used instead. This only concerns passwords stored in the Sympa database, not the ones in LDAP.
-
-Should not be changed! May invalid all user passwords.
 
 ### `password_hash_update`
 

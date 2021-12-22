@@ -1,6 +1,6 @@
 ---
 title: 'sympa_automatic(8)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -95,5 +95,6 @@ of `sympa_automatic.pl`.
     Comité Réseau des Universités
 
 As of Sympa 6.2b.4, it was split into three programs:
-`sympa.pl` command line utility, `sympa_automatic.pl` daemon and
+`sympa.pl` (later renamed to `sympa`) command line utility,
+`sympa_automatic.pl` daemon and
 `sympa_msg.pl` daemon.

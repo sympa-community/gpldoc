@@ -1,6 +1,6 @@
 ---
 title: 'archived(8)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -20,7 +20,7 @@ later rebuilding of archives.
 
 The HTML conversion is achieved by the means of the **MHonArc** program.
 
-Archives are accessed via **wwsympa.fcgi** and **sympa.pl**,
+Archives are accessed via **wwsympa.fcgi** and **sympa\_msg.pl**,
 which proposes access control;
 therefore archives should not be located in a public web directory.
 

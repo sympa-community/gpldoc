@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Internals(3)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -39,6 +39,10 @@ To know details of each module, run:
 - [Sympa::Archive](./Sympa-Archive.3.md)
 
     Archives of Sympa
+
+- [Sympa::CLI](./Sympa-CLI.3.md)
+
+    Base class of Sympa CLI modules
 
 - [Sympa::CommandDef](./Sympa-CommandDef.3.md)
 
@@ -482,7 +486,7 @@ To know details of each module, run:
 
 - [Sympa::Tools::SMIME](./Sympa-Tools-SMIME.3.md)
 
-    TBD
+    Tools for S/MIME messages and X.509 certificates
 
 - [Sympa::Tools::Text](./Sympa-Tools-Text.3.md)
 
@@ -519,10 +523,6 @@ To know details of each module, run:
 - [Sympa::WWW::Marc::Search](./Sympa-WWW-Marc-Search.3.md)
 
     Search archives of Sympa
-
-- [Sympa::WWW::Report](./Sympa-WWW-Report.3.md)
-
-    TBD
 
 - [Sympa::WWW::Session](./Sympa-WWW-Session.3.md)
 

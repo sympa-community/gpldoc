@@ -1,6 +1,6 @@
 ---
 title: 'mod2html(1)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -15,7 +15,7 @@ mod2html, mod2html.pl - Generates HTML view of messages to be moderated
 
 Until Sympa release 3.4.3.1, HTML view of moderated messages was created by
 wwsympa.fcgi, when needed.
-It is now created by sympa.pl when the message is received.
+It is now created by sympa\_msg.pl daemon when the message is received.
 
 This script will create all missing HTML files.
 

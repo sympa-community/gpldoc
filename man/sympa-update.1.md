@@ -1,0 +1,17 @@
+---
+title: 'sympa-update(1)'
+release: '6.2.67b.3'
+---
+
+# NAME
+
+sympa-update - Modify the existing list in the family
+
+# SYNOPSIS
+
+`sympa.pl update` `--input_file=`_/path/to/file.xml_ _family_`@@`_domain_
+
+# DESCRIPTION
+
+Modify the existing list belonging to specified family.
+The new description is in the XML file.

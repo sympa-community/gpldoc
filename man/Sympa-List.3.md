@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::List(3)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -24,19 +24,23 @@ Sympa::List - Mailing list
 
     FIXME @todo doc
 
-- add\_list\_admin ( ROLE, USERS, ... )
+- add\_list\_admin ( $role, $user, ...,
+\[ replace => 1 \],  \[ stash => $arrayref \] )
 
-    Adds a new admin user to the list. May overwrite existing
-    entries.
+    _Instance method_.
+    Adds new admin user(s) to the list.
+    If `replace => 1` is specified, may overwrite existing entries.
+    TBD.
 
 - add\_list\_header ( $message, $field\_type )
 
     FIXME @todo doc
 
-- add\_list\_member ( USER, HASHPTR )
+- add\_list\_member ( $user, ..., \[ stash => $arrayref \] )
 
-    Adds a new user to the list. May overwrite existing
-    entries.
+    _Instance method_.
+    Adds new user(s) to the list.
+    TBD.
 
 - available\_reception\_mode ( )
 
@@ -45,14 +49,34 @@ Sympa::List - Mailing list
 
     Note: Since Sympa 6.1.18, this returns an array under array context.
 
-- delete\_list\_admin ( ROLE, ARRAY )
+- delete\_list\_admin ( $role, \\@emails, \[ stash => \\@stash \] )
 
     Delete the indicated admin user with the predefined role from the list.
-    ROLE may be `'owner'` or `'editor'`.
+    $role may be `'owner'` or `'editor'`.
 
-- delete\_list\_member ( ARRAY )
+- delete\_list\_member ( \\@emails, \[ exclude => 1 \],
+\[ operation => $operation \], \[ stash => \\@stash \] )
 
     Delete the indicated users from the list.
+
+    Options:
+
+    - \\@emails
+
+        The emails to be deleted.
+
+    - exclude => 1
+
+        TBD.
+
+    - operation => $operation
+
+        Case of deleting: `'auto_del'` (bounce management), `'signoff'` (manual
+        signoff) or `'del'` (deleted by admin).
+
+    - stash => \\@stash
+
+        TBD.
 
 - delete\_list\_member\_picture ( $email )
 
@@ -342,6 +366,12 @@ Destroy multiton instance. FIXME
     Is a reception mode in the parameter reception of the available\_user\_options
     section?
 
+- is\_subscription\_allowed ( )
+
+    _Instance method_.
+    Is it allowed to add or remove subscribers of the list?
+    Added on Sympa 6.2.67b.1.
+
 - is\_digest ( )
 
     _Instance method_.
@@ -354,11 +384,6 @@ Destroy multiton instance. FIXME
 - is\_list\_member ( USER )
 
     Returns true if the indicated user is member of the list.
-
-- is\_member\_excluded ( $email )
-
-    _Instance method_.
-    **Deprecated**.
 
 - is\_moderated ()
 
@@ -663,6 +688,11 @@ Destroy multiton instance. FIXME
 
     Deprecated.
     Returns the value for a flag : sig or sub.
+
+- is\_member\_excluded ( $email )
+
+    _Instance method_.
+    **Deprecated**.
 
 - may\_do ( ACTION, USER )
 

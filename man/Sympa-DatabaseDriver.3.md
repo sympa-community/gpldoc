@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DatabaseDriver(3)'
-release: '6.2.66'
+release: '6.2.67b.3'
 ---
 
 # NAME
@@ -139,6 +139,28 @@ separator => $separator, substring\_length => $substring\_length } )
     Returns:
 
     True if the field is an auto-increment field, false otherwise
+
+- is\_sufficient\_field\_type ( $required, $actual )
+
+    _Overridable_, _only for SQL driver_.
+    Checks if database field type is sufficient.
+
+    Parameters:
+
+    - $required
+
+        Required field type.
+
+    - $actual
+
+        Actual field type.
+
+    Returns:
+
+    The true value if actual field type is appropriate AND size is equal to or
+    greater than required size.
+
+    This method was added on Sympa 6.2.67b.1.
 
 - set\_autoinc ( { table => $table, field => $field } )
 
