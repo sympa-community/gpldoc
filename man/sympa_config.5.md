@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.67b.3'
+release: '6.2.68'
 ---
 
 # NAME
@@ -1504,7 +1504,7 @@ Header fields removed when a mailing list is setup in anonymous mode
 
 - Default:
 
-    `Authentication-Results,Disposition-Notification-To,DKIM-Signature,Injection-Info,Organisation,Organization,Original-Recipient,Originator,Path,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,X-Envelope-From,X-Envelope-To,X-Sender,X-X-Sender`
+    `Authentication-Results,Disposition-Notification-To,DKIM-Signature,Fax,Injection-Info,Mailer,Organisation,Organization,Original-Recipient,Originating-Client,Originator,Path,Phone,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,Telefax,User-Agent,X-Envelope-From,X-Envelope-To,X-Face,X-Mailer,X-MimeOLE,X-Newsreader,X-Sender,X-X-Sender`
 
 - Context:
 

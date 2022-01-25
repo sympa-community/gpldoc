@@ -1,6 +1,6 @@
 ---
 title: 'Sympa(3)'
-release: '6.2.66'
+release: '6.2.68'
 ---
 
 # NAME
@@ -290,7 +290,8 @@ These are accessors derived from configuration parameters.
 
 - unique\_message\_id ( $that )
 
-    TBD
+    Generates a unique message ID enclosed by `<` and `>`,
+    then returns it.
 
 # SEE ALSO
 

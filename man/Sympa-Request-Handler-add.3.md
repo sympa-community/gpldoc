@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::add(3)'
-release: '6.2.67b.3'
+release: '6.2.68'
 ---
 
 # NAME

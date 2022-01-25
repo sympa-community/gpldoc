@@ -1,6 +1,6 @@
 ---
 title: 'upgrade_send_spool(1)'
-release: '6.2.66'
+release: '6.2.68'
 ---
 
 # NAME

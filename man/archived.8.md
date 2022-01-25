@@ -1,6 +1,6 @@
 ---
 title: 'archived(8)'
-release: '6.2.67b.3'
+release: '6.2.68'
 ---
 
 # NAME
@@ -67,7 +67,7 @@ The full documentation in HTML format can be found in
 [https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
 
 The mailing lists (with web archives) can be accessed at
-[https://listes.renater.fr/sympa/lists/informatique/sympa](https://listes.renater.fr/sympa/lists/informatique/sympa).
+[https://sympa-community.github.io/community/lists.html](https://sympa-community.github.io/community/lists.html).
 
 # HISTORY
 
@@ -100,7 +100,7 @@ copy of the license can be found under
 # BUGS
 
 Report bugs to Sympa bug tracker.
-See [http://www.sympa.org/tracking](http://www.sympa.org/tracking).
+See [https://github.com/sympa-community/sympa/issues](https://github.com/sympa-community/sympa/issues).
 
 # SEE ALSO
 
