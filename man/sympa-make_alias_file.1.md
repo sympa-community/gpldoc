@@ -1,6 +1,6 @@
 ---
 title: 'sympa-make_alias_file(1)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME

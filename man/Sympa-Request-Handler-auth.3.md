@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Request::Handler::auth(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME

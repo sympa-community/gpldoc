@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Language(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -397,7 +397,7 @@ RFC 5646 _Tags for Identifying Languages_.
 [http://tools.ietf.org/html/rfc5646](http://tools.ietf.org/html/rfc5646).
 
 _Translating Sympa_.
-[https://translate.sympa.org/pages/help](https://translate.sympa.org/pages/help).
+[https://translate.sympa.community/pages/help](https://translate.sympa.community/pages/help).
 
 # HISTORY
 

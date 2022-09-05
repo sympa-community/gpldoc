@@ -1,6 +1,6 @@
 ---
 title: 'wwsympa(8)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME 
@@ -12,7 +12,7 @@ wwsympa, wwsympa.fcgi - WWSympa, Sympa's web interface
 This FastCGI script completely handles all aspects of the Sympa web interface.
 
 To know details on WWSympa, see Sympa Administration Manual:
-[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
+[https://www.sympa.community/manual/](https://www.sympa.community/manual/).
 
 # HISTORY
 

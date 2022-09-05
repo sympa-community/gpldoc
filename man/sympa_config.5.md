@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -94,7 +94,7 @@ Below is entire list of configuration parameters.
 by each.
 - "Default" is built-in default value if any.
 About symbols for paths, such as `$SENDMAIL_ALIASES`,
-see "[Directory layout](https://sympa-community.github.io/manual/layout.html)".
+see "[Directory layout](https://www.sympa.community/manual/layout.html)".
 
 ## Service description
 
@@ -966,7 +966,7 @@ Priority for processing of messages bound for "LIST-owner" address, i.e. non-del
 
 ### `incoming_max_count`
 
-Max number of sympa.pl workers
+Max number of sympa\_msg.pl workers
 
 - Format:
 
@@ -984,7 +984,7 @@ Max number of sympa.pl workers
 
     6.2b.5 and later.
 
-Max number of workers of sympa.pl daemon processing incoming spool.
+Max number of workers of sympa\_msg.pl daemon processing incoming spool.
 
 ### `sleep`
 
@@ -1212,111 +1212,6 @@ visibility
     list (`config`)
 
 Visibility of the subscriber.
-
-### `default_owner_options`
-
-(Paragraph)
-Owner profile
-
-- Single occurrence
-
-Default profile for the owners of the list.
-
-#### `default_owner_options.profile`
-
-profile
-
-- Format:
-    - `privileged` - privileged owner
-    - `normal` - normal owner
-- Default:
-
-    `normal`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-#### `default_owner_options.reception`
-
-reception mode
-
-- Format:
-
-    Reception mode of list member.
-
-- Default:
-
-    `mail`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-Mail reception mode.
-
-#### `default_owner_options.visibility`
-
-visibility
-
-- Format:
-
-    Visibility mode of list memeber.
-
-- Default:
-
-    `noconceal`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-Visibility of the owner.
-
-### `default_editor_options`
-
-(Paragraph)
-Moderator profile
-
-- Single occurrence
-
-Default profile for the moderators of the list.
-
-#### `default_editor_options.reception`
-
-reception mode
-
-- Format:
-
-    Reception mode of list member.
-
-- Default:
-
-    `mail`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-Mail reception mode.
-
-#### `default_editor_options.visibility`
-
-visibility
-
-- Format:
-
-    Visibility mode of list memeber.
-
-- Default:
-
-    `noconceal`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-Visibility of the moderator.
 
 ### `msg_topic`
 
@@ -2384,6 +2279,107 @@ Minimum owners in required domains
     6.2.23b.3 and later.
 
 Minimum number of owners for each list must satisfy the owner\_domain restriction. The default of zero (0) means \*all\* list owners must match. Setting to 1 requires only one list owner to match owner\_domain; all other owners can be from any domain. This setting can be used to ensure that there is always at least one known contact point for any mailing list.
+
+### `default_owner_options`
+
+(Paragraph)
+Owner profile
+
+- Single occurrence
+
+Default profile for the owners of the list.
+
+#### `default_owner_options.profile`
+
+profile
+
+- Format:
+    - `privileged` - privileged owner
+    - `normal` - normal owner
+- Default:
+
+    `normal`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+#### `default_owner_options.reception`
+
+reception mode
+
+- Format:
+    - `mail` - receive notification email
+    - `nomail` - no notifications
+- Default:
+
+    `mail`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Mail reception mode.
+
+#### `default_owner_options.visibility`
+
+visibility
+
+- Format:
+    - `conceal` - concealed from list menu
+    - `noconceal` - listed on the list menu
+- Default:
+
+    `noconceal`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Visibility of the owner.
+
+### `default_editor_options`
+
+(Paragraph)
+Moderator profile
+
+- Single occurrence
+
+Default profile for the moderators of the list.
+
+#### `default_editor_options.reception`
+
+reception mode
+
+- Format:
+    - `mail` - receive notification email
+    - `nomail` - no notifications
+- Default:
+
+    `mail`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Mail reception mode.
+
+#### `default_editor_options.visibility`
+
+visibility
+
+- Format:
+    - `conceal` - concealed from list menu
+    - `noconceal` - listed on the list menu
+- Default:
+
+    `noconceal`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+Visibility of the moderator.
 
 ### `shared_doc`
 
@@ -7232,7 +7228,7 @@ DKIM "i=" tag, you should probably leave this parameter empty
 
     list (`config`)
 
-DKIM "i=" tag, you should probably not use this parameter, as recommended by RFC 4871, default for list brodcasted messages is i=&lt;listname>-request@&lt;domain>
+DKIM "i=" tag, you should probably not use this parameter, as recommended by RFC 4871, default for list broadcasted messages is i=&lt;listname>-request@&lt;domain>
 
 ### `dkim_signature_apply_on`
 
@@ -8635,7 +8631,7 @@ Password validation
 
     6.1.23 and later.
 
-The password validation techniques to be used against user passwords that are added to mailing lists. Options come from Data::Password (http://search.cpan.org/~razinf/Data-Password-1.07/Password.pm#VARIABLES)
+The password validation techniques to be used against user passwords that are added to mailing lists. Options come from Data::Password https://metacpan.org/pod/Data::Password#VARIABLES
 
 Example:
 
@@ -9169,7 +9165,7 @@ If set, when a list moderator report undetected spams for list moderation, this 
 
 ### `domains_blocklist`
 
-Prevent people to subscribe to a list with adresses using these domains
+Prevent people to subscribe to a list with addresses using these domains
 
 - Format:
 
@@ -10287,7 +10283,7 @@ or `$EXPLDIR/<mail domain name>/<list name>/config`
 # SEE ALSO
 
 _Sympa Administration Manual_.
-[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
+[https://www.sympa.community/manual/](https://www.sympa.community/manual/).
 
 [auth.conf(5)](./auth.conf.5.md),
 [charset.conf(5)](./charset.conf.5.md),

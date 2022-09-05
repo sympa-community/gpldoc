@@ -1,6 +1,6 @@
 ---
 title: 'sympa_database(5)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -701,4 +701,4 @@ Fields:
 # SEE ALSO
 
 _Sympa Administration Manual_.
-[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
+[https://www.sympa.community/manual/](https://www.sympa.community/manual/).

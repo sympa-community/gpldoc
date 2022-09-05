@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Config::Schema(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -227,6 +227,14 @@ This module keeps definition of configuration parameters for each list.
 
         'db\_first', 'file\_first' or 'no'.
         TBD.
+
+    - importance
+
+        Importance of the parameter. The value `100` means "minimal",
+        i.e. included in a set of parameters explicitly described
+        in the installation instruction.
+        `0` (default) means no importance.
+        This was introduced on 6.2.69b.
 
 - %user\_info
 

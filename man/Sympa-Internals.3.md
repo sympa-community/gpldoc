@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Internals(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -466,7 +466,7 @@ To know details of each module, run:
 
 - [Sympa::Tools::Data](./Sympa-Tools-Data.3.md)
 
-    TBD
+    Functions related to data structures
 
 - [Sympa::Tools::DKIM](./Sympa-Tools-DKIM.3.md)
 
@@ -553,4 +553,4 @@ See [Sympa::Internals::Workflow](./Sympa-Internals-Workflow.3.md).
 [sympa\_toc(1)](./sympa_toc.1.md).
 
 _Sympa Administration Manual_.
-[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
+[https://www.sympa.community/manual/](https://www.sympa.community/manual/).

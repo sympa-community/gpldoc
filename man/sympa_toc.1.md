@@ -1,6 +1,6 @@
 ---
 title: 'sympa_toc(1)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -26,7 +26,7 @@ Below is the list of documentation of Sympa.
 
 - _Sympa Administration Manual_
 
-    [https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
+    [https://www.sympa.community/manual/](https://www.sympa.community/manual/).
 
 ## Daemons
 
@@ -75,10 +75,6 @@ Below is the list of documentation of Sympa.
 - [sympa\_newaliases(1)](./sympa_newaliases.1.md)
 
     Alias database maintenance
-
-- [sympa\_wizard(1)](./sympa_wizard.1.md)
-
-    Help Performing Sympa Initial Setup
 
 ### Maintenance tools
 
@@ -209,10 +205,10 @@ Latest version of **Sympa** is available from
 # MORE DOCUMENTATION
 
 The full documentation in HTML format can be found in
-[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
+[https://www.sympa.community/manual/](https://www.sympa.community/manual/).
 
 The mailing lists (with web archives) can be accessed at
-[https://sympa-community.github.io/community/lists.html](https://sympa-community.github.io/community/lists.html).
+[https://www.sympa.community/community/lists.html](https://www.sympa.community/community/lists.html).
 
 # BUGS
 

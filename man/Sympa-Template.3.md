@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Template(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -320,7 +320,7 @@ extracted during packaging process and are added to translation catalog.
 ## Plugins
 
 Plugins may be placed under `LIBDIR/Sympa/Template/Plugin`.
-See &lt;https://sympa-community.github.io/manual/customize/template-plugins.html>
+See &lt;https://www.sympa.community/manual/customize/template-plugins.html>
 about usage of plugins.
 
 # SEE ALSO

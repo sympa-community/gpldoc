@@ -1,6 +1,6 @@
 ---
 title: 'sympa_scenario(5)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME

@@ -1,6 +1,6 @@
 ---
 title: 'sympa-conf_2_db(1)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME

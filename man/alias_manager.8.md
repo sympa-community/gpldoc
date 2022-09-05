@@ -1,6 +1,6 @@
 ---
 title: 'alias_manager(8)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -52,10 +52,10 @@ management by setting
 # DOCUMENTATION
 
 The full documentation in HTML formats can be
-found in [https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/). 
+found in [https://www.sympa.community/manual/](https://www.sympa.community/manual/). 
 
 The mailing lists (with web archives) can be accessed at
-[https://sympa-community.github.io/community/lists.html](https://sympa-community.github.io/community/lists.html).
+[https://www.sympa.community/community/lists.html](https://www.sympa.community/community/lists.html).
 
 # HISTORY
 

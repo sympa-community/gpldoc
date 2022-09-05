@@ -1,6 +1,6 @@
 ---
 title: 'sympa(1)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -55,6 +55,10 @@ To see detail of each command, run '`sympa help` _command_'.
 
     Add users to the list
 
+- ["sympa bouncers"](./sympa-bouncers.1.md)
+
+    Manipulate list bounced users
+
 - ["sympa check"](./sympa-check.1.md)
 
     Check environment
@@ -66,6 +70,10 @@ To see detail of each command, run '`sympa help` _command_'.
 - ["sympa conf\_2\_db"](./sympa-conf_2_db.1.md)
 
     Load config into the database
+
+- ["sympa config"](./sympa-config.1.md)
+
+    Manipulate configuration of Sympa
 
 - ["sympa copy"](./sympa-move.1.md)
 
@@ -130,6 +138,10 @@ To see detail of each command, run '`sympa help` _command_'.
 - ["sympa restore"](./sympa-restore.1.md)
 
     Restore users of the lists
+
+- ["sympa review"](./sympa-review.1.md)
+
+    Show subscribers of the list
 
 - ["sympa send\_digest"](./sympa-send_digest.1.md)
 

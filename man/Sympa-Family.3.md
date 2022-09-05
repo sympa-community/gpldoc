@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Family(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -187,7 +187,7 @@ This module gathers all the family-specific operations.
 
 [sympa\_automatic(8)](./sympa_automatic.8.md).
 
-[List families](https://sympa-community.github.io/manual/customize/basics-families.html), _Sympa Administration Manual_.
+[List families](https://www.sympa.community/manual/customize/basics-families.html), _Sympa Administration Manual_.
 
 # HISTORY
 

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::List(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -261,6 +261,12 @@ Destroy multiton instance. FIXME
 
     _Instance method_.
     Returns the number of messages sent to the list.
+    FIXME
+
+- get\_first\_bouncing\_list\_member ( )
+
+    _Instance method_.
+    Get first bouncing user.
     FIXME
 
 - get\_next\_bouncing\_list\_member ( )

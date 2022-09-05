@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DatabaseDriver(3)'
-release: '6.2.68'
+release: '6.2.70'
 ---
 
 # NAME
@@ -439,14 +439,6 @@ fields => $fields } )
 Subclasses of [Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md) class also can override methods
 provided by [Sympa::Database](./Sympa-Database.3.md) class:
 
-- begin ( )
-
-    _Overridable_, _only for SQL driver_.
-
-- commit ( )
-
-    _Overridable_, _only for SQL driver_.
-
 - do\_operation ( $operation, $parameters, ...)
 
     _Overridable_, _only for LDAP driver_.
@@ -456,10 +448,6 @@ provided by [Sympa::Database](./Sympa-Database.3.md) class:
     _Overridable_, _only for SQL driver_.
 
 - do\_prepared\_query ( $query, $parameters, ... )
-
-    _Overridable_, _only for SQL driver_.
-
-- rollback ( )
 
     _Overridable_, _only for SQL driver_.
 
