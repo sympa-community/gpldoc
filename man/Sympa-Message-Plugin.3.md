@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message::Plugin(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -59,7 +59,7 @@ First, write your hook module:
         my $message = shift;    # Message object
         my %options = @_;
     
-        # Processing, possiblly changing $message...
+        # Processing, possibly changing $message...
     
         # Return suitable result.
         # If unrecoverable error occurred, you may return undef or simply die.

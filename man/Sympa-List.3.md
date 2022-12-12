@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::List(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -142,7 +142,7 @@ Destroy multiton instance. FIXME
 
     Returns:
 
-    In array context, returns (possiblly empty or single-item) array of users.
+    In array context, returns (possibly empty or single-item) array of users.
     In scalar context, returns reference to it.
     In case of database error, returns empty array or undefined value.
 
@@ -253,7 +253,7 @@ Destroy multiton instance. FIXME
 
     Returns:
 
-    In array context, returns (possiblly empty or single-item) array of users.
+    In array context, returns (possibly empty or single-item) array of users.
     In scalar context, returns reference to it.
     In case of database error, returns empty array or undefined value.
 

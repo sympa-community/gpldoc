@@ -1,6 +1,6 @@
 ---
 title: 'sympa_toc(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -75,56 +75,6 @@ Below is the list of documentation of Sympa.
 - [sympa\_newaliases(1)](./sympa_newaliases.1.md)
 
     Alias database maintenance
-
-### Maintenance tools
-
-- [arc2webarc(1)](./arc2webarc.1.md)
-
-    TBD.
-
-- [init\_comment(1)](./init_comment.1.md)
-
-    TBD.
-
-- [mod2html(1)](./mod2html.1.md)
-
-    Generates HTML view of messages to be moderated
-
-- [p12topem(1)](./p12topem.1.md)
-
-    TBD.
-
-- [sympa\_soap\_client(1)](./sympa_soap_client.1.md)
-
-    TBD.
-
-- [sympa\_test\_ldap(1)](./sympa_test_ldap.1.md)
-
-    Testing LDAP connection for Sympa
-
-- [testlogs(1)](./testlogs.1.md)
-
-    TBD.
-
-- [tpl2tt2(1)](./tpl2tt2.1.md)
-
-    TBD.
-
-- [upgrade\_bulk\_spool(1)](./upgrade_bulk_spool.1.md)
-
-    Migrating messages in bulk tables
-
-- [upgrade\_send\_spool(1)](./upgrade_send_spool.1.md)
-
-    Upgrade messages in incoming spool
-
-- [upgrade\_shared\_repository(1)](./upgrade_shared_repository.1.md)
-
-    Encode file names in shared repositories.
-
-- [upgrade\_sympa\_password(1)](./upgrade_sympa_password.1.md)
-
-    Upgrading password in database
 
 ## Auxiliary Programs
 

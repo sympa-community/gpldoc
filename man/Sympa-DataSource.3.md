@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DataSource(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -58,7 +58,7 @@ TBD.
     - $type
 
         Type of data source.
-        This corresponds to impemented subclasses.
+        This corresponds to implemented subclasses.
 
     - $role
 

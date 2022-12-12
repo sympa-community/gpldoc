@@ -1,6 +1,6 @@
 ---
 title: 'sympa(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -46,6 +46,10 @@ tasks.
 
     Enable SMTP logging.
 
+- `--noout`
+
+    Skip output to the console except for fatal error messages.
+
 # COMMANDS
 
 Currently following commands are available.
@@ -66,10 +70,6 @@ To see detail of each command, run '`sympa help` _command_'.
 - ["sympa close"](./sympa-close.1.md)
 
     Close a list or the lists belonging to a family
-
-- ["sympa conf\_2\_db"](./sympa-conf_2_db.1.md)
-
-    Load config into the database
 
 - ["sympa config"](./sympa-config.1.md)
 
@@ -147,6 +147,10 @@ To see detail of each command, run '`sympa help` _command_'.
 
     Send digest
 
+- ["sympa set"](https://metacpan.org/pod/sympa-set%29)
+
+    Set properties of the users of the list
+
 - ["sympa show\_pending\_lists"](./sympa-show_pending_lists.1.md)
 
     Show pending lists
@@ -154,6 +158,10 @@ To see detail of each command, run '`sympa help` _command_'.
 - ["sympa sync\_list\_db"](./sympa-sync_list_db.1.md)
 
     Synchronize database cache of the lists
+
+- ["sympa test"](./sympa-test.1.md)
+
+    Test the functions of Sympa
 
 - ["sympa update"](./sympa-update.1.md)
 
@@ -283,11 +291,12 @@ With the following options `sympa.pl` will run in batch mode:
 
 - `--conf_2_db`
 
+    **Deprecated**.
     Load sympa.conf and each robot.conf into database.
 
     New command line format:
 
-    TBD.
+    None.
 
 - `--copy_list=`_listname_`@`_robot_
 `--new_listname=`_newlistname_ `--new_listrobot=`_newrobot_
@@ -405,7 +414,7 @@ With the following options `sympa.pl` will run in batch mode:
     YOU CAN'T UNDO unless you save this table first.
 
     **Note** that this option was obsoleted.
-    Use [upgrade\_sympa\_password(1)](./upgrade_sympa_password.1.md).
+    Use [sympa upgrade password](./symp-upgrade-password.1.md).
 
 - `--modify_list=`_family\_name_ `--robot=`_robot\_name_
 `--input_file=`_/path/to/file.xml_
@@ -439,7 +448,7 @@ With the following options `sympa.pl` will run in batch mode:
 
 - `--show_pending_lists`=_robot_
 
-    Print all pending lists for the robot, with informations.
+    Print all pending lists for the robot, with information.
 
     New command line format:
 
@@ -529,13 +538,13 @@ With the following options `sympa.pl` will run in batch mode:
 
     **Note**:
     This option was deprecated.
-    See upgrade\_shared\_repository(1).
+    See [sympa upgrade shared](./sympa-upgrade-shared.1.md) command line.
 
     Rename files in shared.
 
     New command line format:
 
-    TBD.
+    - `sympa upgrade shared` \[ `--fix_qencode` \] listname@robot &#124; "\*"
 
 With following options `sympa.pl` will print some information and exit.
 
@@ -580,3 +589,5 @@ As of Sympa 6.2b.4, it was split into three programs:
 
 As of Sympa 6.2.68, `sympa.pl` was renamed to `sympa`
 and the new form of command line arguments was introduced.
+
+The `--noout` option was introduced on Sympa 6.2.71b.

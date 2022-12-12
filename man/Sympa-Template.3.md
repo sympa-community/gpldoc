@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Template(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -251,6 +251,13 @@ See [Template::Manual::Filters](https://metacpan.org/pod/Template%3A%3AManual%3A
     - withval
 
         If parameter value is added to the description.  False by default.
+
+- permalink\_id
+
+    Calculate permalink ID from message ID.
+
+    Note:
+    This filter was introduced by Sympa 6.2.71b.
 
 - qencode
 

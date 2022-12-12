@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DatabaseDriver(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -29,9 +29,11 @@ Sympa Database Manager (SDM).
 
     _Overridable_.
     Returns an arrayref including names of required (not optional) parameters.
-    By default, returns `['db_name', 'db_user']`.
+    By default, returns `['db_name']`.
 
     _Note_:
+    On Sympa prior to 6.2.71b, it by default returned
+    `['db_name', 'db_user']`.
     On Sympa prior to 6.2.37b.2, it by default returned
     `['db_host', 'db_name', 'db_user']`.
 
@@ -481,6 +483,14 @@ provided by [Sympa::Database](./Sympa-Database.3.md) class:
     Overridden by inherited classes.
 
     See ["AS\_DOUBLE"](#as_double) for more details.
+
+- md5\_func ( $expression, ... )
+
+    _Required_.
+    Given expressions, returns a SQL expression calculating MD5 digest of
+    concatenated those expressions.  Among them, NULL values should be ignored
+    and numeric values should be converted to textual type before concatenation.
+    Value of the SQL expression should be lowercase 32 hexadigits.
 
 ## Utility method
 

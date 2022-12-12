@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Message(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -102,6 +102,11 @@ easier.
     Gets spam status according to spam\_status scenario
     and sets it as {spam\_status} attribute.
 
+- aggregate\_authentication\_results ( )
+
+    _Instance method_.
+    TBD.
+
 - dkim\_sign ( dkim\_d => $d, \[ dkim\_i => $i \],
 dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 
@@ -110,9 +115,18 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 
 - check\_dkim\_signature ( )
 
+    Deprecated on Sympa 6.2.71b.
+    Use check\_dkim\_sigs().
+
+- check\_dkim\_sigs ( )
+
     _Instance method_.
     Checks DKIM signature of the message
     and sets or clears {dkim\_pass} item of the message object.
+
+    Returns:
+
+    An array of the overall result of checking and authentication result(s).
 
 - remove\_invalid\_dkim\_signature ( )
 
@@ -122,15 +136,30 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 
 - check\_arc\_chain ( )
 
+    Deprecated on Sympa 6.2.71b.
+    Use check\_arc\_seals().
+
+- check\_arc\_seals ( )
+
     _Instance method_.
-    Checks ARC chain of the message
-    and sets {shelved}{arc\_cv} item of the message object.
+    Checks chain of ARC seals in the message.
+
+    Returns:
+
+    An array of the result of checking and authentication result.
+
+    Note:
+
+    Use of aggregate\_authentication\_results() is recommended
+    instead of using this method derectly.
 
 - arc\_seal ( )
 
     _Instance method_.
-    Adds a new ARC seal if there's an arc\_cv from check\_arc\_chain and
+    Adds a new ARC seal if there's an {arc\_cv} from check\_arc\_seals() and
     the cv is none or valid.
+
+    Returns true value if seal was successfully added.
 
 - as\_entity ( )
 
@@ -594,7 +623,7 @@ These are accessible as hash elements of objects.
 - {checksum}
 
     No longer used.  It is kept for compatibility with Sympa 6.1.x or earlier.
-    See also upgrade\_send\_spool(1).
+    See also [sympa upgrade incoming](./sympa-upgrade-incoming.1.md) command line.
 
 - {envelope\_sender}
 
@@ -640,6 +669,11 @@ These are accessible as hash elements of objects.
     Hashref with multiple items.
     Currently these items are available:
 
+    - arc\_cv => `pass`&#124;`fail`&#124;`none`
+
+        Result of checking the chain of ARC seals.
+        This is used to generate a new ARC seal, if ARC feature is enabled.
+
     - decorate => 1
 
         Adding footer/header if any.
@@ -659,7 +693,7 @@ These are accessible as hash elements of objects.
 
         Personalizing.
 
-        On Sympa 6.2.58 or earlier, there was no distiction between `footer` and `all`.
+        On Sympa 6.2.58 or earlier, there was no distinction between `footer` and `all`.
         The `merge` item in the messages stored into outgoing spool by earlier version
         of Sympa will be treated as `all`.
 

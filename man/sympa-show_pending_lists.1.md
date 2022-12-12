@@ -1,6 +1,6 @@
 ---
 title: 'sympa-show_pending_lists(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -13,4 +13,4 @@ sympa-show\_pending\_lists - Show pending lists
 
 # DESCRIPTION
 
-Print all pending lists for the robot, with informations.
+Print all pending lists for the robot, with information.

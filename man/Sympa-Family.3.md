@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Family(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -68,7 +68,7 @@ This module gathers all the family-specific operations.
 
     - $list
 
-        A List object corresponding to the list to chek.
+        A List object corresponding to the list to check.
 
     Returns
 

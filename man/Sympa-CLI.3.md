@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::CLI(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -41,7 +41,8 @@ TBD.
     Returns an array to define command line options.
     About the format see ["Summary of Option Specifications" in Getopt::Long](https://metacpan.org/pod/Getopt%3A%3ALong#Summary-of-Option-Specifications).
 
-    By default no options are defined.
+    By default general options are defined and they always take precedence over
+    the definition in subclass.
 
 - \_args ( )
 

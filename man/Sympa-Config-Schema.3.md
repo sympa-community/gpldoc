@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Config::Schema(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -225,8 +225,8 @@ This module keeps definition of configuration parameters for each list.
 
     - db
 
+        Deprecated.
         'db\_first', 'file\_first' or 'no'.
-        TBD.
 
     - importance
 

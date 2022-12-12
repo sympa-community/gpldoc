@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Scenario(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -63,7 +63,13 @@ on functions of Sympa software against users and clients.
     - $auth\_method
 
         'smtp', 'md5', 'pgp', 'smime' or 'dkim'.
-        Note that \`pgp\` has not been implemented.
+
+        Note:
+        `pgp` has not been implemented.
+
+        Note:
+        `dkim` was deprecated on Sympa 6.2.71b.
+        Now it is the synonym of `smtp`.
 
     - \\%context
 

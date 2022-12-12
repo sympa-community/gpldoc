@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Text(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -239,6 +239,10 @@ This package provides some text-related functions.
     Returns:
 
     Padded string.
+
+- permalink\_id ( $message\_id )
+
+    Calculates permalink ID from mesage ID.
 
 - qdecode\_filename ( $filename )
 

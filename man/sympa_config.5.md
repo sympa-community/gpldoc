@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -104,7 +104,7 @@ Primary mail domain name
 
 - Format:
 
-    /`[-\w]+(?:[.][-\w]+)+`/
+    /`$domain`/
 
 - Default:
 
@@ -258,6 +258,26 @@ Type of the database
 
 Possible types are "MySQL", "PostgreSQL", "Oracle" and "SQLite".
 
+### `db_name`
+
+Name of the database
+
+- Format:
+
+    /`.+`/
+
+- Default:
+
+    `sympa`
+
+- Context:
+
+    site (`sympa.conf`)
+
+With SQLite, this must be the full path to database file.
+
+With Oracle Database, this must be SID, net service name or easy connection identifier (to use net service name, db\_host should be set to "none" and HOST, PORT and SERVICE\_NAME should be defined in tnsnames.ora file).
+
 ### `db_host`
 
 Hostname of the database server
@@ -295,26 +315,6 @@ Port of the database server
 - Context:
 
     site (`sympa.conf`)
-
-### `db_name`
-
-Name of the database
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    `sympa`
-
-- Context:
-
-    site (`sympa.conf`)
-
-With SQLite, this must be the full path to database file.
-
-With Oracle Database, this must be SID, net service name or easy connection identifier (to use net service name, db\_host should be set to "none" and HOST, PORT and SERVICE\_NAME should be defined in tnsnames.ora file).
 
 ### `db_user`
 
@@ -1016,7 +1016,6 @@ Who can send messages
 
     - `closed` - closed
     - `confidential` - restricted to subscribers, messages from others are discarded
-    - `editordkim` - Moderated, no authentication needed if DKIM signature from moderator is OK
     - `editorkey` - Moderated
     - `editorkeyonly` - Moderated, even for moderators
     - `editorkeyonlyauth` - Moderated, need authentication from moderator
@@ -1201,7 +1200,7 @@ visibility
 
 - Format:
 
-    Visibility mode of list memeber.
+    Visibility mode of list member.
 
 - Default:
 
@@ -1399,17 +1398,11 @@ Header fields removed when a mailing list is setup in anonymous mode
 
 - Default:
 
-    `Authentication-Results,Disposition-Notification-To,DKIM-Signature,Fax,Injection-Info,Mailer,Organisation,Organization,Original-Recipient,Originating-Client,Originator,Path,Phone,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,Telefax,User-Agent,X-Envelope-From,X-Envelope-To,X-Face,X-Mailer,X-MimeOLE,X-Newsreader,X-Sender,X-X-Sender`
+    `ARC-Authentication-Results,ARC-Message-Signature,ARC-Seal,Authentication-Results,Disposition-Notification-To,DKIM-Signature,Domainkey-Signature,Fax,Injection-Info,Mailer,Organisation,Organization,Original-Recipient,Originating-Client,Originator,Path,Phone,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,Telefax,User-Agent,X-Envelope-From,X-Envelope-To,X-Face,X-Mailer,X-MimeOLE,X-Newsreader,X-Sender,X-X-Sender`
 
 - Context:
 
     site (`sympa.conf`)
-
-See "anonymous\_sender" list parameter.
-
-Default value prior to Sympa 6.1.19 is:
-
-    Sender,X-Sender,Received,Message-id,From,X-Envelope-To,Resent-From,Reply-To,Organization,Disposition-Notification-To,X-Envelope-From,X-X-Sender
 
 ### `custom_header`
 
@@ -2071,10 +2064,7 @@ Who can subscribe to the list
 
     - `auth` - subscription request confirmed
     - `auth_notify` - need authentication (notification is sent to owners)
-    - `auth_notifydkim` - need authentication unless DKIM signature is OK (notification is sent to owners)
     - `auth_owner` - requires authentication then owner approval
-    - `auth_ownerdkim` - requires authentication unless DKIM signature is OK, then owner approval
-    - `authdkim` - subscription request confirmed
     - `closed` - subscription is impossible
     - `open` - for anyone without authentication
     - `open_notify` - anyone, notification is sent to list owner
@@ -2102,11 +2092,9 @@ Who can add subscribers
     Name of `add` scenario:
 
     - `auth` - restricted to owner with authentication
-    - `authdkim` - restricted to owner without authentication if DKIM signature is OK.
     - `closed` - add impossible
     - `owner` - add performed by list owner does not need authentication
     - `owner_notify` - add performed by owner does not need authentication (notification)
-    - `ownerdkim` - add performed by list owner does not need authentication if DKIM signature OK
 
 - Default:
 
@@ -2128,8 +2116,6 @@ Who can unsubscribe
 
     - `auth` - need authentication
     - `auth_notify` - authentication requested, notification sent to owner
-    - `auth_notifydkim` - authentication requested unless DKIM signature is OK, notification sent to owner
-    - `authdkim` - need authentication unless DKIM signature is OK
     - `closed` - impossible
     - `open` - open
     - `open_notify` - open with mail confirmation, owner is notified
@@ -2154,11 +2140,9 @@ Who can delete subscribers
     Name of `del` scenario:
 
     - `auth` - deletion performed only by list owners, need authentication
-    - `authdkim` - deletion performed only by list owners, need authentication unless DKIM signature is OK
     - `closed` - remove subscriber impossible
     - `owner` - by owner without authentication
     - `owner_notify` - list owners, authentication not needed (notification)
-    - `ownerdkim` - by owner without authentication if DKIM signature OK
 
 - Default:
 
@@ -2198,9 +2182,7 @@ Who can start a remind process
     Name of `remind` scenario:
 
     - `listmaster` - listmaster only
-    - `listmasterdkim` - listmaster only (do not require authentication if DKIM siganture is OK) 
     - `owner` - restricted to list owners
-    - `ownerdkim` - restricted to list owners (authentication is not required if a DKIM signature is OK)
 
 - Default:
 
@@ -2380,74 +2362,6 @@ visibility
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
 Visibility of the moderator.
-
-### `shared_doc`
-
-(Paragraph)
-Shared documents
-
-- Single occurrence
-
-This paragraph defines read and edit access to the shared document repository.
-
-#### `shared_doc.d_read`
-
-Who can view
-
-- Format:
-
-    Name of `d_read` scenario:
-
-    - `owner` - restricted to list owners
-    - `private` - restricted to subscribers
-    - `private-https` - restricted to subscribers authenticated with user cert
-    - `public` - public documents
-
-- Default:
-
-    `private`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-#### `shared_doc.d_edit`
-
-Who can edit
-
-- Format:
-
-    Name of `d_edit` scenario:
-
-    - `editor` - moderated for subscribers
-    - `owner` - restricted to list owners
-    - `private` - restricted to subscribers
-    - `private-https` - restricted to subscribers authenticated with user cert
-    - `public` - public documents
-
-- Default:
-
-    `owner`
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
-
-#### `shared_doc.quota`
-
-quota
-
-- Format:
-
-    Number of Kbytes.
-
-- Default:
-
-    None.
-
-- Context:
-
-    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
 ## Archives
 
@@ -2978,39 +2892,47 @@ See [`message_disposition_notification`](#message_disposition_notification).
 
     6.2a.0 to 6.2a.40.
 
-### `welcome_return_path`
+### `verp_welcome`
 
-Welcome return-path
+Remove bouncing new subscribers
 
 - Format:
-    - `unique` - bounce management
-    - `owner` - owner
+    - `on` - enabled
+    - `off` - disabled
 - Default:
 
-    `owner`
+    `off`
 
 - Context:
 
     list (`config`), site (`sympa.conf`)
 
-If set to unique, the welcome message is sent using a unique return path in order to remove the subscriber immediately in the case of a bounce.
+- Available versions:
 
-### `remind_return_path`
+    6.2.71b.1 and later.
 
-Return-path of the REMIND command
+If enabled, the welcome message is sent using VERP in order to remove the subscriber immediately in the case of a bounce.
+
+### `verp_remind`
+
+Remove subscribers bouncing remind message
 
 - Format:
-    - `unique` - bounce management
-    - `owner` - owner
+    - `on` - enabled
+    - `off` - disabled
 - Default:
 
-    `owner`
+    `off`
 
 - Context:
 
     list (`config`), site (`sympa.conf`)
 
-Same as welcome\_return\_path, but applied to remind messages.
+- Available versions:
+
+    6.2.71b.1 and later.
+
+If enabled, the remind message is sent using VERP in order to remove the subscriber immediately in the case of a bounce.
 
 ### `expire_bounce_task`
 
@@ -3421,84 +3343,20 @@ Global unsubscription
 
 ## Tag based spam filtering
 
-### `antispam_feature`
-
-Tag based spam filtering
-
-- Format:
-    - `on` - enabled
-    - `off` - disabled
-- Default:
-
-    `off`
-
-- Context:
-
-    domain (`robot.conf`), site (`sympa.conf`)
-
-### `antispam_tag_header_name`
-
-Header field to tag spams
-
-- Format:
-
-    /`\S+`/
-
-- Default:
-
-    `X-Spam-Status`
-
-- Context:
-
-    domain (`robot.conf`), site (`sympa.conf`)
-
-If a spam filter (like spamassassin or j-chkmail) add a header field to tag spams, name of this header field (example X-Spam-Status)
-
-### `antispam_tag_header_spam_regexp`
-
-Regular expression to check header field to tag spams
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    `^\s*Yes`
-
-- Context:
-
-    domain (`robot.conf`), site (`sympa.conf`)
-
-Regular expression applied on this header to verify message is a spam (example Yes)
-
-### `antispam_tag_header_ham_regexp`
-
-Regular expression to determine spam or ham.
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    `^\s*No`
-
-- Context:
-
-    domain (`robot.conf`), site (`sympa.conf`)
-
-Regular expression applied on this header field to verify message is NOT a spam (example No)
-
 ### `spam_status`
 
-Name of header field to inform
+Type of spam filter
 
 - Format:
 
     Name of `spam_status` scenario:
 
-    - `x-spam-status` - test x-spam-status  header
+    - `bogofilter` - bogofilter
+    - `j-chkmail` - j-chkmail
+    - `none` - do nothing
+    - `rspamd` - Rspamd
+    - `spamassassin` - SpamAssassin
+    - `x-spam-status` - test X-Spam-Status header
 
 - Default:
 
@@ -3508,7 +3366,11 @@ Name of header field to inform
 
     domain (`robot.conf`), site (`sympa.conf`)
 
-Messages are supposed to be filtered by an spam filter that adds them one or more headers. This parameter is used to select a special scenario in order to decide the message's spam status: ham, spam or unsure. This parameter replaces antispam\_tag\_header\_name, antispam\_tag\_header\_spam\_regexp and antispam\_tag\_header\_ham\_regexp.
+- Available versions:
+
+    6.1a.2 and later.
+
+Messages are supposed to be filtered by an spam filter that adds them one or more headers. This parameter is used to select a special scenario in order to decide the message's spam status: ham, spam or unsure.
 
 ## Directories
 
@@ -4216,7 +4078,7 @@ visibility
 
 - Format:
 
-    Visibility mode of list memeber.
+    Visibility mode of list member.
 
 - Default:
 
@@ -4963,14 +4825,6 @@ remote host
 
     list (`config`)
 
-#### `include_ldap_query.port`
-
-Deprecated.
-
-- Context:
-
-    list (`config`)
-
 #### `include_ldap_query.use_tls`
 
 use TLS (formerly SSL)
@@ -5230,6 +5084,14 @@ See [`bind_password`](#bind_password).
 
     up to 6.2.56.
 
+#### `include_ldap_query.port`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_query.use_ssl`
 
 See [`use_tls`](#use_tls).
@@ -5290,14 +5152,6 @@ remote host
 - Default:
 
     None, _mandatory_.
-
-- Context:
-
-    list (`config`)
-
-#### `include_ldap_2level_query.port`
-
-Deprecated.
 
 - Context:
 
@@ -5674,6 +5528,14 @@ See [`bind_password`](#bind_password).
 
     up to 6.2.56.
 
+#### `include_ldap_2level_query.port`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_2level_query.use_ssl`
 
 See [`use_tls`](#use_tls).
@@ -5739,6 +5601,22 @@ database type
 
     list (`config`)
 
+#### `include_sql_query.db_name`
+
+database name
+
+- Format:
+
+    /`\S+`/
+
+- Default:
+
+    None, _mandatory_.
+
+- Context:
+
+    list (`config`)
+
 #### `include_sql_query.db_host`
 
 remote host
@@ -5770,22 +5648,6 @@ database port
 - Default:
 
     None.
-
-- Context:
-
-    list (`config`)
-
-#### `include_sql_query.db_name`
-
-database name
-
-- Format:
-
-    /`\S+`/
-
-- Default:
-
-    None, _mandatory_.
 
 - Context:
 
@@ -5837,7 +5699,7 @@ remote user
 
 - Default:
 
-    None, _mandatory_.
+    None.
 
 - Context:
 
@@ -5885,19 +5747,15 @@ SQL query
 
 #### `include_sql_query.f_dir`
 
-Directory where the database is stored (used for DBD::CSV only)
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
+See [`db_name`](#db_name).
 
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    up to 6.2.70.
 
 #### `include_sql_query.nosync_time_ranges`
 
@@ -6041,14 +5899,6 @@ remote host
 - Default:
 
     None, _mandatory_.
-
-- Context:
-
-    list (`config`)
-
-#### `include_ldap_ca.port`
-
-Deprecated.
 
 - Context:
 
@@ -6325,6 +6175,14 @@ See [`bind_password`](#bind_password).
 
     up to 6.2.56.
 
+#### `include_ldap_ca.port`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_ca.use_ssl`
 
 See [`use_tls`](#use_tls).
@@ -6383,14 +6241,6 @@ remote host
 - Default:
 
     None, _mandatory_.
-
-- Context:
-
-    list (`config`)
-
-#### `include_ldap_2level_ca.port`
-
-Deprecated.
 
 - Context:
 
@@ -6779,6 +6629,14 @@ See [`bind_password`](#bind_password).
 
     up to 6.2.56.
 
+#### `include_ldap_2level_ca.port`
+
+Deprecated.
+
+- Context:
+
+    list (`config`)
+
 #### `include_ldap_2level_ca.use_ssl`
 
 See [`use_tls`](#use_tls).
@@ -6842,6 +6700,22 @@ database type
 
     list (`config`)
 
+#### `include_sql_ca.db_name`
+
+database name
+
+- Format:
+
+    /`\S+`/
+
+- Default:
+
+    None, _mandatory_.
+
+- Context:
+
+    list (`config`)
+
 #### `include_sql_ca.db_host`
 
 remote host
@@ -6873,22 +6747,6 @@ database port
 - Default:
 
     None.
-
-- Context:
-
-    list (`config`)
-
-#### `include_sql_ca.db_name`
-
-database name
-
-- Format:
-
-    /`\S+`/
-
-- Default:
-
-    None, _mandatory_.
 
 - Context:
 
@@ -6940,7 +6798,7 @@ remote user
 
 - Default:
 
-    None, _mandatory_.
+    None.
 
 - Context:
 
@@ -6988,19 +6846,15 @@ SQL query
 
 #### `include_sql_ca.f_dir`
 
-Directory where the database is stored (used for DBD::CSV only)
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
+See [`db_name`](#db_name).
 
 - Context:
 
     list (`config`)
+
+- Available versions:
+
+    up to 6.2.70.
 
 #### `include_sql_ca.email_entry`
 
@@ -7200,7 +7054,7 @@ DKIM "d=" tag, you should probably use the default value
 
 - Format:
 
-    /`\S+`/
+    /`$domain`/
 
 - Default:
 
@@ -7282,7 +7136,7 @@ SRV ID for Authentication-Results used in ARC seal
 
 - Format:
 
-    /`\S+`/
+    /`$rfc2045_parameter_value`/
 
 - Default:
 
@@ -7307,7 +7161,7 @@ ARC configuration
 
 A set of parameters in order to define outgoing ARC seal
 
-#### `arc_parameters.arc_private_key_path`
+#### `arc_parameters.private_key_path`
 
 File path for ARC private key
 
@@ -7325,7 +7179,7 @@ File path for ARC private key
 
 The file must contain a PEM encoded private key. Defaults to same file as DKIM private key
 
-#### `arc_parameters.arc_selector`
+#### `arc_parameters.selector`
 
 Selector for DNS lookup of ARC public key
 
@@ -7343,13 +7197,13 @@ Selector for DNS lookup of ARC public key
 
 The selector is used in order to build the DNS query for public key. It is up to you to choose the value you want but verify that you can query the public DKIM key for "&lt;selector>.\_domainkey.your\_domain". Default is the same selector as for DKIM signatures
 
-#### `arc_parameters.arc_signer_domain`
+#### `arc_parameters.signer_domain`
 
 ARC "d=" tag, you should probably use the default value
 
 - Format:
 
-    /`\S+`/
+    /`$domain`/
 
 - Default:
 
@@ -7360,6 +7214,42 @@ ARC "d=" tag, you should probably use the default value
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
 The ARC "d=" tag is the domain of the signing entity. The DKIM d= domain name is used as its default value
+
+#### `arc_parameters.arc_private_key_path`
+
+See [`private_key_path`](#private_key_path).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.70.
+
+#### `arc_parameters.arc_selector`
+
+See [`selector`](#selector).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.70.
+
+#### `arc_parameters.arc_signer_domain`
+
+See [`signer_domain`](#signer_domain).
+
+- Context:
+
+    list (`config`)
+
+- Available versions:
+
+    up to 6.2.70.
 
 ### `dmarc_protection`
 
@@ -7445,8 +7335,8 @@ New From name format
     - `name_and_email` - "Name" (e-mail)
     - `name_via_list` - "Name" (via List)
     - `name_email_via_list` - "Name" (e-mail via List)
-    - `list_for_email` - "List" (on behalf of e-mail)
     - `list_for_name` - "List" (on behalf of Name)
+    - `list_for_email` - "List" (on behalf of e-mail)
 - Default:
 
     `name_via_list`
@@ -8475,40 +8365,6 @@ Custom favicon
 
 URL of favicon image
 
-### `color_0`, ..., `color_15`
-
-Colors for web interface
-
-- Format:
-
-    Any.
-
-- Default:
-
-    See description on web interface.
-
-- Context:
-
-    domain (`robot.conf`), site (`sympa.conf`)
-
-Colors are used in style sheet (CSS). They may be changed using web interface by listmasters.
-
-### `dark_color`, `light_color`, `text_color`, `bg_color`, `error_color`, `selected_color`, `shaded_color`
-
-Colors for web interface, obsoleted
-
-- Format:
-
-    Any.
-
-- Default:
-
-    See description on web interface.
-
-- Context:
-
-    domain (`robot.conf`), site (`sympa.conf`)
-
 ### `default_home`
 
 Type of main web page
@@ -8837,6 +8693,74 @@ Enable shared repository
     6.2.41b.2 and later.
 
 If set to "on", list owners can open shared repository.
+
+### `shared_doc`
+
+(Paragraph)
+Shared documents
+
+- Single occurrence
+
+This paragraph defines read and edit access to the shared document repository.
+
+#### `shared_doc.d_read`
+
+Who can view
+
+- Format:
+
+    Name of `d_read` scenario:
+
+    - `owner` - restricted to list owners
+    - `private` - restricted to subscribers
+    - `private-https` - restricted to subscribers authenticated with user cert
+    - `public` - public documents
+
+- Default:
+
+    `private`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+#### `shared_doc.d_edit`
+
+Who can edit
+
+- Format:
+
+    Name of `d_edit` scenario:
+
+    - `editor` - moderated for subscribers
+    - `owner` - restricted to list owners
+    - `private` - restricted to subscribers
+    - `private-https` - restricted to subscribers authenticated with user cert
+    - `public` - public documents
+
+- Default:
+
+    `owner`
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+#### `shared_doc.quota`
+
+quota
+
+- Format:
+
+    Number of Kbytes.
+
+- Default:
+
+    None.
+
+- Context:
+
+    list (`config`), domain (`robot.conf`), site (`sympa.conf`)
 
 ### `use_html_editor`
 
@@ -9257,9 +9181,45 @@ Account deletion unsubscribes the users from his/her lists and removes him/her f
 
 These parameters were renamed.  Though older names are still available, their use is no longer recommended.
 
+### `arc_parameters.arc_private_key_path`
+
+See [`arc_parameters.private_key_path`](#arc_parametersprivate_key_path).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.57b.1 to 6.2.70.
+
+### `arc_parameters.arc_selector`
+
+See [`arc_parameters.selector`](#arc_parametersselector).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.57b.1 to 6.2.70.
+
+### `arc_parameters.arc_signer_domain`
+
+See [`arc_parameters.signer_domain`](#arc_parameterssigner_domain).
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.2.57b.1 to 6.2.70.
+
 ### `arc_private_key_path`
 
-See [`arc_parameters.arc_private_key_path`](#arc_parametersarc_private_key_path).
+See [`arc_parameters.private_key_path`](#arc_parametersprivate_key_path).
 
 - Context:
 
@@ -9271,7 +9231,7 @@ See [`arc_parameters.arc_private_key_path`](#arc_parametersarc_private_key_path)
 
 ### `arc_selector`
 
-See [`arc_parameters.arc_selector`](#arc_parametersarc_selector).
+See [`arc_parameters.selector`](#arc_parametersselector).
 
 - Context:
 
@@ -9283,7 +9243,7 @@ See [`arc_parameters.arc_selector`](#arc_parametersarc_selector).
 
 ### `arc_signer_domain`
 
-See [`arc_parameters.arc_signer_domain`](#arc_parametersarc_signer_domain).
+See [`arc_parameters.signer_domain`](#arc_parameterssigner_domain).
 
 - Context:
 
@@ -9641,6 +9601,18 @@ See [`personalization_feature`](#personalization_feature).
 
     6.0b.2 to 6.2.59b.1.
 
+### `remind_return_path`
+
+See [`verp_remind`](#verp_remind).
+
+- Context:
+
+    list (`config`), site (`sympa.conf`)
+
+- Available versions:
+
+    2.5 to 6.2.70.
+
 ### `reply-to`
 
 See [`reply_to`](#reply_to).
@@ -9733,6 +9705,18 @@ See [`use_blocklist`](#use_blocklist).
 
     5.3a.4 to 6.2.60.
 
+### `welcome_return_path`
+
+See [`verp_welcome`](#verp_welcome).
+
+- Context:
+
+    list (`config`), site (`sympa.conf`)
+
+- Available versions:
+
+    2.5 to 6.2.70.
+
 ## Deprecated parameters
 
 These parameters were deprecated. They may not be used anymore.
@@ -9744,6 +9728,54 @@ Deprecated.
 - Context:
 
     list (`config`)
+
+### `antispam_feature`
+
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.0a.1 to 6.2.70.
+
+### `antispam_tag_header_ham_regexp`
+
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.0a.1 to 6.1a.1.
+
+### `antispam_tag_header_name`
+
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.0a.1 to 6.1a.1.
+
+### `antispam_tag_header_spam_regexp`
+
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    6.0a.1 to 6.1a.1.
 
 ### `archived_pidfile`
 
@@ -9789,6 +9821,19 @@ Deprecated.
 
     5.4a.9 to 5.4.7.
 
+### `color_0`, ..., `color_15`
+
+See description on web interface.
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    5.1b to 6.2.70.
+
 ### `cookie`
 
 Deprecated.
@@ -9800,6 +9845,21 @@ Deprecated.
 - Available versions:
 
     up to 6.2.60.
+
+### `dark_color`, `light_color`,
+`text_color`, `bg_color`, `error_color`,
+`selected_color`, `shaded_color`
+
+See description on web interface.
+Deprecated.
+
+- Context:
+
+    domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    3.3a to 6.2.70.
 
 ### `default_distribution_ttl`
 
@@ -9876,6 +9936,10 @@ Deprecated.
 - Context:
 
     list (`config`), domain (`robot.conf`), site (`sympa.conf`)
+
+- Available versions:
+
+    up to 6.2.32.
 
 ### `html_editor_file`
 

@@ -1,6 +1,6 @@
 ---
 title: 'sympa-instantiate(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -9,7 +9,7 @@ sympa-instantiate - Instantiate the lists in a family
 
 # SYNOPSIS
 
-`sympa instantiate` `--input_file=`_/path/to/file.xml_ \[ `--close_unknown` \] \[ `--quiet` \] _family_`@@`_domain_
+`sympa instantiate` `--input-file=`_/path/to/file.xml_ \[ `--close-unknown` \] \[ `--quiet` \] _family_`@@`_domain_
 
 # DESCRIPTION
 

@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Tools::Data(3)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -34,7 +34,7 @@ This package provides some functions related to data strucures.
 
     Returns:
 
-    A hashref storing custome attributes.
+    A hashref storing custom attributes.
 
 - diff\_on\_arrays ( $setA, $setB )
 
@@ -84,7 +84,7 @@ This package provides some functions related to data strucures.
 
     - $hasref
 
-        Hashref storing custome attributes.
+        Hashref storing custom attributes.
 
     Returns:
 
@@ -150,7 +150,7 @@ This package provides some functions related to data strucures.
 
 - hash\_2\_string (...)
 
-    Converts a hash into a string formated as var1="value1";var2="value2"; into
+    Converts a hash into a string formatted as var1="value1";var2="value2"; into
     a hash.
     TBD.
 
@@ -198,7 +198,7 @@ This package provides some functions related to data strucures.
 
 - smart\_lessthan (...)
 
-    Compares two scalars, string/numeric independant.
+    Compares two scalars, string/numeric independent.
     TBD.
 
 - sort\_uniq ( \[ \\&comp \], @items )
@@ -220,7 +220,7 @@ This package provides some functions related to data strucures.
 
 - string\_2\_hash (...)
 
-    Converts a string formated as var1="value1";var2="value2"; into a hash.
+    Converts a string formatted as var1="value1";var2="value2"; into a hash.
     Used when extracting from session table some session properties or when
     extracting users preference from user table.
     Current encoding is NOT compatible with encoding of values with '"'.
