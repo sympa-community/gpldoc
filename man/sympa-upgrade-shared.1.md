@@ -43,4 +43,4 @@ We had to change encoding of shared documents according to new algorithm.
 
 upgrade\_shared\_repository.pl appeared as separate executable on Sympa 6.2.17.
 
-Its function was moved to `sympa upgrade shared` on Sympa 6.2.70.
+Its function was moved to `sympa upgrade shared` on Sympa 6.2.71b.

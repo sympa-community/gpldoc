@@ -234,7 +234,7 @@ This module keeps definition of configuration parameters for each list.
         i.e. included in a set of parameters explicitly described
         in the installation instruction.
         `0` (default) means no importance.
-        This was introduced on 6.2.69b.
+        This was introduced on 6.2.70.
 
 - %user\_info
 

@@ -1,6 +1,6 @@
 ---
 title: 'sympa-config(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -60,6 +60,6 @@ It was originally written by:
 
 `--batch` and `--display` options are added on Sympa 6.1.25 and 6.2.15.
 
-On Sympa 6.2.69b, the most of functions provided by this program was
+On Sympa 6.2.70, the most of functions provided by this program was
 reorganized and was integrated into `sympa config` command line,
 therefore sympa\_wizard.pl was deprecated.

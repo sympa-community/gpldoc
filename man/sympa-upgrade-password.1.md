@@ -83,4 +83,4 @@ Sympa 6.2.26 or later has optional support for bcrypt.
 It was obsoleted by `upgrade_sympa_password.pl` on Sympa 6.2.
 
 Its function was moved to `sympa upgrade password` command line
-on Sympa 6.2.70.
+on Sympa 6.2.71b.

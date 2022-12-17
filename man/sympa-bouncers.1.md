@@ -1,6 +1,6 @@
 ---
 title: 'sympa-bouncers(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -30,4 +30,4 @@ To see detail of each sub-command, run '`sympal.pl help bouncers` _sub-command_'
 
 # HISTORY
 
-This option was added on Sympa 6.2.69b.
+This option was added on Sympa 6.2.70.

@@ -131,7 +131,7 @@ This package provides some functions related to data strucures.
 
     Formatted string.
 
-    This was introduced on Sympa 6.2.69b.
+    This was introduced on Sympa 6.2.70.
 
 - get\_array\_from\_splitted\_string ($string)
 

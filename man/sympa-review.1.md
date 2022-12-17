@@ -1,6 +1,6 @@
 ---
 title: 'sympa-review(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -17,4 +17,4 @@ Show subscribers of the list.
 
 # HISTORY
 
-This option was added on Sympa 6.2.69b.
+This option was added on Sympa 6.2.70.

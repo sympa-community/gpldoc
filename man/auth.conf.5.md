@@ -1,6 +1,6 @@
 ---
 title: 'auth.conf(5)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -16,7 +16,7 @@ interface of Sympa.
 ## `auth.conf` structure
 
 Each paragraph starts with one of the names `user_table`, `ldap`,
-`generic_sso` or `cas`.
+`generic_sso`, `cas` or `cgi`.
 
 The `auth.conf` file contains directives in the following format:
 
@@ -513,6 +513,32 @@ or [capath](./sympa.conf.5.md#capath) `sympa.conf` configuration parameters.
 To support LDAPS (LDAP over SSL/TLS), corresponding parameters in ldap 
 paragraph may also be used for cas.
 
+## `cgi` paragraph
+
+This paragraph allows Sympa to receive authentication information from
+the external authentication mechanism through Common Gateway Interface (CGI).
+By this, Sympa may use authentication methods not supported by Sympa itself.
+
+- `regexp`
+- `negative_regexp`
+
+    See [`user_table` paragraph](#user_table-paragraph).
+
+- `remote_user_variable`
+
+    The name of the CGI environment variable that contains the e-mail address
+    of the authenticated user.
+    Note that the name of CGI variable is case-sensitive.
+
+- `auth_scheme`
+
+    Optional.
+    If set, authentication is considered successful only if it matches the
+    name of authentication scheme, i.e. value of the `AUTH_TYPE` CGI
+    environment variable.
+
+    The value of this parameter is case-insensitive.
+
 # FILES
 
 - `$DEFAULTDIR/auth.conf`
@@ -537,3 +563,5 @@ Descriptions of parameters were originally taken from the chapter
 "Authentication" in
 _Sympa, Mailing List Management Software - Reference manual_, written by
 Serge Aumont, Soji Ikeda, Olivier Salaün and David Verdin.
+
+`cgi` paragraph was introduced on Sympa 6.2.71b.

@@ -1,6 +1,6 @@
 ---
 title: 'sympa-config-create(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -31,3 +31,7 @@ Options:
 
     By default only `minimal` set of parameters, i.e. those described in the
     installation manual, are written in the configuration file.
+
+# HISTORY
+
+See [sympa config](./sympa-config.1.md).

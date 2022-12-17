@@ -1,6 +1,6 @@
 ---
 title: 'sympa-config-show(1)'
-release: '6.2.70'
+release: '6.2.71b.1'
 ---
 
 # NAME
@@ -20,3 +20,7 @@ Options:
 - `--config`, `-f=`_/path/to/new/sympa.conf_
 
     Use an alternative configuration file.
+
+# HISTORY
+
+See [sympa config](./sympa-config.1.md).

@@ -51,7 +51,4 @@ robot configuration parameters in `robot.conf` are referred.
 `upgrade_bulk_spool.pl` appeared on Sympa 6.2.
 
 Its function was moved to `sympa upgrade outgoing` command line
-on Sympa 6.2.70.
-
-Its function was moved to `sympa upgrade outgoing` command line
-on Sympa 6.2.70.
+on Sympa 6.2.71b.
