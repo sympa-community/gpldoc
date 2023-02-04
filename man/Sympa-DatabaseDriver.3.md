@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::DatabaseDriver(3)'
-release: '6.2.71b.1'
+release: '6.2.72'
 ---
 
 # NAME
@@ -295,7 +295,13 @@ separator => $separator, substring\_length => $substring\_length } )
     A character string report of the operation done or `undef` if something
     went wrong.
 
-- delete\_field ( { table => $table, field => $field } )
+- delete\_field ( { table => $table, field => $column } );
+
+    _Overridable_.
+    If the column exists in the table, remove it using drop\_field().
+    Otherwise do nothing.
+
+- drop\_field ( $table, $field )
 
     _Required to update database structure_.
     Deletes a field from a table in the database.
@@ -314,6 +320,9 @@ separator => $separator, substring\_length => $substring\_length } )
 
     A character string report of the operation done or `undef` if something
     went wrong.
+
+    Note:
+    On Sympa 6.2.71b.1 or earlier, delete\_field() was defined instead of this.
 
 - get\_primary\_key ( { table => $table } )
 

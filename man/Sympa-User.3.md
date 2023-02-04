@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::User(3)'
-release: '6.2.70'
+release: '6.2.72'
 ---
 
 # NAME

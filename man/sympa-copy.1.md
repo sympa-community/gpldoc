@@ -1,6 +1,6 @@
 ---
 title: 'sympa-copy(1)'
-release: '6.2.70'
+release: '6.2.72'
 ---
 
 # NAME

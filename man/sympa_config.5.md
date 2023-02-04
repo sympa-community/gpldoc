@@ -1,6 +1,6 @@
 ---
 title: 'sympa_config(5)'
-release: '6.2.71b.1'
+release: '6.2.72'
 ---
 
 # NAME
@@ -1712,7 +1712,7 @@ Allowed external links in sanitized HTML
 
 - Format:
 
-    /`[-\w*]+(?:[.][-\w*]+)+`/
+    /`(?:[^\@]+\@)?[-\w*]+(?:[.][-\w*]+)*(?:[:][\d*]+)?`/
 
 - Default:
 

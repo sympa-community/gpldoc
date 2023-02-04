@@ -1,6 +1,6 @@
 ---
 title: 'sympa-add(1)'
-release: '6.2.70'
+release: '6.2.72'
 ---
 
 # NAME
@@ -13,7 +13,7 @@ sympa-add - Add users to the list
 
 # DESCRIPTION
 
-Add email(s) from the list. Data are read from standard input.
+Add email(s) to the list. Data are read from standard input.
 The data should contain one email address per line.
 
 Sample:

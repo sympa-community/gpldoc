@@ -1,6 +1,6 @@
 ---
 title: 'sympa-dump(1)'
-release: '6.2.70'
+release: '6.2.72'
 ---
 
 # NAME

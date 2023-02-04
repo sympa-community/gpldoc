@@ -1,6 +1,6 @@
 ---
 title: 'Sympa::Template(3)'
-release: '6.2.71b.1'
+release: '6.2.72'
 ---
 
 # NAME

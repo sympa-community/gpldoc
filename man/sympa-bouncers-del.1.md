@@ -1,6 +1,6 @@
 ---
 title: 'sympa-bouncers-del(1)'
-release: '6.2.70'
+release: '6.2.72'
 ---
 
 # NAME
@@ -17,4 +17,4 @@ Unsubscribe bounced users from a list.
 
 # HISTORY
 
-This option was added on Sympa 6.2.69b.
+This option was added on Sympa 6.2.70.

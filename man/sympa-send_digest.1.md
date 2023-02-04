@@ -1,6 +1,6 @@
 ---
 title: 'sympa-send_digest(1)'
-release: '6.2.71b.1'
+release: '6.2.72'
 ---
 
 # NAME

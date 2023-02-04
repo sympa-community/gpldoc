@@ -1,6 +1,6 @@
 ---
 title: 'sympa.wsdl(5)'
-release: '6.2.70'
+release: '6.2.72'
 ---
 
 # NAME

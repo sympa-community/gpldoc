@@ -1,6 +1,6 @@
 ---
 title: 'sympa-upgrade-incoming(1)'
-release: '6.2.71b.1'
+release: '6.2.72'
 ---
 
 # NAME
@@ -50,4 +50,4 @@ Following site configuration parameters in `--CONFIG--` are referred.
 upgrade\_send\_spool.pl appeared on Sympa 6.2.
 
 Its function was moved to `sympa upgrade incoming` command line on
-Sympa 6.2.70.
+Sympa 6.2.71b.
