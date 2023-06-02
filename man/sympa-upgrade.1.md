@@ -41,3 +41,7 @@ run '`sympal.pl help upgrade` _sub-command_'.
 - ["sympa upgrade shared ..."](./sympa-upgrade-shared.1.md)
 
     Encode file names in shared repositories.
+
+- ["sympa upgrade webfont"](./sympa-upgrade-webfont.1.md)
+
+    Upgrading font in web templates.
