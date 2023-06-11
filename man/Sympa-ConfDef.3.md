@@ -22,7 +22,7 @@ and each robot.
 
 # SEE ALSO
 
-[sympa.conf(5)](./sympa.conf.5.md), [robot.conf(5)](./robot.conf.5.md).
+[sympa\_config(5)](./sympa_config.5.md).
 
 # HISTORY
 

@@ -58,7 +58,7 @@ To know details of each module, run:
 
 - [Sympa::Config::Schema](./Sympa-Config-Schema.3.md)
 
-    Definition of list configuration parameters
+    Definition of configuration parameters
 
 - [Sympa::Config\_XML](./Sympa-Config_XML.3.md)
 

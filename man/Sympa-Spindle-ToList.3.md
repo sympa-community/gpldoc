@@ -18,10 +18,10 @@ filters recipients by topics (see also [Sympa::Spool::Topic](./Sympa-Spool-Topic
 message tracking modes if necessary.
 - Transforms message by each reception mode.
 - Enables DMARC protection (according to
-[`dmarc_protection`](./list_config.5.md#dmarc_protection)
+[`dmarc_protection`](./sympa_config.5.md#dmarc_protection)
 list configuration parameter),
 message personalization (according to
-[`merge_feature`](./list_config.5.md#merge_feature)
+[`personalization_feature`](./sympa_config.5.md#personalization_feature)
 list configuration parameter) and/or
 re-encryption by S/MIME (if original message was encrypted).
 - Alters envelope sender of the message to _list_`-owner` address.
@@ -29,7 +29,7 @@ re-encryption by S/MIME (if original message was encrypted).
 Then stores message into outgoing spool (see [Sympa::Spool::Outgoing](./Sympa-Spool-Outgoing.3.md))
 with classified packets of recipients.
 
-This cass updates statistics information of the list (with digest delivery,
+This class updates statistics information of the list (with digest delivery,
 [Sympa::Spindle::ToOutgoing](./Sympa-Spindle-ToOutgoing.3.md) will update it).
 
 # SEE ALSO

@@ -5,7 +5,7 @@ release: '6.2.72'
 
 # NAME
 
-Sympa::DataSource::file - Data source based on local file
+Sympa::DataSource::File - Data source based on local file
 
 # DESCRIPTION
 

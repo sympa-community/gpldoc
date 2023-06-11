@@ -97,7 +97,8 @@ of `sympa_msg.pl`.
 
 # SEE ALSO
 
-[sympa.conf(5)](./sympa.conf.5.md), [sympa(1)](./sympa.1.md).
+[sympa\_config(5)](./sympa_config.5.md),
+[sympa(1)](./sympa.1.md).
 
 [archived(8)](./archived.8.md), [bulk(8)](./bulk.8.md), [bounced(8)](./bounced.8.md), [sympa\_automatic(8)](./sympa_automatic.8.md),
 [task\_manager(8)](./task_manager.8.md).

@@ -18,7 +18,7 @@ Transformation processes by this class are done in the following order:
 - Executes `post_archive` hook of [message hooks](./Sympa-Message-Plugin.3.md)
 if available.
 - Adds / modifies `Reply-To` header field,
-if [`reply_to_header`](./list_config.5.md#reply_to_header) list option is
+if [`reply_to_header`](./sympa_config.5.md#reply_to_header) list option is
 enabled.
 - Adds / overwrites following header fields:
     - `X-Loop`
@@ -28,15 +28,15 @@ enabled.
     - `Sender`
     - `X-no-archive`
 - Adds header fields specified by
-[`custom_header`](./list_config.5.md#custom_header) list configuration parameter,
+[`custom_header`](./sympa_config.5.md#custom_header) list configuration parameter,
 if any.
 - Adds RFC 2919 `List-Id` field,
 RFC 2369 fields (according to
-[`rfc2369_header_fields`](./list_config.5.md#rfc2369_header_fields) list
+[`rfc2369_header_fields`](./sympa_config.5.md#rfc2369_header_fields) list
 configuration option) and RFC 5064 `Archived-At` field (if archiving is
 enabled).
 - Removes header fields specified by
-[`remove_outgoing_headers`](./list_config.5.md#remove_outgoing_headers)
+[`remove_outgoing_headers`](./sympa_config.5.md#remove_outgoing_headers)
 list configuration parameter, if any.
 
 Then this class passes the message to the last stage of transformation,

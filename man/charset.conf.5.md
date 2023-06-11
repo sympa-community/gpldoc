@@ -20,8 +20,9 @@ directory:
 
     # cp $DEFAULTDIR/charset.conf $SYSCONFDIR/charset.conf
 
-And set the `legacy_character_support_feature` parameter value in
-[`sympa.conf`](./sympa.conf.5.md) to `on`.
+And set the
+[`legacy_character_support_feature`](./sympa_config.5.md#legacy_character_support_feature)
+parameter value in `sympa.conf` to `on`.
 
 ## Note
 
@@ -41,7 +42,7 @@ during upgrade process.
 
 # SEE ALSO
 
-[sympa.conf(5)](./sympa.conf.5.md).
+[sympa\_config(5)](./sympa_config.5.md).
 
 # HISTORY
 

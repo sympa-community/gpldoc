@@ -29,7 +29,7 @@ This module keeps definition of configuration parameters for each list.
 
 # SEE ALSO
 
-[list\_config(5)](./list_config.5.md),
+[sympa\_config(5)](./sympa_config.5.md),
 [Sympa::List::Config](./Sympa-List-Config.3.md),
 [Sympa::ListOpt](./Sympa-ListOpt.3.md).
 

@@ -12,7 +12,7 @@ ldap\_alias\_manager.conf - Configuration of LDAP alias management
 `ldap_alias_manager.conf` is used by the [ldap\_alias\_manager(8)](./ldap_alias_manager.8.md);
 it allows one to manage mail aliases in an LDAP directory.
 To make sympa use the ldap\_alias\_manager.pl script, you should edit the
-'alias\_manager' [sympa.conf(5)](./sympa.conf.5.md) parameter.
+[`alias_manager`](./sympa_config.5.md#alias_manager) `sympa.conf` parameter.
 
 Format of `ldap_alias_manager.conf` is as following:
 

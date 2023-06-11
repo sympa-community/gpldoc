@@ -27,7 +27,7 @@ TBD.
 # SEE ALSO
 
 [bulk(8)](./bulk.8.md),
-[sympa.conf(5)](./sympa.conf.5.md).
+[sympa\_config(5)](./sympa_config.5.md).
 
 # HISTORY
 

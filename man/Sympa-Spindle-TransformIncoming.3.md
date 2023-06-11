@@ -20,14 +20,14 @@ if available.
 - Adds `X-Sympa-Topic` header field, if any message topics
 (see [Sympa::Spool::Topic](./Sympa-Spool-Topic.3.md)) are tagged for the message.
 - Anonymizes message,
-if [`anonymous_sender`](./list_config.5.md#anonymous_sender) list configuration
+if [`anonymous_sender`](./sympa_config.5.md#anonymous_sender) list configuration
 parameter is enabled.
 - Adds custom subject tag to `Subject` field, if
-[`custom_subject`](./list_config.5.md#custom_subject) list configuration
+[`custom_subject`](./sympa_config.5.md#custom_subject) list configuration
 parameter is available.
 - Enables message tracking (see [Sympa::Tracking](./Sympa-Tracking.3.md)) if necessary.
 - Removes header fields specified by
-[`remove_headers`](./list_config.5.md#remove_headers).
+[`remove_headers`](./sympa_config.5.md#remove_headers).
 
 Then this class passes the message to the next stage of transformation.
 

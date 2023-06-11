@@ -5,11 +5,11 @@ release: '6.2.72'
 
 # NAME
 
-Sympa::ListDef - Definition of list configuration parameters
+Sympa::Config::Schema - Definition of configuration parameters
 
 # DESCRIPTION
 
-This module keeps definition of configuration parameters for each list.
+This module keeps definition of configuration parameters.
 
 ## Global variable
 
@@ -23,10 +23,10 @@ This module keeps definition of configuration parameters for each list.
 
 - %pinfo
 
-    This hash COMPLETELY defines ALL list parameters.
-    It is then used to load, save, view, edit list config files.
+    This hash COMPLETELY defines ALL parameters.
+    It is then used to load, save, view, edit config files.
 
-    List parameters format accepts the following keywords :
+    A parameter definition accepts the following keywords:
 
     - context
 
@@ -242,11 +242,9 @@ This module keeps definition of configuration parameters for each list.
 
 # SEE ALSO
 
-[list\_config(5)](./list_config.5.md),
+[sympa\_config(5)](./sympa_config.5.md),
 [Sympa::List::Config](./Sympa-List-Config.3.md),
 [Sympa::ListOpt](./Sympa-ListOpt.3.md).
-
-[sympa.conf(5)](./sympa.conf.5.md), [robot.conf(5)](./robot.conf.5.md).
 
 # HISTORY
 

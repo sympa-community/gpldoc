@@ -102,6 +102,6 @@ See [https://github.com/sympa-community/sympa/issues](https://github.com/sympa-c
 
 # SEE ALSO
 
-[sympa\_msg(8)](./sympa_msg.8.md), [wwsympa(8)](./wwsympa.8.md), [mhonarc(1)](./mhonarc.1.md), [sympa.conf(5)](./sympa.conf.5.md).
+[sympa\_msg(8)](./sympa_msg.8.md), [wwsympa(8)](./wwsympa.8.md), [mhonarc(1)](./mhonarc.1.md), [sympa\_config(5)](./sympa_config.5.md).
 
 [Sympa::Spindle::ProcessBounce](./Sympa-Spindle-ProcessBounce.3.md).

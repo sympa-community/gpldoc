@@ -52,7 +52,8 @@ of `bulk.pl`.
 
 # SEE ALSO
 
-[sympa.conf(5)](./sympa.conf.5.md), [sympa\_msg(8)](./sympa_msg.8.md).
+[sympa\_config(5)](./sympa_config.5.md),
+[sympa\_msg(8)](./sympa_msg.8.md).
 
 [Sympa::Spindle::ProcessOutgoing](./Sympa-Spindle-ProcessOutgoing.3.md).
 
